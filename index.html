@@ -1,0 +1,57 @@
+<!Doctype html>
+<html lang="en">
+<head meta charset="utf-8">
+<title>samvid</title>
+<link rel="stylesheet" href="mainpage.css">
+</head>
+<img src="logo.png" alt="Logo"><p><center>तमसो मा ज्योतिर्गमय<br><i>(Lead me from darkness to light)<br><b>Samvid</b><i></center></p>
+<body>
+<div class="nav">
+<button type="button" onclick="hmbtn()" class="btn">HOME</button>
+<button type="button" onclick="abts()"class="btn">ABOUT US</button>
+<button type="button" onclick="prjt()"class="btn">PROJECT</button>
+<button type="button" onclick="lrn()"class="btn">LEARNING</button>
+<button type="button" onclick="actv()"class="btn">ACTIVITIES</button>
+<button type="button" onclick="cnt()"class="btn">CONTACT</button>
+</div><br><br>
+<div id="hm" class="navbody">
+<b><marquee scrollamount=10 behavior= alternate>Welcome to Samvid</marquee></b>
+<script>
+var x="<p style=font-size:25px; text-align:justify;>The word Samvid means knowledge. This webpage is designed for the development and application of knowledge. Our intention is to consider only the practical aspects of the endeavor. Sanskrit is a very rich language. Only the practical aspects are highlighted here for the dissemination of knowledge, considering how that language can be applied in technology.</p>"
+function hmbtn(){
+document.getElementById("hm").innerHTML=x;
+}
+</script>
+<script>
+function abts(){
+document.getElementById("hm").innerHTML="hello world2";
+}
+</script>
+<script>
+function prjt(){
+document.getElementById("hm").innerHTML='<a href="bird.html">Multimedia</a>';
+
+}
+</script>
+<script>
+function lrn(){
+document.getElementById("hm").innerHTML="hello world4";
+}
+</script>
+<script>
+function actv(){
+document.getElementById("hm").innerHTML="hello world5";
+}
+</script>
+<script>
+function cnt(){
+document.getElementById("hm").innerHTML="hello world6";
+}
+</script>
+</div>
+
+<div class="footer">
+<p>&copySamvid<br>Page is designed and developed by M.K.Barman, E-mail: infomkbin@gmail.com<br>Last updated on 25.09.2025</p>
+</div>
+</body>
+</html>
