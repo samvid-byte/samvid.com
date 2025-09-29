@@ -1,0 +1,611 @@
+<!Doctype html>
+<html lang="sa">
+<head meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<style>
+body
+{
+height:690px;
+background:linear-gradient(to bottom left,#fdff00 0%, #3ad59f 100%)
+}
+div
+{
+background-color:#ff1493;
+}
+textarea{
+resize:none;}
+</style>
+</head>
+<body>
+<CENTER><P><H3>Virtual Keyboard</H3></P></CENTER>
+<hr><br>
+<center><textarea id="text1" rows="8" cols="100"></textarea><br>
+<button onclick="del()">BACKSPACE</button>
+<script>
+function del(){
+const txt_bx=document.getElementById("text1");
+txt_bx.value=txt_bx.value.slice(0,-1);
+}
+</script>
+<input type="reset" value="CLEAR ALL" onclick="document.getElementById('text1').value=''"></center>
+<hr>
+<div class="container pt-3">
+<div class=btn-group btn-group-sm>
+<div>
+<button class="btn btn-success" onclick="btn_1()">&#x0905;</button>
+<button class="btn btn-success" onclick="btn_2()">&#x0906;</button>
+<button class="btn btn-success" onclick="btn_3()">&#x0907;</button>
+<button class="btn btn-success" onclick="btn_4()">&#x0908;</button>
+<button class="btn btn-success" onclick="btn_5()">&#x0909;</button>
+<button class="btn btn-success" onclick="btn_6()">&#x090A;</button>
+<button class="btn btn-success" onclick="btn_7()">&#x090B;</button>
+<button class="btn btn-success" onclick="btn_8()">&#x0960;</button>
+<button class="btn btn-success" onclick="btn_9()">&#x090C;</button>
+<button class="btn btn-success" onclick="btn_10()">&#x090F;</button>
+<button class="btn btn-success" onclick="btn_11()">&#x0910;</button>
+<button class="btn btn-success" onclick="btn_12()">&#x0913;</button>
+<button class="btn btn-success" onclick="btn_13()">&#x0914;</button>
+<button class="btn btn-success" onclick="btn_14()">&#x093E;</button>
+<button class="btn btn-success" onclick="btn_15()">&#x093F;</button>
+<button class="btn btn-success" onclick="btn_16()">&#x0940;</button>
+<button class="btn btn-success" onclick="btn_17()">&#x0941;</button>
+<button class="btn btn-success" onclick="btn_18()">&#x0942;</button>
+<button class="btn btn-success" onclick="btn_19()">&#x0943;</button>
+<button class="btn btn-success" onclick="btn_20()">&#x0944;</button>
+<button class="btn btn-success" onclick="btn_21()">&#x0962;</button>
+<button class="btn btn-success" onclick="btn_22()">&#x0947;</button>
+<button class="btn btn-success" onclick="btn_23()">&#x0948;</button>
+<button class="btn btn-success" onclick="btn_24()">&#x094B;</button>
+<button class="btn btn-success" onclick="btn_25()">&#x094C;</button>
+<button class="btn btn-success" onclick="btn_26()">&#x0902;</button>
+<hr>
+<button class="btn btn-success" onclick="btn_27()">&#x0915;</button>
+<button class="btn btn-success" onclick="btn_28()">&#x0916;</button>
+<button class="btn btn-success" onclick="btn_29()">&#x0917;</button>
+<button class="btn btn-success" onclick="btn_30()">&#x0918;</button>
+<button class="btn btn-success" onclick="btn_31()">&#x0919;</button>
+<button class="btn btn-success" onclick="btn_32()">&#x091A;</button>
+<button class="btn btn-success" onclick="btn_33()">&#x091B;</button>
+<button class="btn btn-success" onclick="btn_34()">&#x091C;</button>
+<button class="btn btn-success" onclick="btn_35()">&#x091D;</button>
+<button class="btn btn-success" onclick="btn_36()">&#x091E;</button>
+<button class="btn btn-success" onclick="btn_37()">&#x091F;</button>
+<button class="btn btn-success" onclick="btn_38()">&#x0920;</button>
+<button class="btn btn-success" onclick="btn_39()">&#x0921;</button>
+<button class="btn btn-success" onclick="btn_40()">&#x0922;</button>
+<button class="btn btn-success" onclick="btn_41()">&#x0923;</button>
+<button class="btn btn-success" onclick="btn_42()">&#x0924;</button>
+<button class="btn btn-success" onclick="btn_43()">&#x0925;</button>
+<button class="btn btn-success" onclick="btn_44()">&#x0926;</button>
+<button class="btn btn-success" onclick="btn_45()">&#x0927;</button>
+<button class="btn btn-success" onclick="btn_46()">&#x0928;</button>
+<button class="btn btn-success" onclick="btn_47()">&#x092A;</button>
+<button class="btn btn-success" onclick="btn_48()">&#x092B;</button>
+<button class="btn btn-success" onclick="btn_49()">&#x092C;</button>
+<button class="btn btn-success" onclick="btn_50()">&#x092D;</button>
+<button class="btn btn-success" onclick="btn_51()">&#x092E;</button>
+<button class="btn btn-success" onclick="btn_52()">&#x092F;</button>
+<hr>
+<button class="btn btn-success" onclick="btn_53()">&#x0930;</button>
+<button class="btn btn-success" onclick="btn_54()">&#x0932;</button>
+<button class="btn btn-success" onclick="btn_55()">&#x0933;</button>
+<button class="btn btn-success" onclick="btn_56()">&#x0935;</button>
+<button class="btn btn-success" onclick="btn_57()">&#x0936;</button>
+<button class="btn btn-success" onclick="btn_58()">&#x0937;</button>
+<button class="btn btn-success" onclick="btn_59()">&#x0938;</button>
+<button class="btn btn-success" onclick="btn_60()">&#x0939;</button>
+<button class="btn btn-success" onclick="btn_61()">&#x0901;</button>
+<button class="btn btn-success" onclick="btn_62()">&#x0903;</button>
+<button class="btn btn-success" onclick="btn_63()">&#x093D;</button>
+<button class="btn btn-success" onclick="btn_64()">&#x094D;</button>
+<button class="btn btn-success" onclick="btn_65()">&#x0950;</button>
+<button class="btn btn-success" onclick="btn_66()">&#x0951;</button>
+<button class="btn btn-success" onclick="btn_67()">&#x0952;</button>
+<button class="btn btn-success" onclick="btn_68()">&#x0964;</button>
+<button class="btn btn-success" onclick="btn_69()">&#x0965;</button>
+<button class="btn btn-success" onclick="btn_70()">&#x0966;</button>
+<button class="btn btn-success" onclick="btn_71()">&#x0967;</button>
+<button class="btn btn-success" onclick="btn_72()">&#x0968;</button>
+<button class="btn btn-success" onclick="btn_73()">&#x0969;</button>
+<button class="btn btn-success" onclick="btn_74()">&#x096A;</button>
+<button class="btn btn-success" onclick="btn_75()">&#x096B;</button>
+<button class="btn btn-success" onclick="btn_76()">&#x096C;</button>
+<button class="btn btn-success" onclick="btn_77()">&#x096D;</button>
+<button class="btn btn-success" onclick="btn_78()">&#x096E;</button>
+<button class="btn btn-success" onclick="btn_79()">&#x096F;</button>
+<hr>
+<button class="btn btn-success" onclick="btn_80()">SPACE</button>
+</div>
+</div>
+</div>
+
+<script>
+function btn_1(){
+var a="&#x0905;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_2(){
+var a="&#x0906;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_3(){
+var a="&#x0907;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_4(){
+var a="&#x0908;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_5(){
+var a="&#x0909;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_6(){
+var a="&#x090A;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_7(){
+var a="&#x090B;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_8(){
+var a="&#x0960;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_9(){
+var a="&#x090C;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_10(){
+var a="&#x090F;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_11(){
+var a="&#x0910;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_12(){
+var a="&#x0913;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_13(){
+var a="&#x0914;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_14(){
+var a="&#x093E;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_15(){
+var a="&#x093F;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_16(){
+var a="&#x0940;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_17(){
+var a="&#x0941;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_18(){
+var a="&#x0942;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_19(){
+var a="&#x0943;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_20(){
+var a="&#x0944;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_21(){
+var a="&#x0962;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_22(){
+var a="&#x0947;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_23(){
+var a="&#x0948;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_24(){
+var a="&#x094B;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_25(){
+var a="&#x094C;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_26(){
+var a="&#x0902;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_27(){
+var a="&#x0915;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_28(){
+var a="&#x0916;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_29(){
+var a="&#x0917;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_30(){
+var a="&#x0918;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_31(){
+var a="&#x0919;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_32(){
+var a="&#x091A;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_33(){
+var a="&#x091B;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_34(){
+var a="&#x091C;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_35(){
+var a="&#x091D;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_36(){
+var a="&#x091E;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_37(){
+var a="&#x091F;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_38(){
+var a="&#x0920;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_39(){
+var a="&#x0921;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_40(){
+var a="&#x0922;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_41(){
+var a="&#x0923;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_42(){
+var a="&#x0924;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_43(){
+var a="&#x0925;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_44(){
+var a="&#x0926;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_45(){
+var a="&#x0927;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_46(){
+var a="&#x0928;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_47(){
+var a="&#x092A;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_48(){
+var a="&#x092B;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_49(){
+var a="&#x092C;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_50(){
+var a="&#x092D;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_51(){
+var a="&#x092E;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_52(){
+var a="&#x092F;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_53(){
+var a="&#x0930;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_54(){
+var a="&#x0932;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_55(){
+var a="&#x0933;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_56(){
+var a="&#x0935;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_57(){
+var a="&#x0936;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_58(){
+var a="&#x0937;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_59(){
+var a="&#x0938;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_60(){
+var a="&#x0939;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_61(){
+var a="&#x0901;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_62(){
+var a="&#x0903;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_63(){
+var a="&#x093D;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_64(){
+var a="&#x094D;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_65(){
+var a="&#x0950;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_66(){
+var a="&#x0951;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_67(){
+var a="&#x0952;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_68(){
+var a="&#x0964;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_69(){
+var a="&#x0965;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_70(){
+var a="&#x0966;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_71(){
+var a="&#x0967;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_72(){
+var a="&#x0968;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_73(){
+var a="&#x0969;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_74(){
+var a="&#x096A;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_75(){
+var a="&#x096B;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_76(){
+var a="&#x096C;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_77(){
+var a="&#x096D;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_78(){
+var a="&#x096E;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+<script>
+function btn_79(){
+var a="&#x096F;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+</script>
+<script>
+function btn_80(){
+var a="&#x0020;"
+document.getElementById("text1").innerHTML+=a;
+}
+</script>
+</body>
+<br><br>
+<footer><small>
+
+</small></footer>
+</html>
