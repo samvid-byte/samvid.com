@@ -6,6 +6,53 @@
 <meta name="Language:" content="Sanskrit, English">
 <meta name="Keywords:" content="Samvid, Sanskrit, Multimedia, Project, Language, Webpage">
 <meta name="Copyright:" content="Samvid">
+<style>
+#panel{
+cursor:pointer;}
+#panel_1{
+display:none;
+cursor:pointer;}
+#panel_2{
+display:none;
+cursor:pointer;}
+#panel_3{
+display:none;
+cursor:pointer;}
+
+#lst:hover{
+color:blue;}
+#lst_1:hover{
+color:blue;}
+#lst_2:hover{
+color:blue;}
+#lst_3:hover{
+color:blue;}
+</style>
+<script>
+function myfun(){
+var x=document.getElementById("panel");
+if(x.style.display==="none"){
+x.style.display="block";
+}
+else{x.style.display="none";
+}
+}
+</script>
+<script>
+function myfun_1(){
+document.getElementById("panel_1").style.display="block";
+}
+</script>
+<script>
+function myfun_2(){
+document.getElementById("panel_2").style.display="block";
+}
+</script>
+<script>
+function myfun_3(){
+document.getElementById("panel_3").style.display="block";
+}
+</script>
 </head>
 <body bgcolor="pink">
 <ul>
@@ -13,5 +60,43 @@
 <li>Ponunciation</li>
 <li><a href="virtual_keyboard_1.html" target="_parent">Virtual Keyboard_1</a></li>
 <li><a href="virtual_keyboard_2.html" target="_parent">Virtual Keyboard_2</a></li>
+<li onclick="myfun()"id="lst">Sandhi (सन्धिः)</li>	
+<div id="panel">
+<ul><li onclick="myfun_1()"id="lst_1">अच्-सन्धिः</li>
+<div id="panel_1">
+		<ul><li><a href="ach-sandhi_1.html" target="_parent">सवर्णदीर्घसन्धिः</a></li>
+		<li><a href="ach-sandhi_2.html" target="_parent">गुणसन्धिः</a></a></li>
+		<li><a href="ach-sandhi_3.html" target="_parent">वृद्धिसन्धिः</a></li>
+		<li><a href="ach-sandhi_4.html" target="_parent">पूर्वरूपसन्धिः</a></li>
+		<li><a href="ach-sandhi_5.html" target="_parent">पररूपसन्धिः</a></li>
+		<li><a href="ach-sandhi_6.html" target="_parent">यण्-सन्धिः</a></li>
+		<li><a href="ach-sandhi_7.html" target="_parent">यान्तवान्तादेशसन्धिः</a></li>
+		<li><a href="ach-sandhi_8.html" target="_parent">प्रकृतिभावसन्धिः</a></li>
+		</ul></div>
+	</ul>
+	<ul><li onclick="myfun_2()"id="lst_2">हल्-सन्धिः</li>
+	<div id="panel_2">	
+<ul><li>श्चुत्वसन्धिः</li>
+		<li>ष्टुत्वसन्धिः</li>
+		<li>जश्त्वसन्धिः</li>
+		<li>चर्त्वसन्धिः</li>
+		<li>अनुनासिकासन्धिः</li>
+		<li>अनुस्वारसन्धिः</li>
+		<li>पूर्णसवर्णसन्धिः</li>
+		<li>छत्वसन्धिः</li>
+		<li>तुगागमसन्धिः</li>
+		</ul></div>
+	</ul>
+	<ul><li onclick="myfun_3()"id="lst_3">विसर्ग-सन्धिः</li>
+<div id="panel_3">
+		<ul><li>सकारः</li>
+		<li>जिह्वामूलीयः उपध्मानीयश्च</li>
+		<li>रेफः</li>
+		<li>लोपः</li>
+		<li>उकारः</li>
+		</ul></div>
+	</ul></div>
+</li>
+<li><a href="xyz.html" target="_parent">Other</a></li>
 </ul>
 </body>

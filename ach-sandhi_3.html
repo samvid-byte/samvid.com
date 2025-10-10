@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<style>
+.first{
+width:50px;
+height:40px;
+background-color:#a52a2a;
+position:relative;
+animation-name:myAnimation;
+animation-duration:4s;
+display: inline-block;
+animation-iteration-count:3;
+padding:10px;
+border:2px solid black;
+border-radius:50%;
+}
+@keyframes myAnimation
+{
+0% {background-color:#800080; left:-500px; top:0px;}
+25% {background-color:#ff00ff; left:-100px; top:0px;}
+}
+.second{
+width:50px;
+height:40px;
+background-color:#a52a2a;
+position:relative;
+animation-name:myAnimation_right;
+animation-duration:4s;
+display: inline-block;
+animation-iteration-count:3;
+padding:5px;
+border:2px solid black;
+border-radius:50%;
+}
+@keyframes myAnimation_right
+{
+0% {background-color:#800080; right:-500px; top:0px;}
+25% {background-color:#ff00ff; right:-100px; top:0px;}
+}
+.third{
+width:50px;
+height:40px;
+background-color:#a52a2a;
+position:relative;
+animation-name:myAnimation_top;
+animation-duration:4s;
+display: inline-block;
+animation-iteration-count:3;
+padding:5px;
+border:2px solid black;
+border-radius:50%;
+}
+@keyframes myAnimation_top
+{
+from {transform:translateY(200px); background-color:#800080;}
+to {transform:translateY(0); background-color:#ff00ff;}
+
+}
+</style>
+</head>
+<body style="background-color:#99a3a3;">
+<center><strong><h2 style="color:black;">वृद्धिसन्धिः</strong></h2><br>
+<center><h3 style="color:blue;">वृद्धिरेचि (६/१/८८)</h3><br>
+<center><h4 style="color:yellow;">अर्थः&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;अवर्णाद् एचि परे पूर्वपरयोरेको वृद्धिरादेशो भवति।</center></h4><hr>
+
+<div class="first">एक</div> <div class="second">एकम्</div>
+<div class="third">एकैकम्</div>
+</body>
+</html>
