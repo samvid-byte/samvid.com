@@ -1,74 +1,48 @@
 <!Doctype html>
 <html lang="en">
 <head meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- title -->
 <title>samvid</title>
-<link rel="stylesheet" href="mainpage.css">
+<style>
+.background img{
+width:100%;
+Height:auto;
+border-radius:50%;
+opacity:0.5;
+}
+.btn{
+width:220px;
+height:120px;
+Height:auto;
+border-radius:7%;
+border:2px solid 4caf50;
+background-color:lightgreen;
+position:fixed;
+text-align:center;
+top:80%;
+left:28%;
+padding:6px;
+
+}
+a:hover{
+background-color:navy;
+color:white;
+}
+a:link{
+display:inline-block;
+text-decoration:none;
+}
+</style>
+
 </head>
-<img src="logo.png" alt="Logo"><p><center>तमसो मा ज्योतिर्गमय<br><i>(Lead me from darkness to light)<br><b>Samvid</b><i></center></p>
-<body>
-<div class="nav">
-<button type="button" onclick="hmbtn()" class="btn">HOME</button>
-<button type="button" onclick="abts()"class="btn">ABOUT US</button>
-<button type="button" onclick="prjt()"class="btn">PROJECT</button>
-<button type="button" onclick="lrn()"class="btn">LEARNING</button>
-<button type="button" onclick="actv()"class="btn">ACTIVITIES</button>
-<button type="button" onclick="cnt()"class="btn">CONTACT</button>
-<button type="button" onclick="blg()"class="btn">BLOGS</button>
-<button type="button" onclick="sm()"class="btn">SOCIAL MEDIA</button>
-</div><br><br>
-<div id="hm" class="navbody">
-<b><marquee scrollamount=10 behavior= alternate>Welcome to Samvid</marquee></b>
-<script>
-var x="Welcome to Samvid";
-function hmbtn(){
-document.getElementById("hm").innerHTML=x;
-}
-</script>
-<script>
-function abts(){
-document.getElementById("hm").innerHTML="<p style=font-size:25px; text-align:justify;>The word Samvid means knowledge. This webpage is designed for the development and application of knowledge. Our intention is to consider only the practical aspects of the endeavor. Sanskrit is a very rich language. Only the practical aspects are highlighted here for the dissemination of knowledge, considering how that language can be applied in technology.</p>";
-}
-</script>
-<script>
-function prjt(){
-document.getElementById("hm").innerHTML='<a href="multi.html">VIEW LIST OF THE PROJECTS</a>';
-
-}
-</script>
-<script>
-function lrn(){
-document.getElementById("hm").innerHTML='There are many Sanskrit Stories here.<a href="text.html"><b>Click Here to View</b></a>';
-}
-</script>
-<script>
-function actv(){
-document.getElementById("hm").innerHTML="hello world5";
-}
-</script>
-<script>
-function cnt(){
-document.getElementById("hm").innerHTML="<b>E-mail:</b> infomkbin@gmail.com";
-}
-</script>
-</script>
-<script>
-function blg(){
-document.getElementById("hm").innerHTML='<a href="https://vaganuraagi.blogspot.com/">vaganuraagi.blogspot.com</a>';
-}
-</script>
-</script>
-<script>
-function sm(){
-document.getElementById("hm").innerHTML="hello world8";
-}
-</script>
+<body style="background-image:linear-gradient(90deg, #fc466b 0%, #3f5efb 100%)");
+>
+<div class="background">
+<img src="logo.png">
+<div class="btn">
+<a href="body.html" target="_parent">तमसो मा ज्योतिर्गमय<br><i>(Lead me from darkness to light)</i></a>
 </div>
-
-<div class="footer">
-<p>&copySamvid<br>Page is designed and developed by M.K.Barman, E-mail: infomkbin@gmail.com<br>Last updated on 08.10.2025</p>
 </div>
 </body>
 </html>
