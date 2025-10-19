@@ -7,23 +7,23 @@
 <meta name="Keywords:" content="Samvid, Sanskrit, Multimedia, Project, Language, Webpage">
 <meta name="Copyright:" content="Samvid">
 <style>
-#panel{
+#panel, #panels{
 cursor:pointer;}
-#panel_1{
+#panel_1, #panel_1s{
 display:none;
 cursor:pointer;}
-#panel_2{
+#panel_2, #panel_2s{
 display:none;
 cursor:pointer;}
 #panel_3{
 display:none;
 cursor:pointer;}
 
-#lst:hover{
+#lst, #lsts:hover{
 color:blue;}
-#lst_1:hover{
+#lst_1, #lst_1s:hover{
 color:blue;}
-#lst_2:hover{
+#lst_2, #lst_2s:hover{
 color:blue;}
 #lst_3:hover{
 color:blue;}
@@ -51,6 +51,25 @@ document.getElementById("panel_2").style.display="block";
 <script>
 function myfun_3(){
 document.getElementById("panel_3").style.display="block";
+}
+
+function myfuns(){
+var x=document.getElementById("panels");
+if(x.style.display==="none"){
+x.style.display="block";
+}
+else{x.style.display="none";
+}
+}
+</script>
+<script>
+function myfun_1s(){
+document.getElementById("panel_1s").style.display="block";
+}
+</script>
+<script>
+function myfun_2s(){
+document.getElementById("panel_2s").style.display="block";
 }
 </script>
 </head>
@@ -97,12 +116,43 @@ document.getElementById("panel_3").style.display="block";
 		</ul></div>
 	</ul></div>
 </li>
-<li><a href="search.html" target="_parent">English-Sanskrit Computer Dictionary</a></li>
-<li><a href="akarantashabdarupa.html" target="_parent">अकारान्तशब्दरूपम्</a></li>
-<li><a href="ikarantashabdarupa.html" target="_parent">इकारान्तशब्दरूपम्</a></li>
-<li><a href="ukarantashabdarupa.html" target="_parent">उकारान्तशब्दरूपम्</a></li>
-<li><a href="rikarantashabdarupa.html" target="_parent">ऋकारान्तशब्दरूपम्</a></li>
+<li><a href="search.html" target="_parent">English-Sanskrit Computer Dictionary</a> (*yet to be updated)</li>
+<li onclick="myfuns()"id="lsts">Declension (शब्दरूपम्)</li>	
+<div id="panels">
+<ul><li onclick="myfun_1s()"id="lst_1s">स्वरान्तशब्दरूपम्</li>
+<div id="panel_1s">
+		<ul><li><a href="akarantashabdarupa.html" target="_parent">अकारान्तशब्दरूपम्</a></li>
+			<li><a href="aakarantashabdarupa.html" target="_parent">आकारान्तशब्दरूपम्</a></li>
+			<li><a href="ikarantashabdarupa.html" target="_parent">इकारान्तशब्दरूपम्</a></li>
+			<li><a href="iikarantashabdarupa.html" target="_parent">ईकारान्तशब्दरूपम्</a></li>
+			<li><a href="ukarantashabdarupa.html" target="_parent">उकारान्तशब्दरूपम्</a></li>
+			<li><a href="uukarantashabdarupa.html" target="_parent">ऊकारान्तशब्दरूपम्</a></li>
+			<li><a href="rikarantashabdarupa.html" target="_parent">ऋकारान्तशब्दरूपम्</a></li>
+			<li><a href="ekarantashabdarupa.html" target="_parent">एकारान्तशब्दरूपम्</a></li>
+			<li><a href="aikarantashabdarupa.html" target="_parent">ऐकारान्तशब्दरूपम्</a></li>
+			<li><a href="okarantashabdarupa.html" target="_parent">ओकारान्तशब्दरूपम्</a></li>
+			<li><a href="aukarantashabdarupa.html" target="_parent">औकारान्तशब्दरूपम्</a></li>
+		</ul></div>
 
+	</ul>
+	<ul><li onclick="myfun_2s()"id="lst_2s">व्यञ्जनान्तशब्दरूपम्</li>
+	<div id="panel_2s">	
+		<ul><li>च्-कारान्तः</li>
+		<li>ज्-कारान्तः</li>
+		<li>त्-कारान्तः</li>
+		<li>द्-कारान्तः</li>
+		<li>ध्-कारान्तः</li>
+		<li>म्-कारान्तः</li>
+		<li>श्-कारान्तः</li>
+		<li>ष्-कारान्तः</li>
+		<li>स्-कारान्तः</li>
+		<li>ह्-कारान्तः</li>
+		<li>अन्-भागान्तः</li>
+		<li>इन्-भागान्तः</li>
+		<li>वस्-भागान्तः</li>
+		</ul></div>
+	</ul></div>
+</li>
 <li><a href="xyz.html" target="_parent">Other</a></li>
 </ul>
 </body>
