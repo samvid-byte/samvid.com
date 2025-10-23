@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="sa">
+<head meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sahitya:wght@400;700&display=swap" rel="stylesheet">
+<title>कर्षणमोचनसंविधिः - ५</title>
+<style>
+body{
+font-family:'Lato','Sans-serif','Sahitya';
+background-color: #E0fff0;
+}
+.sam, .ptxt{
+display: inline-block;
+font-family:'Lato','Sans-serif','Sahitya';
+}
+#dv_1, #dv_2, #dv_3, #dv_4{
+background-color:pink;
+height: 150px;
+width: 150px;
+margin: 10px;
+border:1px solid blue;
+font-family:'Lato','Sans-serif','Sahitya';
+}
+.ptxt{
+background-color:yellow;
+height: 35px;
+width: 70px;
+margin: 10px;
+border:1px solid blue;
+font-size: 1.3vw;
+}
+#program{
+background-color:#20b2aa;
+color: white;
+border:1px solid blue;
+height: 40px;
+width: 400px;
+font-size: 1.5vw;
+font-family:'Lato','Sans-serif','Sahitya';
+}
+#v{
+background-color:#20b2aa;
+color: white;
+border:1px solid blue;
+height: 35px;
+width: 300px;
+font-size: 1.5vw;
+}
+</style>
+</head>
+<body>
+<center>
+<h3><p id="progrm">कर्षणमोचनसंविधिः <br>(Drag & Drop Program) </h3></p><br>
+<p id="v"></p>
+<div class="sam" id="dv_1" ondragover="dover_1(event)" ondrop="ddrop_1(event)"><center><h1>६०</h1></center></div>
+<div class="sam" id="dv_2" ondragover="dover_2(event)" ondrop="ddrop_2(event)"><center><h1>७०</h1></center></div>
+<div class="sam" id="dv_3" ondragover="dover_3(event)" ondrop="ddrop_3(event)"><center><h1>८०</h1></center></div>
+<div class="sam" id="dv_4" ondragover="dover_4(event)" ondrop="ddrop_4(event)"><center><h1>९०</h1></center></div><br>
+<p class="ptxt" id="txt_2" draggable="true" ondragstart="dstart_2(event)">सप्ततिः</p>
+<p class="ptxt" id="txt_1" draggable="true" ondragstart="dstart_1(event)">षष्टिः</p>
+<p class="ptxt" id="txt_4" draggable="true" ondragstart="dstart_4(event)">नवतिः</p>
+<p class="ptxt" id="txt_3" draggable="true" ondragstart="dstart_3(event)">अशीतिः</p></center><br><br>
+<span style='font-size:40px; float:left;'><a href="drag_drop_game_4.html" taget=_parent>&#x21e6; BACK</a></span>
+<script>
+function dstart_1(event){
+event.dataTransfer.setData("text/plain", event.target.id);
+document.getElementById("v").innerHTML="कर्षणम् आरभ्यते (Dragging)";
+};
+function dstart_2(event){
+event.dataTransfer.setData("text/plain", event.target.id);
+document.getElementById("v").innerHTML="कर्षणम् आरभ्यते (Dragging)";
+};
+function dstart_3(event){
+event.dataTransfer.setData("text/plain", event.target.id);
+document.getElementById("v").innerHTML="कर्षणम् आरभ्यते (Dragging)";
+};
+function dstart_4(event){
+event.dataTransfer.setData("text/plain", event.target.id);
+document.getElementById("v").innerHTML="कर्षणम् आरभ्यते (Dragging)";
+};
+function dover_1(event){
+event.preventDefault();
+document.getElementById("v").innerHTML="कर्षणम् (Drag over)";
+};
+function dover_2(event){
+event.preventDefault();
+document.getElementById("v").innerHTML="कर्षणम् (Drag over)";
+};
+function dover_3(event){
+event.preventDefault();
+document.getElementById("v").innerHTML="कर्षणम् (Drag over)";
+};
+function dover_4(event){
+event.preventDefault();
+document.getElementById("v").innerHTML="कर्षणम् (Drag over)";
+};
+function ddrop_1(event){
+event.preventDefault();
+const gd = event.dataTransfer.getData("text/plain");
+const elem=document.getElementById(gd);
+event.target.appendChild(elem);
+if(elem && elem.id==="txt_1"){
+event.target.style.background="lime";
+document.getElementById("v").innerHTML="साधु कृतम्";
+}
+else{
+document.getElementById("v").innerHTML="मोचनम् (Drop)";
+}
+};
+function ddrop_2(event){
+event.preventDefault();
+const gd = event.dataTransfer.getData("text/plain");
+const elem=document.getElementById(gd);
+event.target.appendChild(elem);
+if(elem && elem.id==="txt_2"){
+event.target.style.background="lime";
+document.getElementById("v").innerHTML="साधु कृतम्";
+}
+else{
+document.getElementById("v").innerHTML="मोचनम् (Drop)";
+}
+};
+function ddrop_3(event){
+event.preventDefault();
+const gd = event.dataTransfer.getData("text/plain");
+const elem=document.getElementById(gd);
+event.target.appendChild(elem);
+if(elem && elem.id==="txt_3"){
+event.target.style.background="lime";
+document.getElementById("v").innerHTML="साधु कृतम्";
+}
+else{
+document.getElementById("v").innerHTML="मोचनम् (Drop)";
+}
+};
+function ddrop_4(event){
+event.preventDefault();
+const gd = event.dataTransfer.getData("text/plain");
+const elem=document.getElementById(gd);
+event.target.appendChild(elem);
+if(elem && elem.id==="txt_4"){
+event.target.style.background="lime";
+document.getElementById("v").innerHTML="साधु कृतम्";
+}
+else{
+document.getElementById("v").innerHTML="मोचनम् (Drop)";
+}
+};
+</script>
+</body>
+</html>
