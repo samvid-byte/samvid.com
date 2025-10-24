@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="sa">
+<head meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sahitya:wght@400;700&display=swap" rel="stylesheet">
+<style>
+span{
+font-family:'Lato','Sans-serif','Sahitya';
+font-size: 25px;
+background-color: #311b92;
+color: white;
+border:2px solid lime;
+border-radius:15px;
+}
+body{
+background-color: #b2fbf2;
+}
+#sutra{
+font-family:'Lato','Sans-serif','Sahitya';
+font-size: 25px;
+background-color: #004d40;
+color: yellow;
+border:2px solid yellow;
+border-radius:15px;
+}
+</style>
+<title>माहेश्वरसूत्रचक्रम्</title>
+</head>
+<body>
+<center><span>&#x950;</span><br>
+<span>माहेश्वरसूत्रचक्रम्</span><br>
+<p id="sutra"></p>
+<canvas id="canvas" width="600" height="600"></canvas></center>
+<script>
+const canvas = document.getElementById('canvas');
+const ctx = canvas.getContext('2d');
+let angle = 0;
+
+//const strings = ["अ इ उ ण्", "ऋ ऌ क्", "ए ओ ङ्", "ऐ औ च्", "ह य व र ट्", "ल ण्", "ञ म ङ ण न म्", "झ भ ञ्","घ ढ ध ष्","ज ब ग ड द श्","ख फ छ ठ थ च ट त //व्","क प य्","श ष स र्","ह ल्"];
+const strings_2 = ["ह ल् ॥१४॥", "श ष स र् ॥१३॥", "क प य् ॥१२॥", "ख फ छ ठ थ च ट त व् ॥११॥", "ज ब ग ड द श् ॥१०॥", "घ ढ ध ष् ॥९॥", "झ भ ञ् ॥८॥", "ञ म ङ ण न म् ॥७॥","ल ण् ॥६॥","ह य व र ट् ॥५॥","ऐ औ च् ॥४॥","ए ओ ङ् ॥३॥","ऋ ऌ क् ॥२॥","अ इ उ ण् ॥१॥"];
+const strings = ["ह ल्", "श ष स र्", "क प य्", "ख फ छ ठ थ च ट त व्", "ज ब ग ड द श्", "घ ढ ध ष्", "झ भ ञ्", "ञ म ङ ण न म्","ल ण्","ह य व र ट्","ऐ औ च्","ए ओ ङ्","ऋ ऌ क्","अ इ उ ण्"];
+let highlighted_val = '';
+function draw() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.save();
+  ctx.translate(canvas.width / 2, canvas.height / 2);
+  ctx.rotate(angle);
+  ctx.font = "30px 'Lato','Sans-serif','Sahitya'";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
+  for (let i = 0; i < strings.length; i++) {
+    ctx.save();
+    ctx.rotate(i * (2 * Math.PI / strings.length)); // evenly space the string
+	if(Math.abs((angle + i * (2 * Math.PI / strings.length)) % (2 * Math.PI)) <0.1 || Math.abs((angle + i * (2 * Math.PI / strings.length)) % (2 * Math.PI) - 2 * Math.PI) < 0.1)
+{
+ctx.fillStyle = 'red';
+highlighted_val =strings_2[i];
+ctx.fillRect(100,10,100,1);
+} else{
+ctx.fillStyle='blue';
+}
+    ctx.fillText(strings[i], 150, 0); // adjust the distance from the center
+    ctx.restore();
+  }
+  ctx.restore();
+  angle += 0.01;
+document.getElementById('sutra').innerHTML="&#x261b;&nbsp;&nbsp;" + highlighted_val;
+  requestAnimationFrame(draw);
+}
+
+draw();
+</script>
+</body>
+</html>
