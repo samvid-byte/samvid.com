@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="sa">
+<head meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sahitya:wght@400;700&display=swap" rel="stylesheet">
+<style>
+#varna{
+height: 300px;
+width: 300px;
+border: 1px solid red;
+border-radius: .3rem;
+box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+}
+#clrName{
+text-shadow: 2px 2px 5px pink;
+font-family:'Lato','Sans-serif','Sahitya';
+background-color:#f0eeea;
+color: maroon;
+}
+#btn{
+padding:9px;;
+display: flex;
+box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+height: 25vmin;
+width: 50vmin;
+flex-wrap: wrap;
+justify-content: center;
+column-gap: 15px;
+}
+#blk{
+background-color:#000000;
+}
+#rd{
+background-color:#ff0000;
+}
+#ylw{
+background-color:#ffff00;
+}
+#grn{
+background-color:#65fe08;
+}
+#blu{
+background-color:#0000ff;
+}
+#prl{
+background-color:#800080;
+}
+#cpr{
+background-color:#b87333;
+}
+#drb{
+background-color:#00008b;
+}
+#pyl{
+background-color:#ffffe0;
+}
+#brn{
+background-color:#8b4513;
+}
+#pnk{
+background-color:#ffc0cb;
+}
+.clr{
+display: flex;
+border-radius: .5rem;
+box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+height: 5vmin;
+width: 10vmin;
+flex-wrap: wrap;
+}
+</style>
+</head>
+<body style=background-color:#f0ffff;>
+<center><h2>रङ्गाः (वर्णाः वा)</h2>
+<div id="varna"></div><br>
+<h3 id="clrName"></h3><br>
+<div id="btn">
+<button class="clr" id="wht" onclick="white()"></button>
+<button class="clr" id="blk" onclick="black()"></button>
+<button class="clr" id="rd" onclick="red()"></button>
+<button class="clr" id="ylw" onclick="yellow()"></button>
+<button class="clr" id="grn" onclick="green()"></button>
+<button class="clr" id="blu" onclick="blue()"></button>
+<button class="clr" id="prl" onclick="purple()"></button>
+<button class="clr" id="cpr" onclick="copper()"></button>
+<button class="clr" id="drb" onclick="darkBlue()"></button>
+<button class="clr" id="pyl" onclick="paleYellow()"></button>
+<button class="clr" id="brn" onclick="brown()"></button>
+<button class="clr" id="pnk" onclick="pink()"></button>
+</div></center>
+<script>
+function white(){
+document.querySelector('#varna').style.backgroundColor = '#ffffff';
+document.getElementById("clrName").innerHTML="अयं शुक्लवर्ण श्वेतवर्णो वा।";
+};
+function black(){
+document.querySelector('#varna').style.backgroundColor = '#000000';
+document.getElementById("clrName").innerHTML="अयं कृष्णवर्णः कालवर्णः श्यामवर्णो वा।";
+};
+function red(){
+document.querySelector('#varna').style.backgroundColor = '#ff0000';
+document.getElementById("clrName").innerHTML="अयं लोहितवर्णो रक्तवर्णो वा।";
+};
+function yellow(){
+document.querySelector('#varna').style.backgroundColor = '#ffff00';
+document.getElementById("clrName").innerHTML="अयं पीतो हरिद्राभो वा।";
+};
+function green(){
+document.querySelector('#varna').style.backgroundColor = '#65fe08';
+document.getElementById("clrName").innerHTML="अयं हरितः पलाशो वा।";
+};
+function blue(){
+document.querySelector('#varna').style.backgroundColor = '#0000ff';
+document.getElementById("clrName").innerHTML="अयं नीलः।";
+};
+function purple(){
+document.querySelector('#varna').style.backgroundColor = '#800080';
+document.getElementById("clrName").innerHTML="अयं धूम्रवर्णः।";
+};
+function copper(){
+document.querySelector('#varna').style.backgroundColor = '#b87333';
+document.getElementById("clrName").innerHTML="अयं ताम्रवर्णः।";
+};
+function darkBlue(){
+document.querySelector('#varna').style.backgroundColor = '#00008b';
+document.getElementById("clrName").innerHTML="अयम् असितनीलः।";
+};
+function paleYellow(){
+document.querySelector('#varna').style.backgroundColor = '#ffffe0';
+document.getElementById("clrName").innerHTML="अयं पाण्डुरवर्णः।";
+};
+function brown(){
+document.querySelector('#varna').style.backgroundColor = '#8b4513';
+document.getElementById("clrName").innerHTML="अयं कपिशः श्यावो वा।";
+};
+function pink(){
+document.querySelector('#varna').style.backgroundColor = '#ffc0cb';
+document.getElementById("clrName").innerHTML="अयं पाटलः श्वेतरक्तो वा वा।";
+};
+</script>
+</body>
+</html>

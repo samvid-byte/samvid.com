@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="sa">
+<head meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sahitya:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: #c6d8af;
+            text-align: center;
+	    font-family:'Lato','Sans-serif','Sahitya';
+        }
+	#bd {
+	    font-family:'Lato','Sans-serif','Sahitya';
+	    font-size: 20px;
+	    }
+	#h {
+	    font-family:'Lato','Sans-serif','Sahitya';
+	    font-size: 40px;
+	    height:60px;
+	    background-color: #cfffdc; 
+	    border: 1px solid #253d2c;
+	    color:#ff2400;
+	    text-shadow:  2px 2px 5px green;
+	    }
+        .container {
+            height: 70vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .game {
+            height: 60vmin;
+            width: 60vmin;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5vmin;
+            justify-content: center;
+        }
+        .box {
+            height: 18vmin;
+            width: 18vmin;
+            border-radius: 1rem;
+            border: none;
+            box-shadow: 0 0 1rem rgba(0,0,0,0.3);
+            font-size: 5vmin;
+            color: red;
+            background-color: #3700b3;
+	    font-family:'Lato','Sans-serif','Sahitya';
+text-shadow:  2px 2px 5px red;
+        }
+        #reset {
+            padding: 1rem;
+            font-size: 1.25rem;
+	    font-family:'Lato','Sans-serif','Sahitya';
+            background: #018786;
+            color: white;
+            border-radius: 1rem;
+            border: none;
+        }
+        .box:hover {
+            background-color: #ffde03;
+        }
+        #new-btn {
+            padding: 1rem;
+            font-size: 1.25rem;
+	    font-family:'Lato','Sans-serif','Sahitya';
+            background: #daa89b;
+            color: white;
+            border-radius: 1rem;
+            border: none;
+        }
+        #msg {
+            font-size: 5vmin;
+	    font-family:'Lato','Sans-serif','Sahitya';
+	    color:#68ba7f;
+        }
+        .msg-container {
+            height: 30vmin;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+<title>क्रीडा (Game)</title>
+</head>
+<body>
+   
+    <main id="bd">
+        <div id="h">हस्ताहस्ति (क्रीडनकम्)</div>
+ <div class="msg-container hide">
+        <p id="msg">विजयी</p>
+        <button id="new-btn">उपक्रमः</button>
+    </div>
+        <div class="container">
+            <div class="game">
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+                <button class="box"></button>
+            </div>
+        </div>
+        <button id="reset">पुनरारम्भगण्डः</button>
+    </main>
+    <script>
+        let boxes = [...document.querySelectorAll('.box')];
+        let resetBtn = document.querySelector('#reset');
+        let turnO = true; // Player O starts
+        let newGameBtn = document.querySelector('#new-btn');
+        let msgContainer = document.querySelector('.msg-container');
+        let msg = document.querySelector('#msg');
+
+        const winPatterns = [
+            [0, 1, 2],
+            [0, 3, 6],
+            [0, 4, 8],
+            [1, 4, 7],
+            [2, 5, 8],
+            [2, 4, 6],
+            [3, 4, 5],
+            [6, 7, 8]
+        ];
+
+        boxes.forEach((box) => {
+            box.addEventListener('click', function () {
+                if (turnO) {
+                    box.innerText ='पुरुषः';
+                    box.style.color = 'white';
+                    turnO = false;
+                    box.disabled = true;
+                    checkWinner();
+                } else {
+                    box.innerText ='प्रकृतिः';
+                    box.style.color = '#ff0266';
+                    turnO = true;
+                    box.disabled = true;
+                    checkWinner();
+                }
+            });
+        });
+
+        const enableBoxes = () => {
+            for (let box of boxes) {
+                box.disabled = false;
+                box.innerText = "";
+            }
+        };
+
+        const disableBoxes = () => {
+            for (let box of boxes) {
+                box.disabled = true;
+            }
+        };
+
+        const showWinner = (winner) => {
+            msg.innerText = `* अत्र विजयी खलु ${winner} *`;
+            msgContainer.classList.remove('hide');
+            disableBoxes();
+        };
+
+        const checkWinner = () => {
+            let hasWin = false;
+            for (let pattern of winPatterns) {
+                let pos1Val = boxes[pattern[0]].innerText;
+                let pos2Val = boxes[pattern[1]].innerText;
+                let pos3Val = boxes[pattern[2]].innerText;
+
+                if (pos1Val !== "" && pos2Val!=="" && pos3Val!=="" && 
+                    pos1Val === pos2Val && pos2Val === pos3Val) {
+                    showWinner(pos1Val);
+                    hasWin = true;
+                    return;
+                }
+            }
+
+            if (!hasWin) {
+                const allBoxes = [...boxes].every((box) => box.innerText !== "");
+                if (allBoxes) {
+                    msgContainer.classList.remove('hide');
+                    msg.innerText = 'साम्यावस्था';
+                }
+            }
+        };
+
+        const resetGame = () => {
+            turnO = true;
+            enableBoxes();
+            msgContainer.classList.add('hide');
+        };
+
+        newGameBtn.addEventListener('click', resetGame);
+        resetBtn.addEventListener('click', resetGame);
+    </script>
+</body>
+</html>
