@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="sa">
+<head meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sahitya:wght@400;700&display=swap" rel="stylesheet">
+<title>Amarakosha</title></head>
+<body style="font-family:Lato, Sans-serif, Sahitya; background-color:#f9eee2";>
+<center><input type="text" id="search-box" placeholder="&#x936;&#x92c;&#x94d;&#x926;&#x902;&#x20;&#x92a;&#x94d;&#x930;&#x92f;&#x91a;&#x94d;&#x91b;"></input>&nbsp;&nbsp;<button id="search-btn">SHOW</button></center>
+<div style="background-color:#f9eee2"; id="results"></div>
+<script>
+fetch("./amarakosha_testing.json")
+  .then(response => response.json())
+  .then(data => {
+    const searchBox = document.getElementById('search-box');
+    const searchBtn = document.getElementById('search-btn');
+    const resultsDiv = document.getElementById('results');
+
+    searchBtn.addEventListener('click', () => {
+      const searchTerm = searchBox.value.toLowerCase();
+      resultsDiv.innerHTML = '';
+      if (!searchTerm.trim()) return;
+
+      data.forEach(item => {
+        if (item.words.length > 0) {
+          item.words.forEach(word => {
+            if (word.word.toLowerCase().includes(searchTerm) || word.artha.toLowerCase().includes(searchTerm)) {
+              const resultHtml = `
+                <div>
+                  <h3>${item.num} - ${item.text}</h3>
+                  <p>Word: ${word.word}, Linga: ${word.linga}, Artha: ${word.artha}</p>
+                  <p>Synonyms: ${word.synonyms.join(', ')}</p>
+                </div>
+              `;
+              resultsDiv.innerHTML += resultHtml;
+            }
+          });
+        }
+      });
+    });
+  })
+  .catch(error => console.error('Error:', error));</script>
+</body>
+</html>

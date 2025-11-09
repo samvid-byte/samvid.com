@@ -6,48 +6,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sahitya:wght@400;700&display=swap" rel="stylesheet">
 <title>Amarakosha</title></head>
-<body style="font-family:Lato, Sans-serif, Sahitya";>
-<table style="background-color:#d7f5d3;" id="myTable" border="1">
-  <tr style="background-color:#539198; color:white;">
-    <th>SL</th>
-    <th>Text</th>
-    <th>Words</th>
-  </tr>
-</table>
+<body style="font-family: Lato, Sans-serif, Sahitya; background-color:#f9eee2";>
+<center><h1>&#x905;&#x92e;&#x930;&#x915;&#x94b;&#x936;&#x93e;&#x928;&#x94d;&#x935;&#x947;&#x937;&#x923;&#x92e;&#x94d;</h1>
+<center><h5>&#x915;&#x91e;&#x94d;&#x91a;&#x93f;&#x926;&#x947;&#x915;&#x902;&#x20;&#x935;&#x93f;&#x915;&#x932;&#x94d;&#x92a;&#x902;&#x20;&#x91a;&#x93f;&#x928;&#x94b;&#x924;&#x941;&#x964;</h5>
+<div><input type="radio" id="amar_1" name="amar" value="whole_amarkosha.html">&#x938;&#x92e;&#x94d;&#x92a;&#x942;&#x930;&#x94d;&#x923;&#x915;&#x94b;&#x936;&#x903;</input>
+<input type="radio" id="amar_2" name="amar" value="searching_kosha.html">&#x936;&#x92c;&#x94d;&#x926;&#x93e;&#x928;&#x94d;&#x935;&#x947;&#x937;&#x923;&#x92e;&#x94d;</input></div></center>
 <script>
-fetch("./amarakosha_testing.json")
-  .then(response => response.json())
-  .then(data => {
-    const table = document.getElementById("myTable");
-    data.forEach((item, index) => {
-      const row = table.insertRow();
-      const cell1 = row.insertCell(0);
-      const cell2 = row.insertCell(1);
-      const cell3 = row.insertCell(2);
-      cell1.innerHTML = item.num;
-      cell2.innerHTML = item.text;
-      const wordsTable = `
-        <table border="1">
-          <tr style="background-color:#779ecb; color:blue;">
-            <th>Word</th>
-            <th>Linga</th>
-            <th>Artha</th>
-            <th>Synonyms</th>
-          </tr>
-          ${item.words.map(word => `
-            <tr>
-              <td>${word.word}</td>
-              <td>${word.linga}</td>
-              <td>${word.artha}</td>
-              <td>${word.synonyms.join(', ')}</td>
-            </tr>
-          `).join('')}
-        </table>
-      `;
-      cell3.innerHTML = wordsTable;
-    });
-  })
-  .catch(error => console.error('Error:', error));
+const radioBtn = document.querySelectorAll('input[type="radio"]');
+radioBtn.forEach(button => {
+button.addEventListener('change', () => {
+if (button.checked){
+window.location.href= button.value;
+}
+});
+});
 </script>
 </body>
-</html>
+<html>
