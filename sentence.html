@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+<title>Random Sentence Generator (यादृच्छिकवाक्यजनकः) </title>
+<style>
+#suddha{
+background-color: #000080;
+color: white;
+height: 40px;
+width: 200px;
+font-size: 24px;
+padding: 10px;
+border-radius:5px;
+box-shadow:5px 2px 8px 4px orange;
+}
+#match{
+background-color: khaki;
+height: 17px;
+width: 55px;
+padding: 7px;
+border-radius:5px;
+box-shadow:5px 2px 7px 2px #fff7ca;
+}
+#txt{
+background-color: green;
+color:#2cc4d0;
+height: 40px;
+width: 200px;
+font-size: 24px;
+padding: 8px;
+border-radius:15px;
+box-shadow:5px 2px 8px 4px yellow;
+}
+#btn{
+background-color:#2cc4d0;
+color: white;
+padding: 10px 10px;
+border: 1px solid yellow;
+font-size:16px;
+border-radius: 10px;
+box-shadow:5px 2px 8px 4px green ;
+}
+</style>
+</head>
+<body bgcolor="khaki">
+<center>
+<div id="suddha">वाक्यस्य शुद्धाशुद्धम्</div><br><hr><br>
+<div id="match"></div><br><br>
+<div id="txt">&#128073; वाक्यं पश्यतु।</div><br><br>
+<button id="btn" onclick="word()">नुद्यताम्</button></center>
+<script>
+function word(){
+const verb_list_uttam = ["गच्छा", "लिखा", "पठा", "वदा", "भवा", "जया", "पश्या", "यच्छा", "क्रन्दा", "नमा", "त्यजा", "वसा", "भ्रमा", "वहा", "खादा", "पचा", "याचा", "नया", "धावा", "ध्याया", "स्पृशा", "इच्छा"];
+const verb_list_all = ["गच्छ", "लिख", "पठ", "वद", "भव", "जय", "पश्य","यच्छ", "क्रन्द","नम", "त्यज", "वस", "भ्रम","वह", "खाद", "पच", "याच", "नय", "धाव", "ध्याय", "स्पृश", "इच्छ"];
+const arr_uttam=["अहम्", "आवाम्", "वयम्"];
+const arr_uttam_v=["मि ।", "वः ।", "मः ।"];
+const arr_madhyam=["त्वम्", "युवाम्", "यूयम्"];
+const arr_madhyam_v=["सि ।", "थः ।", "थ ।"];
+const arr_pratham=["सः", "तौ", "ते"];
+const arr_pratham_v=["ति ।", "तः ।", "न्ति ।"];
+
+const arr_verb_list_uttam_index=Math.floor(Math.random() * verb_list_uttam.length);
+const arr_verb_list_all_index=Math.floor(Math.random() * verb_list_all.length);
+
+const arr_uttam_index=Math.floor(Math.random() * arr_uttam.length);
+const arr_uttam_v_index=Math.floor(Math.random() * arr_uttam_v.length);
+
+const arr_madhyam_index=Math.floor(Math.random() * arr_madhyam.length);
+const arr_madhyam_v_index=Math.floor(Math.random() * arr_madhyam_v.length);
+
+const arr_pratham_index=Math.floor(Math.random() * arr_pratham.length);
+const arr_pratham_v_index=Math.floor(Math.random() * arr_pratham_v.length);
+
+const rand_arr_verb_list_uttam_index=verb_list_uttam[arr_verb_list_uttam_index];
+const rand_arr_uttam_index=arr_uttam[arr_uttam_index];
+const rand_arr_uttam_v_index=arr_uttam_v[arr_uttam_v_index];
+
+const rand_arr_verb_list_madhyam_index=verb_list_all[arr_verb_list_all_index];
+const rand_arr_madhyam_index=arr_madhyam[arr_madhyam_index];
+const rand_arr_madhyam_v_index=arr_madhyam_v[arr_madhyam_v_index];
+
+const rand_arr_pratham_index=arr_pratham[arr_pratham_index];
+const rand_arr_pratham_v_index=arr_pratham_v[arr_pratham_v_index];
+
+const x= rand_arr_uttam_index+" "+rand_arr_verb_list_uttam_index+rand_arr_uttam_v_index;
+const y = rand_arr_madhyam_index+" "+ rand_arr_verb_list_madhyam_index+rand_arr_madhyam_v_index;
+const z = rand_arr_pratham_index+" "+ rand_arr_verb_list_madhyam_index+rand_arr_pratham_v_index;
+const final_arr=[x, y, z];
+const final_arr_val=Math.floor(Math.random() * final_arr.length);
+if(final_arr_val==0){
+document.getElementById("txt").innerHTML='&#128073;'+" "+x;
+if(arr_uttam_index === arr_uttam_v_index){
+document.getElementById("match").innerHTML="<span style='color:blue; font-size:20px;'>शुद्धम्</span>";
+}
+else{
+document.getElementById("match").innerHTML="<span style='color:red; font-size:20px;'>अशुद्धम्</span>";
+}
+}
+else if(final_arr_val==1){
+document.getElementById("txt").innerHTML='&#128073;'+" "+y;
+if(arr_madhyam_index === arr_madhyam_v_index){
+document.getElementById("match").innerHTML="<span style='color:blue; font-size:20px;'>शुद्धम्</span>";
+}
+else{
+document.getElementById("match").innerHTML="<span style='color:red; font-size:20px;'>अशुद्धम्</span>";
+}
+}
+else if(final_arr_val==2){
+document.getElementById("txt").innerHTML='&#128073;'+" "+z;
+if(arr_pratham_index === arr_pratham_v_index){
+document.getElementById("match").innerHTML="<span style='color:blue; font-size:20px;'>शुद्धम्</span>";
+}
+else{
+document.getElementById("match").innerHTML="<span style='color:red; font-size:20px;'>अशुद्धम्</span>";
+}
+}
+else{
+document.getElementById("txt").innerHTML="data not found";
+}
+};
+</script>
+</body>
+</html>
