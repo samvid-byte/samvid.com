@@ -1,0 +1,209 @@
+<!Doctype html>
+<html lang="sa">
+<head meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sahitya:wght@400;700&display=swap" rel="stylesheet">
+<head>
+<title>panchikaranam (पञ्चीकरणम्)</title>
+  <style>
+    label {
+      color: white;
+      padding: 8px;
+      border-radius: 7px;
+      display: inline-block;
+    }
+    .earth {
+      background-color: #8b4513;
+    }
+    .water {
+      background-color: #20b2aa;
+    }
+    .fire {
+      background-color: #ff5f15;
+    }
+    .air {
+      background-color: #e0e0e0;
+      color: black;
+    }
+    .ether {
+      background-color: #20a7db;
+    }
+#val1, #val2, #val3, #val4, #val5, #val6{
+display : inline;}
+#val1{
+ background-color: #8b4513;
+color: white;
+}
+#val2{
+ background-color: #20b2aa;
+color: white;
+}
+#val3{
+ background-color: #ff5f15;
+color: white;
+}
+#val4{
+ background-color: #e0e0e0;
+color: black;
+}
+#val5{
+ background-color: #20a7db;;
+color: white;
+}
+button{
+color:blue;
+font-size: 24px;
+background-color:cyan;
+height: 40px;
+width: 100px;
+border-radius: 10px;
+}
+button:hover{
+color:yellow;
+background-color:green;
+}
+#animate{
+position: relative;
+animation-name: myanimation;
+animation-duration: 4s;
+animation-iteration-count:infinite;
+animation-direction: alternate-reverse;
+}
+@keyframes myanimation {
+0% {left:0px; top:0px;}
+15% {left:300px; top:0px;}
+30% {left:300px; top:50px;}
+45% {left:200px; top:50px;}
+75% {left:100px; top:30px;}
+85% {left:50px; top:20px;}
+100% {left:0px; top:0px;}
+}
+body{
+font-family:'Lato','Sans-serif','Sahitya';
+}
+h3{color: blue;}
+  </style>
+</head>
+<body bgcolor="#f5f5dc">
+  <center>
+<h1>पञ्चीकरणम्</h1>
+<h3>आकाशादिपञ्चसु एकैकं द्विधा समं विभज्य तेषु दशसु भागेषु प्राथमिकान् पञ्च भागान् प्रत्येकं चतुर्द्धा समं विभज्य तेषां चतुर्णां भागानां स्वस्वाद्वितीयार्द्धभागं परित्यज्य भागान्तरेषु संयोजनम्। </h3>
+    <label class="earth">पृथिवी (%)</label>
+    <select id="Earth">
+      <option value="50">50</option>
+      <option value="12.5">12.5</option>
+    </select>
+    <label class="water">जलम् (%)</label>
+    <select id="Water">
+      <option value="50">50</option>
+      <option value="12.5">12.5</option>
+    </select>
+    <label class="fire">तेजः (%)</label>
+    <select id="Fire">
+      <option value="50">50</option>
+      <option value="12.5">12.5</option>
+    </select>
+    <label class="air">वायुः (%)</label>
+    <select id="Air">
+      <option value="50">50</option>
+      <option value="12.5">12.5</option>
+    </select>
+    <label class="ether">आकाशम् (%)</label>
+    <select id="Ether">
+      <option value="50">50</option>
+      <option value="12.5">12.5</option>
+    </select><br><br>
+    <button onclick="Fun()">परिणामः</button><br>
+<div id="animate">
+    <canvas id="pieChart" width="200" height="200"> </canvas></div><div><br> <p id="val6"></p><br>
+  <h3 id="bhutansha"></h3><p id="val1"></p> <p id="val2"></p> <p id="val3"></p> <p id="val4"></p> <p id="val5"></p>
+</div>
+  </center>
+  <script>
+    let selectedVal_Earth = 0;
+    let selectedVal_Water = 0;
+    let selectedVal_Fire = 0;
+    let selectedVal_Air = 0;
+    let selectedVal_Ether = 0;
+
+    document.getElementById("Earth").addEventListener('change', (event) => {
+      selectedVal_Earth = parseFloat(event.target.value);
+      document.getElementById("val1").innerHTML ="पृथिवी - "+selectedVal_Earth+"%";
+    });
+
+    document.getElementById("Water").addEventListener('change', (event) => {
+      selectedVal_Water = parseFloat(event.target.value);
+      document.getElementById("val2").innerHTML ="जलम् -"+selectedVal_Water+"%";
+    });
+
+    document.getElementById("Fire").addEventListener('change', (event) => {
+      selectedVal_Fire = parseFloat(event.target.value);
+      document.getElementById("val3").innerHTML ="तेजः -"+selectedVal_Fire+"%";
+    });
+
+    document.getElementById("Air").addEventListener('change', (event) => {
+      selectedVal_Air = parseFloat(event.target.value);
+      document.getElementById("val4").innerHTML ="वायुः -"+selectedVal_Air+"%";
+    });
+
+    document.getElementById("Ether").addEventListener('change', (event) => {
+      selectedVal_Ether = parseFloat(event.target.value);
+      document.getElementById("val5").innerHTML ="आकाशम् -"+selectedVal_Ether+"%";
+    });
+
+    function Fun() {
+      const total = (selectedVal_Earth + selectedVal_Water + selectedVal_Fire + selectedVal_Air + selectedVal_Ether)/100;   
+	if(selectedVal_Ether==50){
+	document.getElementById("val6").innerHTML ="पञ्चीकृतं भूतम् = "+total+" "+"आकाशस्य";
+	}
+	else if(selectedVal_Air==50){
+	document.getElementById("val6").innerHTML ="पञ्चीकृतं भूतम् = "+total+" "+"वायोः";
+	}
+	else if(selectedVal_Fire==50){
+	document.getElementById("val6").innerHTML ="पञ्चीकृतं भूतम् = "+total+" "+"तेजसः";
+	}
+	else if(selectedVal_Water==50){
+	document.getElementById("val6").innerHTML ="पञ्चीकृतं भूतम् = "+total+" "+"जलस्य";
+	}
+	else if(selectedVal_Earth==50){
+	document.getElementById("val6").innerHTML ="पञ्चीकृतं भूतम् = "+total+" "+"पृथिव्याः";
+	}
+	else{
+	document.getElementById("val6").innerHTML ="पञ्चीकृतं भूतम् = "+total;
+	}
+
+      document.getElementById("bhutansha").innerHTML ='<u>**भूतांशाः**</u>';
+      var chart = document.getElementById("pieChart");
+      var ctx=chart.getContext('2d');
+      ctx.clearRect(0, 0, chart.width, chart.height);
+      var radius=90;
+      var x=100;
+      var y=100;
+      var segments =[
+        {color:'#8b4513', percentage :selectedVal_Earth},
+        {color:'#20b2aa', percentage :selectedVal_Water},
+        {color:'#ff5f15', percentage :selectedVal_Fire},
+        {color:'#e0e0e0', percentage :selectedVal_Air},
+        {color:'#20a7db', percentage :selectedVal_Ether}
+      ];
+      var startAngle=0;
+      for(var i=0; i<segments.length; i++){
+        var element=segments[i];
+        var endAngle = startAngle + (Math.PI * 2 * element.percentage /100);
+        ctx.beginPath();
+        ctx.moveTo (x, y);
+        ctx.arc(x, y, radius, startAngle, endAngle, false);
+        ctx.lineTo(x, y);
+        ctx.fillStyle=element.color;
+        ctx.fill();
+        startAngle=endAngle;
+ctx.strokeStyle="yellow";
+ctx.stroke();
+
+      }
+    }
+  </script>
+</body>
+</html>
