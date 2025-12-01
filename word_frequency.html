@@ -1,0 +1,54 @@
+<!Doctype html>
+<html lang="sa">
+<head meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sahitya:wght@400;700&display=swap" rel="stylesheet">
+<head>
+<title>शब्दाभीक्ष्णतापरीक्षणम् (WORD FREQUENCY CHECKING) </title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sahitya:wght@400;700&display=swap');
+#btn{
+background-color:green;
+color:white;
+font-size: 20px;
+border-radius: 5px;
+padding: 5px;
+}
+#input_val, #btn{
+box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.22);
+}
+h2{
+text-shadow:0 0 3px yellow, 0 0 4px red;
+}
+</style>
+</head>
+<body style=background-color:#afeeee;>
+<center>
+<h2>शब्दावर्तनपरीक्षणम्</h2><br>
+<textarea style=background-color:#ffffe0; id="input_val" rows=10 cols=30 placeholder="किमपि वाक्यं लिखतु.."></textarea><br><br>
+<button id=btn onclick="show_Result()">नुदतु (CLICK)</button>
+<p id="output"></p>
+</center>
+<script>
+function show_Result(){
+const slice_Arr=[];
+const get_val=document.getElementById("input_val").value;
+const get_slice_val=get_val.split(' ');
+for(let i=0; i<get_slice_val.length; i++){
+const word=get_slice_val[i];
+slice_Arr.push(word);
+}
+const counts ={};
+slice_Arr.forEach(item => {
+counts[item] = (counts[item] || 0) + 1;
+});
+//find frequent words
+let maxCount=Math.max(...Object.values(counts));
+let mostFrequence=Object.keys(counts).filter(key => counts[key] === maxCount);
+document.getElementById("output").innerHTML="शब्दसमुच्चयः (Total Words Count) : "+get_slice_val.length+'<br>'+"बहुव्यवहृतशब्दाः (Most Frequent Words) : = ["+mostFrequence.join('], [')+"]";
+}
+</script>
+</body>
+</html>
