@@ -11,7 +11,7 @@ width:100%;
 Height:auto;
 border-radius:50%;
 opacity:0.5;
-}
+} 
 .btn{
 width:220px;
 height:120px;
@@ -24,7 +24,18 @@ text-align:center;
 top:80%;
 left:28%;
 padding:6px;
-
+animation: blinking 1s infinite;
+}
+@keyframes blinking {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 a:hover{
 background-color:navy;
@@ -48,3 +59,4 @@ text-decoration:none;
 </body>
 
 </html>
+
