@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="sa">
+<head meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>चटकसहायकः (Chat Assistant)</title>
+<style>
+#bg{
+background-color: lightgreen;
+display: inline-block;
+}
+#x,#y{
+display: inline-block;
+font-size:30px;
+color:blue;
+}
+#submit-btn{
+font-size:40px;
+border:none;
+background-color:transparent;
+}
+#user-input{
+font-size:30px;
+}
+</style>
+</head>
+<center><body>
+<div id="bg">
+<div id="x"><p id="conv"></p></div>
+<div id="y"><p id="question"></p></div>
+<br><input id="user-input" placeholder="किमपि वद.." type="text">
+<button id="submit-btn">&#10145;&#65039;</button></div>
+</center>
+<script>
+let arr = ['हरिः ओम्। नमस्कारः।  मम नाम देवदत्तः। किं ते नाम?', 'अस्तु। तव मङ्गलं कामये। त्वं मानवः रोबोर्टयन्त्रं वा?', 'अस्तु। किं ते वयः?','त्वं किं कार्यं करोषि? पठसि पाठयसि वा?','अस्तु। अहं चटकसहायकः। मम कार्यं केवलं हर्षप्रदानम्। किं त्वं श्रोतुं इच्छसि?','शृणु। कस्मिंश्चित् स्थाने कश्चिद् वानरः तिष्ठति। स मया सह वाक्यालापं करोति। किं त्वं जानासि स कः? स नरः वा-नरः?','हो! हो! अद्य एतावत्पर्यन्तम्। पुनर्भविष्यति साक्षात्। धन्यवादः।'];
+let index = 0;
+let conv=document.getElementById("conv");
+let question=document.getElementById("question");
+let userInput = document.getElementById("user-input");
+let submitBtn = document.getElementById("submit-btn");
+let conversation='';
+submitBtn.addEventListener('click', () => {
+let userValue =userInput.value;
+conversation +='<p style=background-color:aqua; padding:5px;>'+arr[index]+'</p>'+'<p style=background-color:lime; padding:5px;>'+userValue+'</p>'+'<br>';
+conv.innerHTML=conversation;
+index++;
+if (index < arr.length) {
+question.innerText = arr[index];
+userInput.value = '';
+}
+else {
+question.innerText = "धन्यवादः।";
+submitBtn.disabled =true;
+}
+});
+question.innerText = arr[index];
+</script>
+</body>
+</html>
