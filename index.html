@@ -11,20 +11,36 @@ width:100%;
 Height:auto;
 border-radius:50%;
 opacity:0.5;
-}
+} 
 .btn{
 width:220px;
 height:120px;
 Height:auto;
 border-radius:7%;
-border:2px solid 4caf50;
-background-color:lightgreen;
+border:2px solid #4caf50;
+background-color:lightgreen
 position:fixed;
 text-align:center;
 top:80%;
 left:28%;
 padding:6px;
-
+animation: blinking 1s infinite;
+}
+@keyframes blinking {
+  0% {
+    background-color: lightgreen;
+  }
+  25% {
+    background-color: yellow;
+    color: lightgreen;
+  }
+  50% {
+    background-color: red;
+    color: lightgreen;
+  }
+  100% {
+    background-color: lightgreen;
+  }
 }
 a:hover{
 background-color:navy;
@@ -48,3 +64,7 @@ text-decoration:none;
 </body>
 
 </html>
+
+
+
+
