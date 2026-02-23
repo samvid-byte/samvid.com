@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<html>
+<html lang="sa">
+<head meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sahitya:wght@400;700&display=swap" rel="stylesheet">
+<head>
+<style>
+.container{
+display: flex;
+}
+#sec_one, #sec_two{
+flex: 1;
+padding: 10px;
+border: 2px solid green;
+border-radius: 10px;
+margin-right:1px;
+background-color: Ivory;
+}
+li{
+cursor: pointer;
+}
+#abibakshita:hover, #arthantara:hover, #asamlakshya:hover, #shabdashaktimula:hover, #proudokti:hover, #pada:hover, #vastu:hover{
+color: blue;
+background-color: tomato;
+border-radius: 15px;
+}
+#abibakshita:active, #arthantara:active, #asamlakshya:active, #shabdashaktimula:active, #proudokti:active, #pada:active, #vastu:active{
+color: red;
+}
+</style>
+</head>
+<title> ध्वनिविभागः (Division of Dhwani) </title>
+<body><div class="container"><div id="sec_one">
+<center><h3>(ध्वन्यालोकानुसारं) ध्वनिविभागः</h3></center>
+<ol><li>व्यञ्जकमुखेन
+	<ol><li id="abibakshita" onclick="abibakshita()">अविवक्षितवाच्यध्वनिः (लक्षणामूलः)</li>
+		<ol><li id="arthantara" onclick="arthantara()">अर्थान्तरसंक्रमितः</li>
+			<ol><li id="pada" onclick="pada()">पदप्रकाशः</li><li id="pada" onclick="pada()">वाक्यप्रकाशः</li></ol>
+		<li id="arthantara" onclick="arthantara()">अत्यन्ततिरस्कृतः</li>
+			<ol><li id="pada" onclick="pada()">पदप्रकाशः</li><li id="pada" onclick="pada()">वाक्यप्रकाशः</li></ol></ol>
+	<li id="abibakshita" onclick="abibakshita()">विवक्षितान्यपरवाच्यध्वनिः</li>
+		<ol><li id="asamlakshya" onclick="asamlakshya()">असंलक्ष्यक्रमव्यङ्ग्यः (रसादिध्वनिः)</li>
+		<li id="asamlakshya" onclick="asamlakshya()">संलक्ष्यक्रमव्यङ्ग्यः (अनुस्वानसन्निभः/अनुरणनरूपव्यङ्ग्यध्वनिः)/(वस्त्वलङ्कारध्वनिः)</li></ol>
+			<ol><li id="shabdashaktimula" onclick="shabdashaktimula()">शब्दशक्त्युद्भवः</li>
+				<ol><li id="pada" onclick="pada()">पदप्रकाशः</li><li id="pada" onclick="pada()">वाक्यप्रकाशः</li></ol>
+			<li id="shabdashaktimula" onclick="shabdashaktimula()">अर्थशक्त्युद्भवः</li> 
+				<ol><li id="proudokti" onclick="proudokti()">कविप्रौढोक्तिमात्रनिष्पन्नशरीरः </li>
+					<ol><li id="pada" onclick="pada()">पदप्रकाशः</li><li id="pada" onclick="pada()">वाक्यप्रकाशः</li></ol>
+				<li id="proudokti" onclick="proudokti()">कविनिबद्धवक्तृप्रौढोक्तिमात्रनिष्पन्नशरीरः </li>
+					<ol><li id="pada" onclick="pada()">पदप्रकाशः</li><li id="pada" onclick="pada()">वाक्यप्रकाशः</li></ol>
+				<li id="proudokti" onclick="proudokti()">स्वतःसम्भवी</li>
+					<ol><li id="pada" onclick="pada()">पदप्रकाशः</li><li id="pada" onclick="pada()">वाक्यप्रकाशः</li></ol></ol><ol></ol></li></ol></ol>
+
+<li>व्यङ्ग्यमुखेन
+
+<ol><li id="abibakshita" onclick="abibakshita()">अविवक्षितवाच्यध्वनिः (लक्षणामूलः)</li>
+		<ol><li id="arthantara" onclick="arthantara()">अर्थान्तरसंक्रमितः</li>
+			<ol><li>पदप्रकाशः</li><li>वाक्यप्रकाशः</li></ol>
+		<li id="arthantara" onclick="arthantara()">अत्यन्ततिरस्कृतः (लक्षणलक्षणा)</li>
+			<ol><li>पदप्रकाशः</li><li>वाक्यप्रकाशः</li></ol></ol>
+	<li id="abibakshita" onclick="abibakshita()">विवक्षितान्यपरवाच्यध्वनिः (अभिधामूलः)</li>
+		<ol><li id="asamlakshya" onclick="asamlakshya()">असंलक्ष्यक्रमव्यङ्ग्यः (रसादिध्वनिः)</li>
+		<li id="asamlakshya" onclick="asamlakshya()">संलक्ष्यक्रमव्यङ्ग्यः (अनुस्वानसन्निभः/अनुरणनरूपव्यङ्ग्यध्वनिः)/(वस्त्वलङ्कारध्वनिः)</li></ol>
+			<ol><li id="shabdashaktimula" onclick="shabdashaktimula()">शब्दशक्तिमूलः</li>
+				<ol><li id="vastu" onclick="vastu()">वस्तु</li><li id="vastu" onclick="vastu()"> अलंकारः</li></ol>
+			<li id="shabdashaktimula" onclick="shabdashaktimula()">अर्थशक्तिमूलः</li> 
+				<ol><li id="proudokti" onclick="proudokti()">कविप्रौढोक्तिमात्रनिष्पन्नशरीरः </li>
+					<ol><li id="vastu" onclick="vastu()">वस्तु</li><li id="vastu" onclick="vastu()"> अलंकारः</li></ol>
+				<li id="proudokti" onclick="proudokti()">कविनिबद्धवक्तृप्रौढोक्तिमात्रनिष्पन्नशरीरः </li>
+					<ol><li id="vastu" onclick="vastu()">वस्तु</li><li id="vastu" onclick="vastu()"> अलंकारः</li></ol>
+				<li id="proudokti" onclick="proudokti()">स्वतःसम्भवी</li>
+					<ol><li id="vastu" onclick="vastu()">वस्तु</li><li id="vastu" onclick="vastu()"> अलंकारः</li></ol></ol><ol></ol></li></ol></ol></li></ol></div>
+
+<div id="sec_two"><p id="dhwani"></p></div></div>
+<script>
+function abibakshita(){
+document.getElementById("dhwani").innerHTML='<center>अस्ति ध्वनिः। स चासौ अविवक्षितवाच्यो विवक्षितान्यपरवाच्यश्चेति द्विविधः सामान्येन। <br>[ध्वन्यालोकः (प्रथमोद्द्योतः)]</center>';
+}
+function arthantara(){
+document.getElementById("dhwani").innerHTML='<center>अर्थान्तरे संक्रमितमत्यन्तं वा तिरस्कृतम्।<br>अविवक्षितवाच्यस्य ध्वनेर्वाच्यं द्विधा मतम्॥ <br>[ध्वन्यालोकः (द्वितीय उद्द्योतः)]</center>';
+}
+function asamlakshya(){
+document.getElementById("dhwani").innerHTML='<center>असंलक्ष्यक्रमोद्द्यतः क्रमेण द्योतितः परः।<br>विवक्षिताभिधेयस्य ध्वनेरात्मा द्विधा मत॥ <br>[ध्वन्यालोकः (द्वितीय उद्द्योतः)]</center>';
+}
+function shabdashaktimula(){
+document.getElementById("dhwani").innerHTML='<center>क्रमेण प्रतिभात्यात्मा योऽस्यानुस्वानसन्निभः।<br>शब्दार्थशक्तिमूलत्वात् सोऽपि द्वेधा व्यवस्थितः॥<br>[ध्वन्यालोकः (द्वितीय उद्द्योतः)]</center>';
+}
+function proudokti(){
+document.getElementById("dhwani").innerHTML='<center>प्रौढोक्तिमात्रनिष्पन्नशरीरः सम्भवी स्वतः।<br>अर्थोऽपि द्विविधो ज्ञेयो वस्तुनोऽन्यस्य दीपकः॥<br>अर्थशक्त्युद्भवानुरणनरूपव्यङ्ग्ये ध्वनौ यो व्यञ्जकोऽर्थः उक्तस्तस्यापि द्वौ प्रकारौ -<br> <u>कवेः कविनिबद्धस्य</u> वा <u>प्रौढोक्तिमात्रनिष्पन्नशरीरः</u> एकः, स्वतःसम्भवी च द्वितीयः।<br>[ध्वन्यालोकः (द्वितीय उद्द्योतः)]</center>';
+}
+function pada(){
+document.getElementById("dhwani").innerHTML='<center>अविवक्षितवाच्यस्य पदवाक्यप्रकाशता।<br>तदन्यस्यानुरणनरूपव्यङ्ग्यस्य च ध्वनेः॥<br>[ध्वन्यालोकः (तृतीय उद्द्योतः)]</center>';
+}
+function vastu(){
+document.getElementById("dhwani").innerHTML='<center>अर्थशक्तेरलंकारो यत्राप्यन्यः प्रतीयते।<br>अनुस्वानोपमव्यङ्ग्यः स प्रकारोऽपरो ध्वनेः॥<br>[ध्वन्यालोकः (द्वितीय उद्द्योतः)]</center>';
+}
+</script>
+</body>
+</html>
+

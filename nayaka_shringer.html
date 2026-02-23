@@ -1,0 +1,459 @@
+<!DOCTYPE HTML>
+<html>
+<html lang="sa">
+<head meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sahitya:wght@400;700&display=swap" rel="stylesheet">
+<head>
+<style>
+#label{
+background-color: green;
+opacity: 0.8;
+color: yellow;
+font-size: 15px;
+box-shadow: 10px 10px 25px green;
+border-radius:50px;
+padding: 5px;
+}
+button{
+opacity: 0.8;
+color: yellow;
+font-size: 15px;
+box-shadow: 10px 10px 25px green;
+border-radius:5px;
+}
+a{
+text-decoration: none;
+}
+#nayaka{
+background-color: #04AA6D;
+color: white;
+padding: 5px;
+border: 2px solid #ff00ff;
+border-radius: 5px;
+font-size: 20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#arw_nayaka, #arw_nayaka_a, #arw_nayaka_b{
+display: none;
+font-size: 50px;
+color: red;
+}
+#dhirodatta, #dak_A, #dhris_A, #anu_A, #shath_A, #uttam_AA, #madhyam_AA, #adham_AA{
+background-color: #0066ff;
+color: white;
+padding: 5px;
+border: 2px solid #ff00ff;
+border-radius: 5px;
+font-size: 20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#dhirodhata, #dak_B, #dhris_B, #anu_B, #shath_B, #uttam_BA, #madhyam_BA, #adham_BA{
+background-color: #ff6347;
+color: blue;
+padding: 5px;
+border: 2px solid yellow;
+border-radius: 5px;
+font-size:20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#dhiralalita, #dak_C, #dhris_C, #anu_C, #shath_C, #uttam_CA, #madhyam_CA, #adham_CA{
+background-color: #ef00ff;
+color: white;
+padding: 5px;
+border: 2px solid blue;
+border-radius: 5px;
+font-size:20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#dhiraprasanta, #dak_D, #dhris_D, #anu_D, #shath_D, #uttam_DA, #madhyam_DA, #adham_DA{
+background-color: #87cfeb;
+color:#ffffff;
+padding: 5px;
+border: 2px solid #00008b;
+border-radius: 5px;
+font-size:20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#uttam_AB, #madhyam_AB, #adham_AB{
+background-color: #0066ff;
+color: red;
+padding: 5px;
+border: 2px solid #ff00ff;
+border-radius: 5px;
+font-size: 20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#uttam_BB, #madhyam_BB, #adham_BB{
+background-color: #ff6347;
+color: red;
+padding: 5px;
+border: 2px solid yellow;
+border-radius: 5px;
+font-size:20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#uttam_CB, #madhyam_CB, #adham_CB{
+background-color: #ef00ff;
+color: red;
+padding: 5px;
+border: 2px solid yellow;
+border-radius: 5px;
+font-size:20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#uttam_DB, #madhyam_DB, #adham_DB{
+background-color: #87cfeb;
+color: red;
+padding: 5px;
+border: 2px solid #00008b;
+border-radius: 5px;
+font-size:20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#uttam_AC, #madhyam_AC, #adham_AC{
+background-color: #0066ff;
+color: lime;
+padding: 5px;
+border: 2px solid #ff00ff;
+border-radius: 5px;
+font-size: 20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#uttam_BC, #madhyam_BC, #adham_BC{
+background-color: #ff6347;
+color: lime;
+padding: 5px;
+border: 2px solid yellow;
+border-radius: 5px;
+font-size:20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#uttam_CC, #madhyam_CC, #adham_CC{
+background-color: #ef00ff;
+color: lime;
+padding: 5px;
+border: 2px solid yellow;
+border-radius: 5px;
+font-size:20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#uttam_DC, #madhyam_DC, #adham_DC{
+background-color: #87cfeb;
+color: lime;
+padding: 5px;
+border: 2px solid #00008b;
+border-radius: 5px;
+font-size:20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#uttam_AD, #madhyam_AD, #adham_AD{
+background-color: #0066ff;
+color: yellow;
+padding: 5px;
+border: 2px solid #ff00ff;
+border-radius: 5px;
+font-size: 20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#uttam_BD, #madhyam_BD, #adham_BD{
+background-color: #ff6347;
+color: yellow;
+padding: 5px;
+border: 2px solid yellow;
+border-radius: 5px;
+font-size:20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#uttam_CD, #madhyam_CD, #adham_CD{
+background-color: #ef00ff;
+color: yellow;
+padding: 5px;
+border: 2px solid yellow;
+border-radius: 5px;
+font-size:20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#uttam_DD, #madhyam_DD, #adham_DD{
+background-color: #87cfeb;
+color: yellow;
+padding: 5px;
+border: 2px solid #00008b;
+border-radius: 5px;
+font-size:20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#nayaka:hover, #dhirodatta:hover, #dhirodhata:hover, #dhiralalita:hover, #dhiraprasanta:hover, #dak_A:hover, #dhris_A:hover, #anu_A:hover, #shath_A:hover, #dak_B:hover, #dhris_B:hover, #anu_B:hover, #shath_B:hover, #dak_C:hover, #dhris_C:hover, #anu_C:hover, #shath_C:hover, #dak_D:hover, #dhris_D:hover, #anu_D:hover, #shath_D:hover{
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+}
+ul{
+list-style-type:none;
+}
+li{
+font-size:50px;
+color: lime;
+}
+</style>
+</head>
+<title> नायकभेदः (Difference of Hero)</title>
+<body><center>
+<div id="label"><button><a href="nayaka_main.html">मुखपृष्ठम्</a></button>&nbsp;&nbsp;<button><a href="nayaka_other.html">शृङ्गाररसाद्विना अन्येषु रसेषु</a></button></div>
+<hr><br><button id="nayaka" onclick="nayaka()">नायकः (शृङ्गाररसे)</button>
+<div id="arw_nayaka">&#8681;</div>
+<p id="nayak"></p>
+<div id="arw_nayaka_a">&#128071;</div>
+<p id="nayak2"></p>
+<div id="arw_nayaka_b">&#8681;</div>
+<p id="nayak3"></p>
+<script>
+function nayaka(){
+if(document.getElementById("arw_nayaka").style.display === "none")
+{
+document.getElementById("arw_nayaka").style.display = "block";
+document.getElementById("nayak").innerHTML='<button id="dhirodatta" onclick="dhirodatta()">धीरोदात्तः <br>(उदाहरणम् - रामः, युधिष्ठिरः)</button>&nbsp;<button id="dhirodhata" onclick="dhirodhata()">धीरोद्धतः <br>(उदाहरणम् - भीमसेनः)</button>&nbsp;<button id="dhiralalita" onclick="dhiralalita()">धीरललितः <br>(उदाहरणम् - (रत्नावल्याम्) वत्सराजः)</button>&nbsp;<button id="dhiraprasanta" onclick="dhiraprasanta()">धीरप्रशान्तः <br>(उदाहरणम् - (मालतीमाधवे) माधवः)</button><br>';
+}
+else{
+document.getElementById("arw_nayaka").style.display = "none";
+document.getElementById("nayak").innerHTML=" ";
+}
+}
+function dhirodatta(){
+if(document.getElementById("arw_nayaka_a").style.display === "none")
+{
+document.getElementById("arw_nayaka_a").style.display = "block";
+document.getElementById("nayak2").innerHTML='<button id="dak_A" onclick="dak_A()">दक्षिणः</button>&nbsp;<button id="dhris_A" onclick="dhris_A()">धृष्टः</button>&nbsp;<button id="anu_A" onclick="anu_A()">अनुकूलः</button>&nbsp;<button id="shath_A" onclick="shath_A()">शठः</button>';
+}else{
+document.getElementById("arw_nayaka_a").style.display = "none";
+document.getElementById("nayak2").innerHTML=" ";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+function dhirodhata(){
+if(document.getElementById("arw_nayaka_a").style.display === "none")
+{
+document.getElementById("arw_nayaka_a").style.display = "block";
+document.getElementById("nayak2").innerHTML='<button id="dak_B" onclick="dak_B()">दक्षिणः</button>&nbsp;<button id="dhris_B" onclick="dhris_B()">धृष्टः</button>&nbsp;<button id="anu_B" onclick="anu_B()">अनुकूलः</button>&nbsp;<button id="shath_B" onclick="shath_B()">शठः</button>';
+}else{
+document.getElementById("arw_nayaka_a").style.display = "none";
+document.getElementById("nayak2").innerHTML=" ";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+function dhiralalita(){
+if(document.getElementById("arw_nayaka_a").style.display === "none")
+{
+document.getElementById("arw_nayaka_a").style.display = "block";
+document.getElementById("nayak2").innerHTML='<button id="dak_C" onclick="dak_C()">दक्षिणः</button>&nbsp;<button id="dhris_C" onclick="dhris_C()">धृष्टः</button>&nbsp;<button id="anu_C" onclick="anu_C()">अनुकूलः</button>&nbsp;<button id="shath_C" onclick="shath_C()">शठः</button>';
+}else{
+document.getElementById("arw_nayaka_a").style.display = "none";
+document.getElementById("nayak2").innerHTML=" ";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+function dhiraprasanta(){
+if(document.getElementById("arw_nayaka_a").style.display === "none")
+{
+document.getElementById("arw_nayaka_a").style.display = "block";
+document.getElementById("nayak2").innerHTML='<button id="dak_D" onclick="dak_D()">दक्षिणः</button>&nbsp;<button id="dhris_D" onclick="dhris_D()">धृष्टः</button>&nbsp;<button id="anu_D" onclick="anu_D()">अनुकूलः</button>&nbsp;<button id="shath_D" onclick="shath_D()">शठः</button>';
+}else{
+document.getElementById("arw_nayaka_a").style.display = "none";
+document.getElementById("nayak2").innerHTML=" ";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+function dak_A(){
+if(document.getElementById("arw_nayaka_b").style.display === "none")
+{
+document.getElementById("arw_nayaka_b").style.display = "block";
+document.getElementById("nayak3").innerHTML='<ul><li>&#9755;<button id="uttam_AA">उत्तमः</button></li><li>&#9755;<button id="madhyam_AA">मध्यमः</button></li><li>&#9755;<button id="adham_AA">अधमः</button></li></ul>';
+}
+else{
+document.getElementById("arw_nayaka_b").style.display = "none";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+function dhris_A(){
+if(document.getElementById("arw_nayaka_b").style.display === "none")
+{
+document.getElementById("arw_nayaka_b").style.display = "block";
+document.getElementById("nayak3").innerHTML='<ul><li>&#9755;<button id="uttam_AB">उत्तमः</button></li><li>&#9755;<button id="madhyam_AB">मध्यमः</button></li><li>&#9755;<button id="adham_AB">अधमः</button></li></ul>';
+}
+else{
+document.getElementById("arw_nayaka_b").style.display = "none";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+function anu_A(){
+if(document.getElementById("arw_nayaka_b").style.display === "none")
+{
+document.getElementById("arw_nayaka_b").style.display = "block";
+document.getElementById("nayak3").innerHTML='<ul><li>&#9755;<button id="uttam_AC">उत्तमः</button></li><li>&#9755;<button id="madhyam_AC">मध्यमः</button></li><li>&#9755;<button id="adham_AC">अधमः</button></li></ul>';
+}
+else{
+document.getElementById("arw_nayaka_b").style.display = "none";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+function shath_A(){
+if(document.getElementById("arw_nayaka_b").style.display === "none")
+{
+document.getElementById("arw_nayaka_b").style.display = "block";
+document.getElementById("nayak3").innerHTML='<ul><li>&#9755;<button id="uttam_AD">उत्तमः</button></li><li>&#9755;<button id="madhyam_AD">मध्यमः</button></li><li>&#9755;<button id="adham_AD">अधमः</button></li></ul>';
+}
+else{
+document.getElementById("arw_nayaka_b").style.display = "none";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+function dak_B(){
+if(document.getElementById("arw_nayaka_b").style.display === "none")
+{
+document.getElementById("arw_nayaka_b").style.display = "block";
+document.getElementById("nayak3").innerHTML='<ul><li>&#9755;<button id="uttam_BA">उत्तमः</button></li><li>&#9755;<button id="madhyam_BA">मध्यमः</button></li><li>&#9755;<button id="adham_BA">अधमः</button></li></ul>';
+}
+else{
+document.getElementById("arw_nayaka_b").style.display = "none";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+function dhris_B(){
+if(document.getElementById("arw_nayaka_b").style.display === "none")
+{
+document.getElementById("arw_nayaka_b").style.display = "block";
+document.getElementById("nayak3").innerHTML='<ul><li>&#9755;<button id="uttam_BB">उत्तमः</button></li><li>&#9755;<button id="madhyam_BB">मध्यमः</button></li><li>&#9755;<button id="adham_BB">अधमः</button></li></ul>';
+}
+else{
+document.getElementById("arw_nayaka_b").style.display = "none";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+function anu_B(){
+if(document.getElementById("arw_nayaka_b").style.display === "none")
+{
+document.getElementById("arw_nayaka_b").style.display = "block";
+document.getElementById("nayak3").innerHTML='<ul><li>&#9755;<button id="uttam_BC">उत्तमः</button></li><li>&#9755;<button id="madhyam_BC">मध्यमः</button></li><li>&#9755;<button id="adham_BC">अधमः</button></li></ul>';
+}
+else{
+document.getElementById("arw_nayaka_b").style.display = "none";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+function shath_B(){
+if(document.getElementById("arw_nayaka_b").style.display === "none")
+{
+document.getElementById("arw_nayaka_b").style.display = "block";
+document.getElementById("nayak3").innerHTML='<ul><li>&#9755;<button id="uttam_BD">उत्तमः</button></li><li>&#9755;<button id="madhyam_BD">मध्यमः</button></li><li>&#9755;<button id="adham_BD">अधमः</button></li></ul>';
+}
+else{
+document.getElementById("arw_nayaka_b").style.display = "none";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+function dak_C(){
+if(document.getElementById("arw_nayaka_b").style.display === "none")
+{
+document.getElementById("arw_nayaka_b").style.display = "block";
+document.getElementById("nayak3").innerHTML='<ul><li>&#9755;<button id="uttam_CA">उत्तमः</button></li><li>&#9755;<button id="madhyam_CA">मध्यमः</button></li><li>&#9755;<button id="adham_CA">अधमः</button></li></ul>';
+}
+else{
+document.getElementById("arw_nayaka_b").style.display = "none";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+function dhris_C(){
+if(document.getElementById("arw_nayaka_b").style.display === "none")
+{
+document.getElementById("arw_nayaka_b").style.display = "block";
+document.getElementById("nayak3").innerHTML='<ul><li>&#9755;<button id="uttam_CB">उत्तमः</button></li><li>&#9755;<button id="madhyam_CB">मध्यमः</button></li><li>&#9755;<button id="adham_CB">अधमः</button></li></ul>';
+}
+else{
+document.getElementById("arw_nayaka_b").style.display = "none";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+function anu_C(){
+if(document.getElementById("arw_nayaka_b").style.display === "none")
+{
+document.getElementById("arw_nayaka_b").style.display = "block";
+document.getElementById("nayak3").innerHTML='<ul><li>&#9755;<button id="uttam_CC">उत्तमः</button></li><li>&#9755;<button id="madhyam_CC">मध्यमः</button></li><li>&#9755;<button id="adham_CC">अधमः</button></li></ul>';
+}
+else{
+document.getElementById("arw_nayaka_b").style.display = "none";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+function shath_C(){
+if(document.getElementById("arw_nayaka_b").style.display === "none")
+{
+document.getElementById("arw_nayaka_b").style.display = "block";
+document.getElementById("nayak3").innerHTML='<ul><li>&#9755;<button id="uttam_CD">उत्तमः</button></li><li>&#9755;<button id="madhyam_CD">मध्यमः</button></li><li>&#9755;<button id="adham_CD">अधमः</button></li></ul>';
+}
+else{
+document.getElementById("arw_nayaka_b").style.display = "none";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+function dak_D(){
+if(document.getElementById("arw_nayaka_b").style.display === "none")
+{
+document.getElementById("arw_nayaka_b").style.display = "block";
+document.getElementById("nayak3").innerHTML='<ul><li>&#9755;<button id="uttam_DA">उत्तमः</button></li><li>&#9755;<button id="madhyam_DA">मध्यमः</button></li><li>&#9755;<button id="adham_DA">अधमः</button></li></ul>';
+}
+else{
+document.getElementById("arw_nayaka_b").style.display = "none";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+function dhris_D(){
+if(document.getElementById("arw_nayaka_b").style.display === "none")
+{
+document.getElementById("arw_nayaka_b").style.display = "block";
+document.getElementById("nayak3").innerHTML='<ul><li>&#9755;<button id="uttam_DB">उत्तमः</button></li><li>&#9755;<button id="madhyam_DB">मध्यमः</button></li><li>&#9755;<button id="adham_DB">अधमः</button></li></ul>';
+}
+else{
+document.getElementById("arw_nayaka_b").style.display = "none";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+function anu_D(){
+if(document.getElementById("arw_nayaka_b").style.display === "none")
+{
+document.getElementById("arw_nayaka_b").style.display = "block";
+document.getElementById("nayak3").innerHTML='<ul><li>&#9755;<button id="uttam_DC">उत्तमः</button></li><li>&#9755;<button id="madhyam_DC">मध्यमः</button></li><li>&#9755;<button id="adham_DC">अधमः</button></li></ul>';
+}
+else{
+document.getElementById("arw_nayaka_b").style.display = "none";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+function shath_D(){
+if(document.getElementById("arw_nayaka_b").style.display === "none")
+{
+document.getElementById("arw_nayaka_b").style.display = "block";
+document.getElementById("nayak3").innerHTML='<ul><li>&#9755;<button id="uttam_DD">उत्तमः</button></li><li>&#9755;<button id="madhyam_DD">मध्यमः</button></li><li>&#9755;<button id="adham_DD">अधमः</button></li></ul>';
+}
+else{
+document.getElementById("arw_nayaka_b").style.display = "none";
+document.getElementById("nayak3").innerHTML=" ";
+}
+}
+</script>
+</center></body>
+</html>

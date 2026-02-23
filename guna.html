@@ -1,0 +1,164 @@
+<!DOCTYPE HTML>
+<html>
+<html lang="sa">
+<head meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sahitya:wght@400;700&display=swap" rel="stylesheet">
+<head>
+<style>
+body{
+background-color: FloralWhite;
+}
+table{
+border:4px solid yellow;
+border-radius: 25px;
+background-color: #90ee90;
+padding: 5px;
+box-shadow: 10px 10px 25px green;
+}
+th, td{
+border:2px solid blue;
+border-radius: 10px;
+text-align: center;
+padding: 5px;
+}
+th{
+color:#0000ff;
+}
+button{
+background-color: blue;
+border: 3px solid lime;
+color: white;
+padding: 7px;
+text-align: center;
+text-decoration: none;
+cursor: pointer;
+font-size: 15px;
+border-radius: 5px;
+box-shadow: 10px 10px 25px green;
+}
+button:hover{
+background-color: tomato;
+color: blue;
+border: 3px solid yellow;
+cursor: pointer;
+box-shadow: 10px 10px 25px violet;
+}
+</style></head>
+<title>गुणः (Guna)</title>
+<body><center>
+<h3>अलंकारशास्त्रस्य गुणः</h3><hr>
+<label>कश्चिदेको गुणो निर्वचनीयः &nbsp;&nbsp;</label>
+<select id="guna">
+<option>--</option>
+<option>श्लेषः</option>
+<option>प्रसादः</option>
+<option>समता</option>
+<option>माधुर्य्यम्</option>
+<option>सुकुमारता</option>
+<option>अर्थव्यक्तिः</option>
+<option>उदारत्वम्</option>
+<option>ओजः</option>
+<option>कान्तिः</option>
+<option>समाधिः</option>
+</select>&nbsp;&nbsp;&nbsp;&nbsp;
+<label>कश्चिदेक आचार्यो निर्वचनीयः &nbsp;&nbsp;</label>
+<select id="acharya">
+<option>--</option>
+<option>वामनः</option>
+<option>दण्डी</option></select>&nbsp;&nbsp;&nbsp;&nbsp;
+<button onclick="showresult()">नुदतु</button><hr>
+<p id="shloka">श्लेषः प्रसादः समता माधुर्य्यम् सुकुमारता।<br>अर्थव्यक्तिरुदारत्वमोजःकान्तिसमाधयः॥<br> - (काव्यादर्शः)</p>
+<p id="output"></p>
+<script>
+function showresult(){
+let x=document.getElementById("guna").value; // getting value
+let y=document.getElementById("acharya").value; // getting value
+if(x === "श्लेषः" && y === "दण्डी"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">श्लेषः <br>(दण्डिमतानुसारम्)</th></tr><tr><th>संज्ञा</th> <th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>श्लिष्टम् अस्पृष्टशैथिल्यम्।</td><td>मालतीमाला लोला-लि-कलिला।</td><td>असंयुक्ताल्पप्राणवर्णबाहुल्यात् शैथिल्यम्।</td></tr></table>';
+document.getElementById("shloka").innerHTML=" ";
+}
+else if(x === "श्लेषः" && y === "वामनः"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">श्लेषः <br>(वामनमतानुसारम्)</th></tr><tr><th>संज्ञा</th> <th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>मसृणत्वं श्लेषः।</td><td>अस्त्युत्तरास्यां दिशि देवतात्मा हिमालयो नाम नगाधिराजः।</td><td>अत्र व्यासे समासवदवभासः।</td></tr></table>';
+document.getElementById("shloka").innerHTML=" ";
+}
+else if(x === "प्रसादः" && y === "दण्डी"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">प्रसादः<br>(दण्डिमतानुसारम्)</th></tr><tr><th>संज्ञा</th> <th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>प्रसादवत् प्रसिद्धार्थम्।</td><td>इन्दोरिन्दीवरद्युतिः।</td><td>श्रुतिमात्रेण अर्थबोधः।</td></tr></table>';
+document.getElementById("shloka").innerHTML=" "; 
+}
+else if(x === "प्रसादः" && y === "वामनः"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">प्रसादः <br>(वामनमतानुसारम्)</th></tr><tr><th>संज्ञा</th> <th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>शैथिल्यं प्रसादः। </td><td>अथ स विषयव्यावृत्तात्मा यथाविधि सूनवे <br> नृपातिककुदं दत्त्वा यूने सितातप वारणम्।।</td><td>अत्र बन्धस्य शैथिल्यम्।</td></tr></table>';
+document.getElementById("shloka").innerHTML=" ";
+}
+else if(x === "समता" && y === "दण्डी"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">समता<br>(दण्डिमतानुसारम्)</th></tr><tr><th>संज्ञा</th> <th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>समं बन्धेषु अविषमम्।</td><td>कोकिला-लाप-वाचालो मामेति मलयानिलः।</td><td>बन्धाः त्रिविधाः मृदु स्फुट मध्यमाः।<br>**अत्र उदाहरणे मृदुबन्धयुता समता।</td></tr></table>';
+document.getElementById("shloka").innerHTML=" ";   
+}
+else if(x === "समता" && y === "वामनः"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">समता <br>(वामनमतानुसारम्)</th></tr><tr><th>संज्ञा</th> <th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>मार्गाभेदः समता। </td><td>अस्त्युत्तरास्यां दिशि देवतात्मा हिमालयो नाम नगाधिराजः।</td><td>अत्र आदिमध्यावसानेषु एकरूपता।</td></tr></table>';
+document.getElementById("shloka").innerHTML=" ";
+}
+else if(x === "माधुर्य्यम्" && y === "दण्डी"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">माधुर्य्यम्<br>(दण्डिमतानुसारम्)</th></tr><tr><th>संज्ञा</th> <th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>मधुरं रसवद् वाचि।</td><td>-</td><td>-</td></tr></table>';
+document.getElementById("shloka").innerHTML=" "; 
+}
+else if(x === "माधुर्य्यम्" && y === "वामनः"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">माधुर्यम् <br>(वामनमतानुसारम्)</th></tr><tr><th>संज्ञा</th> <th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>पृथक्पदत्वं माधुर्यम्। </td><td>अस्त्युत्तरास्यां दिशि देवतात्मा हिमालयो नाम नगाधिराजः।</td><td>बन्धस्य पृथक्पदत्वान्माधुर्यम्।</td></tr> </table>';
+document.getElementById("shloka").innerHTML=" ";
+}
+else if(x === "सुकुमारता" && y === "दण्डी"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">सुकुमारता<br>(दण्डिमतानुसारम्)</th></tr><tr><th>संज्ञा</th> <th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>अनिष्ठुराक्षरप्रायं सुकुमारमिहेष्यते।</td><td>मण्डलीकृत्य वर्हाणि कण्डैर्मधुरगीतिभिः। <br>कलापिनः प्रनृत्यन्ति काले जीमूतमालिनि॥</td><td> निष्ठुरवर्णरचनाभावात् सौकुमार्यम्।</td></tr></table>';
+document.getElementById("shloka").innerHTML=" ";
+}
+else if(x === "सुकुमारता" && y === "वामनः"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">सौकुमार्यम् <br>(वामनमतानुसारम्)</th></tr><tr><th>संज्ञा</th> <th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>अजरठत्वं सौकुमार्यम्। </td><td>अस्त्युत्तरास्यां दिशि देवतात्मा हिमालयो नाम नगाधिराजः।</td><td>बन्धस्य अपारुष्यात् सौकुमार्यम्।</td></tr></table>';
+document.getElementById("shloka").innerHTML=" ";
+}
+else if(x === "अर्थव्यक्तिः" && y === "दण्डी"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">अर्थव्यक्तिः<br>(दण्डिमतानुसारम्)</th></tr><tr><th>संज्ञा</th><th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>अर्थव्यक्तिरनेयत्वमर्थस्य।</td><td>हरिणोद्धृता। यः खुरक्षुण्णनागासृग्लोहितादुदधेः..</td><td>-</td></tr></table>';
+document.getElementById("shloka").innerHTML=" ";  
+}
+else if(x === "अर्थव्यक्तिः" && y === "वामनः"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">अर्थव्यक्तिः<br>(वामनमतानुसारम्)</th></tr><tr><th>संज्ञा</th> <th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>अर्थव्यक्तिहेतुत्वमर्थव्यक्तिः। </td><td>अस्त्युत्तरास्यां दिशि देवतात्मा हिमालयो नाम नगाधिराजः।</td><td>झटिति अर्थप्रतिपत्तिहेतुत्वाद् अर्थव्यक्तिः।</td></tr></table>';
+document.getElementById("shloka").innerHTML=" ";
+}
+else if(x === "उदारत्वम्" && y === "दण्डी"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">उदारत्वम्<br>(दण्डिमतानुसारम्)</th></tr><tr><th>संज्ञा</th><th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>उत्कर्षवान् गुणः कश्चिद् यस्मिन्नुक्ते प्रतीयते।<br>तदुदाराह्वयं तेन सनाथा काव्यपद्धतिः॥</td><td>अर्थिनां कृपणादृष्टिस्त्वन्मुखे पतिता सकृत्।<br>तदवस्था पुनर्देव नान्यस्य मुखमीक्षते॥</td><td> श्लोके त्यागस्य उत्कर्षः साधु लक्ष्यते।</td></tr></table>';
+document.getElementById("shloka").innerHTML=" "; 
+}
+else if(x === "उदारत्वम्" && y === "वामनः"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">उदारता <br>(वामनमतानुसारम्)</th></tr><tr><th>संज्ञा</th> <th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>विकटत्वम् उदारता। </td><td>स्वचरणविनिविष्टैर्नूपुरैः नर्तकीनां झणिति<br> रणितमासीत् तत्र चित्रं कलं च।</td><td>पदानां लीलायमानत्वात् उदारता।</td></tr></table>';
+document.getElementById("shloka").innerHTML=" ";
+}
+else if(x === "ओजः" && y === "दण्डी"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">ओजः<br>(दण्डिमतानुसारम्)</th></tr><tr><th>संज्ञा</th> <th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>ओजः समासभूयस्त्वम्।</td><td>अस्त-मस्तक-पर्यन्त-समस्ता-र्कांशु-संस्तरा।<br>पीन-स्तन-स्थिता-ताम्र-कम्र-वस्त्रेव वारुणी॥</td><td> अनुप्रासपरिपूर्णतया ओजस उदाहरणम्।</td></tr></table>';
+document.getElementById("shloka").innerHTML=" ";   
+}
+else if(x === "ओजः" && y === "वामनः"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">ओजः <br>(वामनमतानुसारम्)</th></tr><tr><th>संज्ञा</th> <th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>गाढबन्धत्वमोजः। </td><td>विलुलितमकरन्दा मञ्जरीर्नर्तयति।।</td><td>गाढशैथिल्याद् ओजः।</td></tr></table>';
+document.getElementById("shloka").innerHTML=" ";
+}
+else if(x === "कान्तिः" && y === "दण्डी"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">कान्तिः<br>(दण्डिमतानुसारम्)</th></tr><tr><th>संज्ञा</th> <th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>कान्तं सर्वजनकान्तं लौकिकार्थानतिक्रमात्। <br>तच्च वार्ताभिधानेषु वर्णनास्वपि दृश्यते॥ </td><td>गृहाणि नाम तान्येव तपोराशिर्भवादृशः। <br>सम्भावयति यान्येव पावनैः पादपांसुभिः॥ </td><td> सत्पुरुषचरणसम्पर्केण गृहादीनां प्राशस्त्यवर्णनं लोकव्यवहारप्रसिद्धम्। <br>अत्र वार्ताभिधानरूपा कान्तिः।</td></tr></table>';
+document.getElementById("shloka").innerHTML=" "; 
+}
+else if(x === "कान्तिः" && y === "वामनः"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">कान्तिः<br>(वामनमतानुसारम्)</th></tr><tr><th>संज्ञा</th> <th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>औज्ज्वल्यं कान्तिः। </td><td>कुरङ्गीनेत्रालीस्तवकितवनाली परिसरः।</td><td> बन्धस्य औज्ज्वल्यात् कान्तिः।</td></tr></table>';
+document.getElementById("shloka").innerHTML=" ";
+}
+else if(x === "समाधिः" && y === "दण्डी"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">समाधिः<br>(दण्डिमतानुसारम्)</th></tr><tr><th>संज्ञा</th> <th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>अन्यधर्मस्ततोऽन्यत्र लोकसीमानुरोधिना। <br>सम्यगाधीयते यत्र स समाधिः स्मृतो यथा॥ </td><td>कुमुदानि निमीलन्ति कमलान्युन्मिषन्ति।</td><td> अत्र निमीलोन्मेषौ नेत्रस्य धर्मौ कुमुदकमलयोः <br>संकोचविकासतादात्म्येन अध्यवसितौ।</td></tr></table>';
+document.getElementById("shloka").innerHTML=" ";
+}
+else if(x === "समाधिः" && y === "वामनः"){
+document.getElementById("output").innerHTML= '<table><tr><th colspan="3">समाधिः <br>(वामनमतानुसारम्)</th></tr><tr><th>संज्ञा</th> <th>उदाहरणम्</th><th>मन्तव्यम्</th></tr><tr><td>आरोहावरोहक्रमः समाधिः। </td><td>निरानन्दः कौन्दे मधुनि परिभूक्तोज्झितरसे।</td><td>अत्र आरोहपूर्वकोऽवरोहः।</td></tr></table>';
+document.getElementById("shloka").innerHTML=" ";
+}
+else{
+document.getElementById("output").innerHTML=" ";
+document.getElementById("shloka").innerHTML='<p style="color: red;">** कश्चिदेको आचार्यो / गुणो निर्वचनीयः।**</p>';
+}
+}
+</script>
+</center></body>
+</html>

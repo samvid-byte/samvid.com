@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html>
+<html lang="sa">
+<head meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sahitya:wght@400;700&display=swap" rel="stylesheet">
+<head>
+<style>
+body{
+background-color: FloralWhite;
+}
+table{
+border:4px solid yellow;
+border-radius: 25px;
+background-color: #90ee90;
+padding: 5px;
+box-shadow: 10px 10px 25px green;
+}
+th, td{
+border:2px solid blue;
+border-radius: 10px;
+text-align: center;
+}
+th{
+color:#0000ff;
+}
+button{
+background-color: blue;
+border: 3px solid lime;
+color: white;
+padding: 7px;
+text-align: center;
+text-decoration: none;
+cursor: pointer;
+font-size: 15px;
+border-radius: 15px;
+}
+</style></head>
+<title>रसः (Emotion)</title>
+<body><center>
+<label>कश्चिदेको रसो निर्वचनीयः </label>
+<select id="ras">
+<option>--</option>
+<option>शृङ्गारः (Love)</option>
+<option>हास्यः (Humor)</option>
+<option>करुणः (Compassion)</option>
+<option>रौद्रः (Anger)</option>
+<option>वीरः (Heroism)</option>
+<option>भयानकः (Fear)</option>
+<option>वीभत्सः (Disgust)</option>
+<option>अद्भुतः (Wonder)</option>
+<option>शान्तः (Peace)</option>
+</select>
+<button onclick="showresult()">नुदतु</button>
+<p id="output"></p>
+<script>
+function showresult(){
+let x=document.getElementById("ras").value; // getting value
+if(x === "शृङ्गारः (Love)"){
+document.getElementById("output").innerHTML='<table><tr><th colspan="10">शृङ्गाररसः</th></tr><tr><th>स्थायिभावः</th><th colspan="2">वर्णः</th><th>दैवतः</th><th>उदाहरणम्</th><th>विभागः</th><th>विभावः</th><th>अनुभावः</th><th>व्यभिचारिभावः</th></tr><tr><td>रतिः</td><td>श्यामः</td><td style="background-color:#0000ff;">&nbsp;&nbsp;&nbsp;&nbsp;<td>विष्णुः</td><td>शून्यं वासगृहं विलोक्य शयनादुत्थाय किञ्चिच्छनै<br>र्निद्राव्याजमुपागतस्यसुचिरं निर्वर्ण्य पत्युर्मुखम्। <br>विस्रब्धं परिचुम्ब्य जातपुलकमालोक्य गण्डस्थलीं <br>लज्जानम्रमुखी प्रियेण हसता बाला चिरं चुम्बिता॥</td><td>१। विप्रलम्भः, सम्भोगः<br>२। वाक्यात्मकम्, नेपथ्यात्मकम्, क्रियात्मकम्</td><td>आलम्बनम् - नायिकाः दक्षिणादिनायकाः<br>उद्दीपनम् - चन्द्रः, चन्दनम्, रोलम्बरुतम्/भ्रमरगुञ्जनम्</td><td>भ्रूविक्षेपः,कटाक्षः</td><td>निर्वेदः, ग्लानिः, शङ्का, मदः, श्रमः, दैन्यम्, <br>चिन्ता, मोहः, स्मृतिः , धृतिः, ब्रीडा/लज्जा, <br>चपलता, हर्षः, आवेगः, जडता, गर्वः, विषादः, <br>औत्सुक्यम्, निद्रा, अपस्मारः, सुप्तम्/ स्वप्नः,<br> प्रबोधः/विबोधः, अमर्षः, अवहित्थम्, मतिः, व्याधिः, <br>उन्मादः, त्रासः/सन्त्रासः, वितर्कः</td></tr><tr><th colspan="10" style=font-size:150px;>&#128536;</th></tr><tr><th colspan="6">विरोधी रसः</th><th>गुणः</th><th>वृत्तिः</th><th>रीतिः</th></tr><tr><td colspan="6">करुणः, रौद्रः, वीरः, भयानकः, वीभत्सः, शान्तः</td><td>माधुर्य्यम्</td><td>उपनागरिका</td><td> वैदर्भी</td></tr></table>';
+}
+else if(x === "हास्यः (Humor)"){
+document.getElementById("output").innerHTML='<table><tr><th colspan="10">हास्यरसः</th></tr><tr><th>स्थायिभावः</th><th colspan="2">वर्णः</th><th>दैवतः</th><th>उदाहरणम्</th><th>विभागः</th><th>विभावः</th><th>अनुभावः</th><th>व्यभिचारिभावः</th></tr><tr><td>हासः</td><td>श्वेतः</td><td style="background-color:#ffffff;">&nbsp;&nbsp;&nbsp;&nbsp;<td>प्रमथः</td><td>गुरोर्गिरः पञ्च दीनान्यधीत्य वेदान्तशास्त्राणि दिनत्रयं च।<br>अमी समाघ्रायच तर्कवादान् समागताः कुक्कुटमिश्रपादाः॥</td><td>१। आत्मगतः, परगतः<br>२। स्मितम्, हसितम्, विहसितम्, अवहसितम्, अपहसितम्, अतिहसितम्<br>३। अङ्गगतम्, नेपथ्यगतम्, वाक्यगतम्</td><td> आलम्बनम् - यमालोक्य हसेज्जनः<br>उद्दीपनम् - विकृताकारादिपुरुषचेष्टा</td><td> अक्षिसंकोचनम्, वदनस्य हास्यम्</td><td> निद्रा, आलस्यम्, अवहित्थम्</td></tr><tr><th colspan="10" style=font-size:150px;>&#128512;</th></tr><tr><th colspan="6">विरोधी रसः</th><th>गुणः</th><th>वृत्तिः</th><th>रीतिः</th></tr><tr><td colspan="6">करुणः, रौद्रः, भयानकः, शान्तः</td><td>प्रसादः</td><td>कोमला</td><td>पाञ्चाली</td></tr></table>';
+}
+else if(x === "करुणः (Compassion)"){
+document.getElementById("output").innerHTML='<table><tr><th colspan="10">करुणरसः</th></tr><tr><th>स्थायिभावः</th><th colspan="2">वर्णः</th><th>दैवतः</th><th>उदाहरणम्</th><th>विभागः</th><th>विभावः</th><th>अनुभावः</th><th>व्यभिचारिभावः</th></tr><tr><td>शोकः</td><td>कपोतः</td><td style="background-color:#c1b4a0;">&nbsp;&nbsp;&nbsp;&nbsp;<td>यमः</td><td>विपिने क्व जटानिबन्धनं तव चेदं क्व मनोहरं वपुः। <br>अनयोर्घटनाविधेः स्फुटं ननु खड्गेन शिरीषकर्तनम्॥</td><td>धर्मोपघातजः, अपचयोद्भवः, शोककृतः</td><td> आलम्बनम् - शोच्यम्<br>उद्दीपनम् - दाहादिकावस्था</td><td> दैवनिन्दा, भूमौ पतनम्, क्रन्दनम् </td><td> निर्वेदः, ग्लानिः, श्रमः, चिन्ता, मोहः, स्मृतिः, <br>जडता, अपस्मारः, व्याधिः, उन्मादः</td></tr><tr><th colspan="10" style=font-size:150px;>&#128546;</th></tr><tr><th colspan="6">विरोधी रसः</th><th>गुणः</th><th>वृत्तिः</th><th>रीतिः</th></tr><tr><td colspan="6">शृङ्गारः, हास्यः</td><td>माधुर्य्यम्</td><td>उपनागरिका</td><td> वैदर्भी</td></tr></table>';
+}
+else if(x === "रौद्रः (Anger)"){
+document.getElementById("output").innerHTML='<table><tr><th colspan="10">रौद्ररसः</th></tr><tr><th>स्थायिभावः</th><th colspan="2">वर्णः</th><th>दैवतः</th><th>उदाहरणम्</th><th>विभागः</th><th>विभावः</th><th>अनुभावः</th><th>व्यभिचारिभावः</th></tr><tr><td>क्रोधः</td><td>रक्तः</td><td style="background-color:#ff2c2c;">&nbsp;&nbsp;&nbsp;&nbsp;<td>रुद्रः</td><td>कृतमनुमतं दृष्टं वा यैरिदं गुरुपातकं <br>मनुजपशुभिर्निर्मयादैर्भवद्भिरुदायुधैः। <br>नरकरिपुणा सार्द्धं तेषां सभीमकिरीटिना <br>मयमहमसृङ्मेदोमांसैः करोमि दिशां वलिम्॥</td><td>अङ्गगतम्, नेपथ्यगतम्, वाक्यगतम्</td><td> आलम्बनम् - शत्रुः<br>उद्दीपनम् – मुष्टिप्रहारः, पातनम्, विरुद्धाचरणम्, <br> खड्गादिना छेदः,शूलादिना अवदारणम्, संग्रामः, सम्भ्रमः</td><td> भ्रूविभङ्गः, ओष्ठदंशनम्, बाहुस्फोटनम्, तर्ज्जनम्,<br>आत्मावदानकथनम्, अस्त्रक्षेपणम्, क्रुरदृष्टिः</td><td> मदः, मोहः, आवेगः, अमर्षः </td></tr><tr><th colspan="10" style=font-size:150px;>&#128545;</th></tr><tr><th colspan="6">विरोधी रसः</th><th>गुणः</th><th>वृत्तिः</th><th>रीतिः</th></tr><tr><td colspan="6">शृङ्गारः, हास्यः, भयानकः, शान्तः</td><td>ओजः</td><td>परुषा</td><td>गौडी</td></tr></table>';
+}
+else if(x === "वीरः (Heroism)"){
+document.getElementById("output").innerHTML='<table><tr><th colspan="10">वीररसः</th></tr><tr><th>स्थायिभावः</th><th colspan="2">वर्णः</th><th>दैवतः</th><th>उदाहरणम्</th><th>विभागः</th><th>विभावः</th><th>अनुभावः</th><th>व्यभिचारिभावः</th></tr><tr><td>उत्साहः</td><td>स्वर्णः/गौरः</td><td style="background-color:#ffd700;"</td>&nbsp;&nbsp;&nbsp;&nbsp;<td>महेन्द्रः</td><td>शिरामुखैः स्यन्दत एव रक्तमद्यापि देहे मम मांसमस्ति।<br>तृप्तिं न पश्यामि तवापि तावत् किं भक्षणात्त्वं विरतो गरुत्मन्!</td><td>दानवीरः, धर्म्मवीरः, युद्धवीरः, दयावीरः</td><td> आलम्बनम् - विजेतव्यादयः<br>उद्दीपनम् – विजेतव्यादिचेष्टादिः<td>सहायः, अन्वेषणम्</td><td> स्मृतिः, धृतिः, गर्वः, मतिः, वितर्कः </td></tr><tr><th colspan="10" style=font-size:150px;>&#129409;</th></tr><tr><th colspan="6">विरोधी रसः</th><th>गुणः</th><th>वृत्तिः</th><th>रीतिः</th></tr><tr><td colspan="6">शृङ्गारः, भयानकः, शान्तः </td><td>ओजः</td><td>परुषा</td><td>गौडी</td></tr></table>';
+}
+else if(x === "भयानकः (Fear)"){
+document.getElementById("output").innerHTML='<table><tr><th colspan="10">भयानकरसः</th></tr><tr><th>स्थायिभावः</th><th colspan="2">वर्णः</th><th>दैवतः</th><th>उदाहरणम्</th><th>विभागः</th><th>विभावः</th><th>अनुभावः</th><th>व्यभिचारिभावः</th></tr><tr><td>भयः</td><td>कृष्णः</td><td style="background-color:#000080;"</td>&nbsp;&nbsp;&nbsp;&nbsp;<td>कालः/कृतान्तः</td><td>ग्रीवाभङ्गाभिरामं मुहुरनुपतति स्यन्दने दत्तदृष्टिः <br>पश्चार्धेन प्रविष्टः शरपतनभयाद्भूयसा पूर्वकायम्।<br>दर्भैरर्धावलीढैः श्रमविवृतमुखभ्रंशिभिः कीर्णवर्त्मा<br>पश्योदग्रप्लुतत्वाद्वियति बहुतरं स्तोकमुर्व्यां प्रयाति॥</td><td>व्याजः, अपराधः, वित्रासितकः</td><td>आलम्बनम् - यस्मादुत्पद्यते भीतिः <br>उद्दीपनम् – घोरतरा चेष्टा</td><td>वैवर्ण्यम्, गद्गदस्वरभाषणम्, प्रलयः, स्वेदः, रोमाञ्चः, दिक्प्रेक्षणम्</td><td> ग्लानिः, शङ्का, दैन्यम्, आवेगः, मोहः<br>अपस्मारः, त्रासः/सन्त्रासः, मरणम्</td></tr><tr><th colspan="10" style=font-size:150px;>&#128552;</th></tr><tr><th colspan="6">विरोधी रसः</th><th>गुणः</th><th>वृत्तिः</th><th>रीतिः</th></tr><tr><td colspan="6">शृङ्गारः, हास्यः, रौद्रः, वीरः, शान्तः</td><td>प्रसादः</td><td>कोमला</td><td>पाञ्चाली</td></tr></table>';
+}
+else if(x === "वीभत्सः (Disgust)"){
+document.getElementById("output").innerHTML='<table><tr><th colspan="10">वीभत्सरसः</th></tr><tr><th>स्थायिभावः</th><th colspan="2">वर्णः</th><th>दैवतः</th><th>उदाहरणम्</th><th>विभागः</th><th>विभावः</th><th>अनुभावः</th><th>व्यभिचारिभावः</th></tr><tr><td>जुगुप्सा</td><td>नीलः</td><td style="background-color:#0000ff;"</td>&nbsp;&nbsp;&nbsp;&nbsp;<td>महाकालः</td><td>उत्कृत्योत्कृत्य कृतिं प्रथममथ पृथुच्छोथभूयांसि मांस्या<br>न्यंसस्फिक्पृष्टपिण्डाद्यवयवसुलभान्युग्रपूतीनि जग्ध्वा।<br>आर्तः पर्य्यस्तनेत्रः प्रकटितदशनः प्रेतरङ्ककरङ्का<br>दङ्कस्थादस्थिसंस्थं स्थपुटगतमपि क्रव्यमध्यग्रमत्ति॥</td><td>क्षोभजः, शुद्धः, उद्वेगी</td><td> आलम्बनम् – दुर्गन्धमांसम्, रुधिरम्, मेदांसि <br>उद्दीपनम् – कृमिपातादि</td> <td>निष्ठीवनम्, आस्यवलनम् / मुखसंवरणम्, नेत्रसंकोचनम्</td><td> ग्लानिः, शङ्का, दैन्यम्, आवेगः, मोहः, <br>मोहः अपस्मारः, आवेगः, व्याधिः, मरणम्</td></tr><tr><th colspan="10" style=font-size:150px;>&#128530;</th></tr><tr><th colspan="6">विरोधी रसः</th><th>गुणः</th><th>वृत्तिः</th><th>रीतिः</th></tr><tr><td colspan="6">शृङ्गारः</td><td>ओजः</td><td>परुषा</td><td>गौडी</td></tr></table>';
+}
+else if(x === "अद्भुतः (Wonder)"){
+document.getElementById("output").innerHTML='<table><tr><th colspan="10">अद्भुतरसः</th></tr><tr><th>स्थायिभावः</th><th colspan="2">वर्णः</th><th>दैवतः</th><th>उदाहरणम्</th><th>विभागः</th><th>विभावः</th><th>अनुभावः</th><th>व्यभिचारिभावः</th></tr><tr><td>विस्मयः</td><td>पीतः</td><td style="background-color:#ffff00;"</td>&nbsp;&nbsp;&nbsp;&nbsp;<td>गन्धर्व्वः /ब्रह्मा</td><td>दोर्दण्डाञ्चितचन्द्रशेखरधनुर्दण्डावभङ्गोद्यत-<br>ष्टङ्कारध्वनिरार्य्यबालचरितचरितप्रस्तावनाडिण्डिमः।<br>द्राक्पर्य्यस्तकपालसंपुटमिलद्ब्रह्माण्डभाण्डोदर-<br>भ्राम्यत्पिण्डितचण्डिमा कथमहो नाद्यापि विश्राम्यति।</td><td>दिव्यः, आनन्दजः</td><td>आलम्बनम् – लोकातिगं/लोकातिवर्ति/अलौकिकं वस्तु <br>उद्दीपनम् – तस्य गुणानां महिमा</td><td>स्तम्भः, स्वेदः, रोमाञ्चः, गद्गदस्वरः, संभ्रमः, नेत्रविकाशः</td><td>हर्षः, आवेगः, जडता, वितर्कः</td></tr><tr><th colspan="10" style=font-size:150px;>&#128562;</th></tr><tr><th colspan="6">विरोधी रसः</th><th>गुणः</th><th>वृत्तिः</th><th>रीतिः</th></tr><tr><td colspan="6">-</td><td>प्रसादः</td><td>कोमला</td><td>पाञ्चाली</td></tr></table>';
+}
+else if(x === "--"){
+document.getElementById("output").innerHTML='<p style="color: red;">** कश्चिदेको रसो निर्वचनीयः।**</p>';
+}
+else{
+document.getElementById("output").innerHTML='<table><tr><th colspan="10">शान्तरसः</th></tr><tr><th>स्थायिभावः</th><th colspan="2">वर्णः</th><th>दैवतः</th><th>उदाहरणम्</th><th>विभागः</th><th>विभावः</th><th>अनुभावः</th><th>व्यभिचारिभावः</th></tr><tr><td>शमः </td><td>कुन्देन्दुसुन्दरः/श्वेतः</td><td style="background-color:#ffffff;"</td>&nbsp;&nbsp;&nbsp;&nbsp;<td> श्रीनारायणः</td><td>रथ्यान्तश्चरतस्तथा धृतजरत्कन्थालवस्याध्वगैः<br>सत्रासं च सकौतुकं च सदयं दृष्टस्य तैर्नागरैः।<br>निर्व्याजीकृतवित्सुधारसमुदा निद्रायमाणस्य मे<br>निःशङ्क करटः कदा करपुटीभिक्षां विलुण्ठिष्यति॥</td><td>-</td><td> आलम्बनम् – अनित्यत्वादिना अशेषवस्तुनिःसारता, परमात्मस्वरूपं वा <br>उद्दीपनम् – पुण्याश्रमः, हरिक्षेत्रम्, तीर्थम्, रम्यवनम्, महापुरुषसङ्गः</td> <td>रोमाञ्चः</td><td> ग्लानिः, शङ्का, दैन्यम्, आवेगः, मोहः, <br> निर्वेदः, हर्षः, , स्मृतिः, मतिः </td></tr><tr><th colspan="10" style=font-size:150px;>&#128524;</th></tr><tr><th colspan="6">विरोधी रसः</th><th>गुणः</th><th>वृत्तिः</th><th>रीतिः</th></tr><tr><td colspan="6">शृङ्गारः, हास्यः, रौद्रः, वीरः, भयानकः</td><td>माधुर्य्यम्</td><td>उपनागरिका</td><td> वैदर्भी</td></tr></table>';
+
+}
+}
+</script>
+</center></body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE HTML>
+<html>
+<html lang="sa">
+<head meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sahitya:wght@400;700&display=swap" rel="stylesheet">
+<head>
+<style>
+#label{
+background-color: green;
+opacity: 0.8;
+color: yellow;
+font-size: 15px;
+box-shadow: 10px 10px 25px green;
+border-radius:50px;
+padding: 5px;
+}
+button{
+opacity: 0.8;
+color: yellow;
+font-size: 15px;
+box-shadow: 10px 10px 25px green;
+border-radius:5px;
+}
+a{
+text-decoration: none;
+}
+#nayaka{
+background-color: #04AA6D;
+color: white;
+padding: 5px;
+border: 2px solid #ff00ff;
+border-radius: 5px;
+font-size: 20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#arw_nayaka{
+display: none;
+font-size: 50px;
+color: red;
+}
+#dhirodatta{
+background-color: #0066ff;
+color: white;
+padding: 5px;
+border: 2px solid #ff00ff;
+border-radius: 5px;
+font-size: 20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#dhirodhata{
+background-color: #ff6347;
+color: blue;
+padding: 5px;
+border: 2px solid yellow;
+border-radius: 5px;
+font-size:20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#dhiralalita{
+background-color: #ef00ff;
+color: white;
+padding: 5px;
+border: 2px solid blue;
+border-radius: 5px;
+font-size:20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#dhiraprasanta{
+background-color: #87cfeb;
+color:#ffffff;
+padding: 5px;
+border: 2px solid #00008b;
+border-radius: 5px;
+font-size:20px;
+cursor: pointer;
+transition-duration: 0.4s;
+}
+#nayaka:hover, #dhirodatta:hover, #dhirodhata:hover, #dhiralalita:hover, #dhiraprasanta:hover{
+box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
+}
+</style>
+</head>
+<title> नायकभेदः (Difference of Hero)</title>
+<body><center>
+<div id="label"><button><a href="nayaka_shringer.html">शृङ्गाररसे</a></button>&nbsp;&nbsp;<button><a href="nayaka_main.html">मुखपृष्ठम्</a></button></div>
+<hr><br><button id="nayaka" onclick="nayaka()">नायकः (शृङ्गाररसाद्विना अन्येषु रसेषु)</button>
+<div id="arw_nayaka">&#8681;</div>
+<p id="nayak"></p>
+<script>
+function nayaka(){
+if(document.getElementById("arw_nayaka").style.display === "none")
+{
+document.getElementById("arw_nayaka").style.display = "block";
+document.getElementById("nayak").innerHTML='<button id="dhirodatta" onclick="dhirodatta()">धीरोदात्तः <br>(उदाहरणम् - रामः, युधिष्ठिरः)</button>&nbsp;<button id="dhirodhata" onclick="dhirodhata()">धीरोद्धतः <br>(उदाहरणम् - भीमसेनः)</button>&nbsp;<button id="dhiralalita" onclick="dhiralalita()">धीरललितः <br>(उदाहरणम् - (रत्नावल्याम्) वत्सराजः)</button>&nbsp;<button id="dhiraprasanta" onclick="dhiraprasanta()">धीरप्रशान्तः <br>(उदाहरणम् - (मालतीमाधवे) माधवः)</button><br>';
+}
+else{
+document.getElementById("arw_nayaka").style.display = "none";
+document.getElementById("nayak").innerHTML=" ";
+}
+}
+</script>
+</center></body>
+</html>
