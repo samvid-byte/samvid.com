@@ -19,17 +19,34 @@ font-size: 18px;
 }
 #textcolor{
 font-family: "Sahitya", serif;
-  font-size:28px;
+font-size:28px;
 color: #009926;
 text-align: center;
 background-color:pink;
 border-style:ridge;
+margin: 1px;
 }
-#xx{
+#word_list{
 font-family: "Sahitya", serif;
-  font-size:13px;
+font-size:13px;
 color: lightgrey;
 text-align: center;
+}
+#prathama_eka:hover, #prathama_dwi:hover, #prathama_tri:hover, #dwitiya_eka:hover, #dwitiya_dwi:hover{
+color:red;
+cursor: pointer;
+background-color: yellow;
+}
+#rupsadhan_heading{
+color: blue;
+font-size: 20px;
+}
+#detail{
+background-color: khaki;
+border: 1px solid red;
+border-radius: 7px;
+padding: 5px;
+box-shadow: 5px 5px 13px red;
 }
 </style>
 </head>
@@ -38,8 +55,8 @@ text-align: center;
 <center><input type="text" id="txt" placeholder="अत्र अकारान्तं शब्दं चिनोतु।"></input>
 &nbsp;&nbsp;
 <button onclick="s_function()">CLICK</button></center><br>
-<center><p id="xx">[ उदाहरणम् - देव, अश्व, गज, मेघ, नख, अनिल, अनल, पाचक, तडाग, स्नेह ]</p></center>
-<br><br><hr><hr>
+<center><p id="word_list">[ उदाहरणम् - देव, अश्व, गज, मेघ, नख, अनिल, अनल, पाचक, तडाग, स्नेह ]</p></center>
+<hr><hr>
 <p id="pratipadika"></p>
 <!-- add js -->
 <!-- table -->
@@ -55,6 +72,34 @@ text-align: center;
 <tr><th>सप्तमी</th><th>एकवचनम्</th><th>द्विवचनम्</th><th>बहुवचनम्</th></tr>
 <tr><th>सम्बोधनम्</th><th>एकवचनम्</th><th>द्विवचनम्</th><th>बहुवचनम्</th></tr>
 </table></center> -->
-<hr>
+<hr><center><h5 id="heading" style= color:blue>*विशेषवक्तव्यम् - अत्र णत्वविधानं न प्रयुक्तम्। तस्मात् प्रयत्नेन समाधेयम्।</h5></center>
+<div id="detail"></div>
+<script>
+function prathama_eka(){
+let vl = document.getElementById("txt").value;
+document.getElementById("detail").innerHTML='&#10056;&nbsp;'+vl+'&nbsp;'+"+सुँ  [प्रथमैकवचनविवक्षायां "+'<span style=color:blue;>स्वौजसमौट्छष्टाभ्याम्भिस्ङेभ्याम्भ्यस्ङसिभ्याम्भ्यस्ङसोसाङ्ङ्योस्सुप् (४.१.२)</span>&nbsp;'+"सुँ प्रत्ययः।"+'&nbsp;<span style=color:blue;>सुप्तिङन्तं पदम् (१.४.१४)</span>&nbsp;'+" पदसंज्ञा।]"+'<br>&#10056;&nbsp;'+vl+'&nbsp;'+"+स्"+ '&nbsp;'+"["+'<span style=color:blue;>उपदेशेऽजनुनासिक इत् (१.३.४)</span>&nbsp;'+"अनुनासिकस्य उँकारस्य इत्संज्ञा।"+ '&nbsp;<span style=color:blue;>तस्य लोपः (१.३.९)</span>&nbsp'+"इति लोपः।]"+'<br>&#10056;&nbsp;'+vl+"स्"+'<br>&#10056;&nbsp;'+vl+"रुँ"+'&nbsp;'+"["+'<span style=color:blue;> ससजुषोः रुः (८.२.३३)</span>&nbsp;'+ "पदान्तस्य सकारस्य रुँत्वम्।]"+'<br>&#10056;&nbsp;'+vl+"र्" +'&nbsp;'+"["+'<span style=color:blue;>उपदेशेऽजनुनासिक इत् (१.३.४)</span>&nbsp;'+"अनुनासिकस्य उँकारस्य इत्संज्ञा।"+ '&nbsp;<span style=color:blue;>तस्य लोपः (१.३.९)</span>&nbsp;'+"इति लोपः।]"+'<br>&#10056;&nbsp;'+vl+":"+'&nbsp;'+"["+'<span style=color:blue;>खरवसानयोर्विसर्जनीयः (८.३.१५)</span>&nbsp;'+"अवसाने परे पदान्तरेफस्य विसर्गः।]";
+document.getElementById("heading").innerHTML='<u><span id="rupsadhan_heading">'+vl+'</span><span id="rupsadhan_heading">-शब्दरूपसाधनम्</span></u>';
+}
+function prathama_dwi(){
+let vl = document.getElementById("txt").value;
+document.getElementById("detail").innerHTML='&#10056;&nbsp;'+vl+'&nbsp;'+"+औ  [प्रथमाद्विवचनविवक्षायां "+'<span style=color:blue;>स्वौजसमौट्छष्टाभ्याम्भिस्ङेभ्याम्भ्यस्ङसिभ्याम्भ्यस्ङसोसाङ्ङ्योस्सुप् (४.१.२)</span>&nbsp;'+"औ प्रत्ययः।"+'&nbsp;<span style=color:blue;>सुप्तिङन्तं पदम् (१.४.१४)</span>&nbsp;'+"इति पदसंज्ञा।]"+'<br>&#10056;&nbsp;'+vl+'&nbsp;'+"+औ"+ '&nbsp;'+"["+'<span style=color:blue;>प्रथमयोः पुर्वसवर्णः (६.१.१०२)</span>&nbsp;'+"पूर्वसवर्णदीर्घे प्राप्ते"+ '&nbsp;<span style=color:blue;>नादिचि (६.१.१०४)</span>&nbsp'+"इति निषेधः।]"+'<br>&#10056;&nbsp;'+vl+'&#x094c;'+'&nbsp;'+"["+'<span style=color:blue;>वृद्धिरेचि (६.१.८८)</span>&nbsp;'+"वृद्धौ एकादेशे औकारः।]";
+document.getElementById("heading").innerHTML='<u><span id="rupsadhan_heading">'+vl+'</span><span id="rupsadhan_heading">-शब्दरूपसाधनम्</span></u>';
+}
+function prathama_tri(){
+let vl = document.getElementById("txt").value;
+document.getElementById("detail").innerHTML='&#10056;&nbsp;'+vl+'&nbsp;'+"+जस्  [प्रथमाबहुवचनविवक्षायां "+'<span style=color:blue;>स्वौजसमौट्छष्टाभ्याम्भिस्ङेभ्याम्भ्यस्ङसिभ्याम्भ्यस्ङसोसाङ्ङ्योस्सुप् (४.१.२)</span>&nbsp;'+"जस्-प्रत्ययः।"+'&nbsp;<span style=color:blue;>सुप्तिङन्तं पदम् (१.४.१४)</span>&nbsp;'+" इति पदसंज्ञा।]"+'<br>&#10056;&nbsp;'+vl+'&nbsp;'+"+अस्"+'&nbsp;'+"["+'<span style=color:blue;>चुटू (१.३.७)</span>&nbsp;'+"इति जकारस्य इत्संज्ञा।"+'&nbsp;<span style=color:blue;>तस्य लोपः (१.३.९)</span>&nbsp;'+"इति लोपः।"+'&nbsp;<span style=color:blue;>हलन्त्यम् (१.३.३)</span>&nbsp;'+" इति सकारस्य इत्संज्ञायां प्राप्तायां" +'&nbsp;<span style=color:blue;>न विभक्तौ तुस्माः (१.३.४)</span>&nbsp;'+ "इति निषिध्यते।]"+'<br>&#10056;&nbsp;'+vl+'&#x093e;'+"स्"+'&nbsp;'+"["+'<span style=color:blue;>प्रथमयोः पूर्वसवर्णः (६.१.१०२)</span>&nbsp;'+ "इति पूर्वसवर्णः दीर्घः।]"+'<br>&#10056;&nbsp;'+vl+'&#x093e;'+"रुँ"+'&nbsp;'+"["+'<span style=color:blue;> ससजुषोः रुः (८.२.३३)</span>&nbsp;'+"पदान्तस्य सकारस्य रुँत्वम्।]"+'<br>&#10056;&nbsp;'+vl+'&#x093e;'+"र्" +'&nbsp;'+"["+'<span style=color:blue;>उपदेशेऽजनुनासिक इत् (१.३.४)</span>&nbsp;'+"अनुनासिकस्य उँकारस्य इत्संज्ञा।"+ '&nbsp;<span style=color:blue;>तस्य लोपः (१.३.९)</span>&nbsp;'+"इति लोपः।]"+'<br>&#10056;&nbsp;'+vl+'&#x093e;'+":"+'&nbsp;'+"["+'<span style=color:blue;>खरवसानयोर्विसर्जनीयः (८.३.१५)</span>&nbsp;'+"अवसाने परे पदान्तरेफस्य विसर्गः।]";
+document.getElementById("heading").innerHTML='<u><span id="rupsadhan_heading">'+vl+'</span><span id="rupsadhan_heading">-शब्दरूपसाधनम्</span></u>';
+}
+function dwitiya_eka(){
+let vl = document.getElementById("txt").value;
+document.getElementById("detail").innerHTML='&#10056;&nbsp;'+vl+'&nbsp;'+"+अम्  [द्वितीयैकवचनविवक्षायां "+'<span style=color:blue;>स्वौजसमौट्छष्टाभ्याम्भिस्ङेभ्याम्भ्यस्ङसिभ्याम्भ्यस्ङसोसाङ्ङ्योस्सुप् (४.१.२)</span>&nbsp;'+"अम्-प्रत्ययः।"+'&nbsp;<span style=color:blue;>सुप्तिङन्तं पदम् (१.४.१४)</span>&nbsp;'+"इति पदसंज्ञा।]"+'<br>&#10056;&nbsp;'+vl+"म्"+'&nbsp;'+"["+'<span style=color:blue;>अमि पूर्वः (६.१.१०७)</span>&nbsp;'+"इति पूर्वरूपैकादेशः।]";
+document.getElementById("heading").innerHTML='<u><span id="rupsadhan_heading">'+vl+'</span><span id="rupsadhan_heading">-शब्दरूपसाधनम्</span></u>';
+}
+function dwitiya_dwi(){
+let vl = document.getElementById("txt").value;
+document.getElementById("detail").innerHTML='&#10056;&nbsp;'+vl+'&nbsp;'+"+औट्  [द्वितीयाद्विवचनविवक्षायां "+'<span style=color:blue;>स्वौजसमौट्छष्टाभ्याम्भिस्ङेभ्याम्भ्यस्ङसिभ्याम्भ्यस्ङसोसाङ्ङ्योस्सुप् (४.१.२)</span>&nbsp;'+"औट् प्रत्ययः।"+'&nbsp;<span style=color:blue;>सुप्तिङन्तं पदम् (१.४.१४)</span>&nbsp;'+"इति पदसंज्ञा।]"+'<br>&#10056;&nbsp;'+vl+'&nbsp;'+"+औ"+ '&nbsp;'+"["+'<span style=color:blue;>हलन्त्यम् (१.३.३) </span>&nbsp;'+"इति टकारस्य इत्संज्ञा।"+'&nbsp;<span style=color:blue;>तस्य लोपः (१.३.९)</span>&nbsp;'+" इति लोपः।]"+'<br>&#10056;&nbsp;'+vl+'&nbsp;'+"+औ"+ '&nbsp;'+"["+'<span style=color:blue;>प्रथमयोः पुर्वसवर्णः (६.१.१०२)</span>&nbsp;'+"पूर्वसवर्णदीर्घे प्राप्ते"+ '&nbsp;<span style=color:blue;>नादिचि (६.१.१०४)</span>&nbsp'+"इति निषेधः।]"+'<br>&#10056;&nbsp;'+vl+'&#x094c;'+'&nbsp;'+"["+'<span style=color:blue;>वृद्धिरेचि (६.१.८८)</span>&nbsp;'+"वृद्धौ एकादेशे औकारः।]";
+document.getElementById("heading").innerHTML='<u><span id="rupsadhan_heading">'+vl+'</span><span id="rupsadhan_heading">-शब्दरूपसाधनम्</span></u>';
+}
+</script>
 </body>
 </html>
