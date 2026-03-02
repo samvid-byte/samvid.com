@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="brah">
+<head meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+<style>
+#heading{
+height: 50px;
+border: 2px blue;
+border-radius: 10px;
+box-shadow: 10px 10px 25px green;
+background-color: yellow;
+color: red;
+font-size: 30px;
+}
+label{
+color: blue;
+font-size: 20px;
+}
+#flip-card {
+margin: 50px;
+  height: 300px;
+  width: 300px;
+  border: 2px solid blue;
+  border-radius: 25px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 8s ease;
+  /* no transform here */
+}
+
+#flip-card:hover {
+  transform: rotateY(180deg);
+  cursor: pointer;
+}
+
+#front, #back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  color: blue;
+  font-size: 100px;
+  place-items: center;
+  box-shadow: 10px 10px 25px blue;
+  border-radius: 25px;
+}
+#front {
+  background-color: yellow;
+  z-index: 2;
+}
+#back {
+  background-color: aqua;
+  transform: rotateY(180deg);
+}
+</style>
+</head>
+<title>Brahmi lipi (ब्राह्मीलिपिपरिचयः)</title>
+<html>
+<body><center>
+<div id="heading">ब्राह्मीलिपिपरिचयः</div><br><br>
+<div><label>कश्चिदेको वर्णः / संख्या निर्वचनीयः &nbsp;&nbsp;</label>
+<select id="varna" onchange="change_value(this)">
+<option>...स्वरवर्णाः...</option>
+<option>अ</option>
+<option>आ</option>
+<option>इ</option>
+<option>ई</option>
+<option>उ</option>
+<option>ऊ</option>
+<option>ऋ</option>
+<option>ॠ</option>
+<option>ऌ</option>
+<option>ॡ</option>
+<option>ए</option>
+<option>ऐ</option>
+<option>ओ</option>
+<option>औ</option>
+</select>&nbsp;&nbsp;अथवा&nbsp;&nbsp;
+<select id="varna" onchange="change_value(this)">
+<option>...व्यञ्जनवर्णाः...</option>
+<option>क</option>
+<option>ख</option>
+<option>ग</option>
+<option>घ</option>
+<option>ङ</option>
+<option>च</option>
+<option>छ</option>
+<option>ज</option>
+<option>झ</option>
+<option>ञ</option>
+<option>ट</option>
+<option>ठ</option>
+<option>ड</option>
+<option>ढ</option>
+<option>ण</option>
+<option>त</option>
+<option>थ</option>
+<option>द</option>
+<option>ध</option>
+<option>न</option>
+<option>प</option>
+<option>फ</option>
+<option>ब</option>
+<option>भ</option>
+<option>म</option>
+<option>य</option>
+<option>र</option>
+<option>ल</option>
+<option>व</option>
+<option>श</option>
+<option>ष</option>
+<option>स</option>
+<option>ह</option>
+</select>&nbsp;&nbsp;अथवा&nbsp;&nbsp;
+<select id="varna" onchange="change_value(this)">
+<option>...संख्या...</option>
+<option>०</option>
+<option>१</option>
+<option>२</option>
+<option>३</option>
+<option>४</option>
+<option>५</option>
+<option>६</option>
+<option>७</option>
+<option>८</option>
+<option>९</option>
+</select>
+<br>
+<div id="flip-card">
+<div id="front"></div>
+<div id="back"></div>
+</div></center>
+<script>
+function change_value(selectElement){
+  var all_varna = selectElement.value;
+  document.getElementById("front").textContent = all_varna;
+switch (all_varna){
+case "अ":
+document.getElementById("back").innerHTML = '&#x11005;';
+break;
+case "आ":
+document.getElementById("back").innerHTML = '&#x11006;';
+break;
+case "इ":
+document.getElementById("back").innerHTML = '&#x11007;';
+break;
+case "ई":
+document.getElementById("back").innerHTML = '&#x11008;';
+break;
+case "उ":
+document.getElementById("back").innerHTML = '&#x11009;';
+break;
+case "ऊ":
+document.getElementById("back").innerHTML = '&#x1100A;';
+break;
+case "ऋ":
+document.getElementById("back").innerHTML = '&#x1100B;';
+break;
+case "ॠ":
+document.getElementById("back").innerHTML = '&#x1100C;';
+break;
+case "ऌ":
+document.getElementById("back").innerHTML = '&#x1100D;';
+break;
+case "ॡ":
+document.getElementById("back").innerHTML = '&#x1100E;';
+break;
+case "ए":
+document.getElementById("back").innerHTML = '&#x1100F;';
+break;
+case "ऐ":
+document.getElementById("back").innerHTML = '&#x11010;';
+break;
+case "ओ":
+document.getElementById("back").innerHTML = '&#x11011;';
+break;
+case "औ":
+document.getElementById("back").innerHTML = '&#x11012;';
+break;
+case "क":
+document.getElementById("back").innerHTML = '&#x11013;';
+break;
+case "ख":
+document.getElementById("back").innerHTML = '&#x11014;';
+break;
+case "ग":
+document.getElementById("back").innerHTML = '&#x11015;';
+break;
+case "घ":
+document.getElementById("back").innerHTML = '&#x11016;';
+break;
+case "ङ":
+document.getElementById("back").innerHTML = '&#x11017;';
+break;
+case "च":
+document.getElementById("back").innerHTML = '&#x11018;';
+break;
+case "छ":
+document.getElementById("back").innerHTML = '&#x11019;';
+break;
+case "ज":
+document.getElementById("back").innerHTML = '&#x1101A;';
+break;
+case "झ":
+document.getElementById("back").innerHTML = '&#x1101B;';
+break;
+case "ञ":
+document.getElementById("back").innerHTML = '&#x1101C;';
+break;
+case "ट":
+document.getElementById("back").innerHTML = '&#x1101D;';
+break;
+case "ठ":
+document.getElementById("back").innerHTML = '&#x1101E;';
+break;
+case "ड":
+document.getElementById("back").innerHTML = '&#x1101F;';
+break;
+case "ढ":
+document.getElementById("back").innerHTML = '&#x11020;';
+break;
+case "ण":
+document.getElementById("back").innerHTML = '&#x11021;';
+break;
+case "त":
+document.getElementById("back").innerHTML = '&#x11022;';
+break;
+case "थ":
+document.getElementById("back").innerHTML = '&#x11023;';
+break;
+case "द":
+document.getElementById("back").innerHTML = '&#x11024;';
+break;
+case "ध":
+document.getElementById("back").innerHTML = '&#x11025;';
+break;
+case "न":
+document.getElementById("back").innerHTML = '&#x11026;';
+break;
+case "प":
+document.getElementById("back").innerHTML = '&#x11027;';
+break;
+case "फ":
+document.getElementById("back").innerHTML = '&#x11028;';
+break;
+case "ब":
+document.getElementById("back").innerHTML = '&#x11029;';
+break;
+case "भ":
+document.getElementById("back").innerHTML = '&#x1102A;';
+break;
+case "म":
+document.getElementById("back").innerHTML = '&#x1102B;';
+break;
+case "य":
+document.getElementById("back").innerHTML = '&#x1102C;';
+break;
+case "र":
+document.getElementById("back").innerHTML = '&#x1102D;';
+break;
+case "ल":
+document.getElementById("back").innerHTML = '&#x1102E;';
+break;
+case "व":
+document.getElementById("back").innerHTML = '&#x1102F;';
+break;
+case "श":
+document.getElementById("back").innerHTML = '&#x11030;';
+break;
+case "ष":
+document.getElementById("back").innerHTML = '&#x11031;';
+break;
+case "स":
+document.getElementById("back").innerHTML = '&#x11032;';
+break;
+case "ह":
+document.getElementById("back").innerHTML = '&#x11033;';
+break;
+case "०":
+document.getElementById("back").innerHTML = '&#x11066;';
+break;
+case "१":
+document.getElementById("back").innerHTML = '&#x11067;';
+break;
+case "२":
+document.getElementById("back").innerHTML = '&#x11068;';
+break;
+case "३":
+document.getElementById("back").innerHTML = '&#x11069;';
+break;
+case "४":
+document.getElementById("back").innerHTML = '&#x1106A;';
+break;
+case "५":
+document.getElementById("back").innerHTML = '&#x1106B;';
+break;
+case "६":
+document.getElementById("back").innerHTML = '&#x1106C;';
+break;
+case "७":
+document.getElementById("back").innerHTML = '&#x1106D;';
+break;
+case "८":
+document.getElementById("back").innerHTML = '&#x1106E;';
+break;
+case "९":
+document.getElementById("back").innerHTML = '&#x1106F;';
+}
+}
+</script>
+</body>
+</html>

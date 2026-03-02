@@ -18,14 +18,14 @@ background-color: khaki;
 height: 17px;
 width: 55px;
 padding: 7px;
-border-radius:5px;
-box-shadow:5px 2px 7px 2px #fff7ca;
+//border-radius:5px;
+//box-shadow:5px 2px 7px 2px #fff7ca;
 }
 #txt{
 background-color: green;
 color:#2cc4d0;
 height: 40px;
-width: 200px;
+width: 500px;
 font-size: 24px;
 padding: 8px;
 border-radius:15px;
@@ -40,6 +40,13 @@ font-size:16px;
 border-radius: 10px;
 box-shadow:5px 2px 8px 4px green ;
 }
+#btn:hover{
+background-color:tomato;
+color: white;
+border: 2px solid yellow;
+border-radius: 10px;
+box-shadow:5px 2px 8px 4px tomato;
+}
 </style>
 </head>
 <body bgcolor="khaki">
@@ -47,10 +54,10 @@ box-shadow:5px 2px 8px 4px green ;
 <div id="suddha">वाक्यस्य शुद्धाशुद्धम्</div><br><hr><br>
 <div id="match"></div><br><br>
 <div id="txt">&#128073; वाक्यं पश्यतु।</div><br><br>
-<button id="btn" onclick="word()">नुद्यताम्</button></center>
+<button id="btn" onclick="word()">नुद्यताम्<br>(CLICK)</button></center>
 <script>
 function word(){
-const verb_list_uttam = ["गच्छा", "लिखा", "पठा", "वदा", "भवा", "जया", "पश्या", "यच्छा", "क्रन्दा", "नमा", "त्यजा", "वसा", "भ्रमा", "वहा", "खादा", "पचा", "याचा", "नया", "धावा", "ध्याया", "स्पृशा", "इच्छा"];
+const verb_list_uttam = ["विद्यालयं  गच्छा", "रम्ये उद्याने वसन् काव्यं लिखा", "कालिदासस्य मेघदूतं पठा", "सत्यं वदा", "उत्तमः छात्रः भवा", "जया", "नद्याः तीरे वसन् ऊर्म्मिमालां पश्या", "यच्छा", "क्रन्दा", "महादेवं नमा", "पितृभयात् गृहं त्यजा", "वसा", "सुखात् पुत्रेण सह उद्याने भ्रमा", "अधुना रजक इव वस्त्राणि वहा", "मित्रैः सह अद्य नारिकेरं खादा", "अद्य सूपशाकादि-व्यञ्जनं  पचा", "क्षुधार्तः सन् भिक्षां याचा", "नया", "धावा", "ध्याया", "स्पृशा", "इच्छा"];
 const verb_list_all = ["गच्छ", "लिख", "पठ", "वद", "भव", "जय", "पश्य","यच्छ", "क्रन्द","नम", "त्यज", "वस", "भ्रम","वह", "खाद", "पच", "याच", "नय", "धाव", "ध्याय", "स्पृश", "इच्छ"];
 const arr_uttam=["अहम्", "आवाम्", "वयम्"];
 const arr_uttam_v=["मि ।", "वः ।", "मः ।"];
