@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="sa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>णत्वविधानम्</title>
+    <style>
+	h1{color: blue; background-color: yellow; border: 1px solid tomato; border-radius: 5px; box-shadow: 10px 10px 25px tomato;}
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        input, button { padding: 10px; margin: 10px 0;  font-size: 20px;}
+	button { background-color: aqua;  color: white; border: 2px solid blue; border-radius: 5px; box-shadow: 10px 10px 25px aqua;}
+	button:hover {cursor: pointer; background-color: tomato;  color: blue; border: 2px solid yellow; box-shadow: 10px 10px 25px tomato;}
+        #result { margin-top: 20px; font-weight: bold;  font-size: 30px; color: white; background-color: green; border: 2px solid yellow; box-shadow: 10px 10px 25px lime;}
+	span{font-size: 50px; color: white;}
+	p{font-size: 20px; color: red;}
+	#rot{transform: rotate(180deg); display: inline-block; font-size: 50px;}
+	#nrot{display: inline-block; font-size: 50px;}
+	div{color: red;}
+</style>
+</head>
+<body>
+    <center><h1>णत्वविधानम् </h1><center>
+    <input type="text" id="wordInput" placeholder="किमपि एकं पदं प्रदीयताम्।">
+    <button onclick="NatvaVidhana()">फलम् (Result)</button>
+    <center><div id="result"></div></center>
+    <div><p id="nrot">&#9753;</p> रषाभ्यां नो णः समानपदे (पा. सू. - ८.४.१), अट्कुप्वाङ्नुम्व्यवायेऽपि (पा. सू. - ८.४.२) चेति सूत्रद्वयम् अवलम्ब्य अत्र णत्वविधानस्य परिणामः प्रदर्शयिष्यते।<p id="rot">&#9753;</p></div>
+
+    <script>
+        function NatvaVidhana() {
+            let word = document.getElementById("wordInput").value;
+            let result = "";
+            let foundRri = false;
+            let allowedChars = ['अ','आ', 'ा', 'इ', 'ि', 'ई', 'ी', 'उ', 'ु', 'ऊ', 'ू', 'ऋ', 'ृ', 'ॠ', 'ॄ', 'ऌ', 'ॢ', 'ॡ', 'ए', 'े', 'ओ', 'ो', 'ऐ', 'ै', 'औ','ौ', 'ह', 'य', 'व', 'र', 'क', 'ख', 'ग', 'घ', 'ङ', 'प', 'फ', 'ब', 'भ', 'म', 'ं'];
+            for (let i = 0; i < word.length; i++) {
+                let char = word[i];
+                result += char;
+                if (char === 'ऋ' || char ===  'ॠ' || char === 'र' || char === 'ष' || char === 'र्' || char ===  'ृ'|| char ===  'ॄ') {
+                    foundRri = true;
+                } else if (foundRri && char === 'न') {
+                    result = result.slice(0, -1) + 'ण';
+                    foundRri = false;
+                } else if (foundRri && !allowedChars.includes(char)) {
+                    // If a non-allowed character comes after ऋ, र, ष and before न, reset foundRri
+                    if (char !== 'न') foundRri = false;
+                }
+            }
+            document.getElementById("result").innerHTML = "फलम् (Result) : "+'<hr><br><span>&#9755;</span>&nbsp;'+ result;
+        }
+    </script>
+</body>
+</html>
+
