@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="sa">
+<head meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sahitya:wght@400;700&display=swap" rel="stylesheet">
+<title>समासः (samasa)</title>
+<style>
+body{
+font-family:'Lato','Sans-serif','Sahitya';
+font-size: 25px;
+background-color: #ADD8E6;
+}
+#samas_result{
+border-radius:5px;
+border:2px solid #003153;
+color: #0054b4;
+font-family:'Lato','Sans-serif','Sahitya';
+font-size: 15px;
+font-weight: bold;
+padding: 3px;
+text-align: center;
+text-decoration: none;
+cursor: pointer;
+box-shadow: 10px 10px 25px aqua;
+width: 70px;
+height: 30px;
+}
+#samas_result:hover{
+background-color: #003153;
+color: white;
+border: 2px solid yellow;
+font-weight: bold;
+cursor: pointer;
+box-shadow: 10px 10px 25px #603fef;
+width: 70px;
+height: 30px;
+}
+#show_result{
+text-align: justify;
+}
+#dv{
+border-radius:30px;
+border:20px solid aqua;
+}
+#btn_f{
+height:30px;
+width:30px;
+border-radius:60%;
+border:none;
+}
+#btn_a, #btn_b, #btn_c, #btn_d, #btn_e
+{
+height:30px;
+width:30px;
+border-radius:60%;
+border:none;
+}
+#btn_a{
+background-color:green;
+}
+#btn_b{
+background-color:#008CBA;
+}
+#btn_c{
+background-color:#F44336;
+}
+#btn_d{
+background-color:#E7E7E7;
+}
+#btn_e{
+background-color:yellow;
+}
+</style>
+</head>
+<body id="bdcl">
+<button id="btn_a" onclick="clr_chng_a()"></button>
+<button id="btn_b" onclick="clr_chng_b()"></button>
+<button id="btn_c" onclick="clr_chng_c()"></button>
+<button id="btn_d" onclick="clr_chng_d()"></button>
+<button id="btn_e" onclick="clr_chng_e()"></button>
+<center><div id="dv">
+<center><p>रूपसिद्धिः</p>
+<select id="get_word">
+<option>भूतपूर्वः</option>
+<option>जीमूतस्येव</option>
+</select>
+<button id="samas_result" onclick="samas_result()">नुदतु</button>
+<p>**********************************************</p>
+<p id="show_result"></p></center>
+<p>**********************************************</p>
+</div></center>
+<script>
+function clr_chng_a(){
+document.getElementById("bdcl").style.backgroundColor = 'green';
+}
+</script>
+<script>
+function clr_chng_b(){
+document.getElementById("bdcl").style.backgroundColor = '#008CBA';
+}
+</script>
+<script>
+function clr_chng_c(){
+document.getElementById("bdcl").style.backgroundColor = '#F44336';
+}
+</script>
+<script>
+function clr_chng_d(){
+document.getElementById("bdcl").style.backgroundColor = '#E7E7E7';
+}
+</script>
+<script>
+function clr_chng_e(){
+document.getElementById("bdcl").style.backgroundColor = 'yellow';
+}
+</script>
+<script>
+function samas_result(){
+let x=document.getElementById("get_word").value; // getting value
+if(x === "भूतपूर्वः"){
+document.getElementById("show_result").innerHTML='&#x2618;'+"समासः - सहसुपासमासः"+'<br>&#x2618;'+"लौकिकविग्रहः - पूर्वं भूतः"+'<br>&#x2618;'+"अलौकिकविग्रहः - पूर्व अम् भूत सु"+'<br>&#x2618;'+"पूर्व भूत ["+'<span style=color:blue;>सह सुपा (२.१.४)</span>&nbsp;'+"इति 'पूर्वमि'ति सुबन्तपदेन सह 'भूतः' इति सुबन्तपदस्य समासः।"+'<span style=color:blue;> कृत्तद्धितसमासाश्च (१.२.४६)</span>&nbsp;'+"इति प्रातिपदिकसंज्ञा।"+'<span style=color:blue;>  सुपो धातुप्रातिपदिकयोः (२.४.७१)</span>&nbsp;'+" इति सुपोः लोपः।]"+'<br>&#x2618;'+"भूतपूर्व ["+'<span style=color:blue;>भूतपूर्वे चरट् (५.३.५३)</span>&nbsp;'+"इति निर्देशाद् भूतशब्दस्य पूर्वनिपातः।]"+'<br>&#x2618;'+"भूतपूर्व ["+'<span style=color:blue;>एकदेशविकृतमनन्यवत्</span>&nbsp;'+" इति न्यायानुसारं पुनः प्रातिपदिकसंज्ञा।]"+'<br>&#x2618;भूतपूर्व + सुँ ['+'<span style=color:blue;>स्वौजसमौट्छष्टाभ्याम्भिस्ङेभ्याम्भ्यस्ङसिभ्याम्भ्यस्ङसोसाङ्ङ्योस्सुप् (४.१.२)</span>&nbsp;'+"इति सुँ-प्रत्ययः।"+'&nbsp;<span style=color:blue;>सुप्तिङन्तं पदम् (१.४.१४)</span>&nbsp;'+" पदसंज्ञा।]"+'<br>&#x2618;&nbsp;'+"भूतपूर्व+स्"+ '&nbsp;'+"["+'<span style=color:blue;>उपदेशेऽजनुनासिक इत् (१.३.२)</span>&nbsp;'+"अनुनासिकस्य उँकारस्य इत्संज्ञा।"+ '&nbsp;<span style=color:blue;>तस्य लोपः (१.३.९)</span>&nbsp;'+"इति लोपः।]"+'<br>&#x2618;&nbsp;'+"भूतपूर्व+स्"+'<br>&#x2618;&nbsp;'+"भूतपूर्व+रुँ"+'&nbsp;'+"["+'<span style=color:blue;> ससजुषोः रुः (८.२.६६)</span>&nbsp;'+ "पदान्तस्य सकारस्य रुँत्वम्।]"+'<br>&#x2618;&nbsp;'+"भूतपूर्व+र्" +'&nbsp;'+"["+'<span style=color:blue;>उपदेशेऽजनुनासिक इत् (१.३.२)</span>&nbsp;'+"अनुनासिकस्य उँकारस्य इत्संज्ञा।"+ '&nbsp;<span style=color:blue;>तस्य लोपः (१.३.९)</span>&nbsp;'+"इति लोपः।]"+'<br>&#x2618;&nbsp;'+"भूतपूर्व:"+'&nbsp;'+"["+'<span style=color:blue;>खरवसानयोर्विसर्जनीयः (८.३.१५)</span>&nbsp;'+"अवसाने परे पदान्तरेफस्य विसर्गः।]";
+}
+else if(x === "जीमूतस्येव"){
+document.getElementById("show_result").innerHTML= '&#x2618;'+"समासः - सहसुपासमासः"+'<br>&#x2618;'+"लौकिकविग्रहः - जीमूतस्य इव"+'<br>&#x2618;'+"अलौकिकविग्रहः - जीमूत ङस् इव"+'<br>&#x2618;'+"जीमूतस्य इव ["+'<span style=color:blue;>इवेन सह समासो विभक्त्यलोपश्च</span>&nbsp;'+"इति वार्तिकानुसारम् 'इवे'न सह 'जीमूतस्ये'ति सुबन्तपदस्य समासः। सुपो न लोपः।]"+'<br>&#x2618;'+"जीमूतस्येव ["+'<span style=color:blue;>आद् गुणः (६.१.८७)</span>&nbsp;'+" इति गुणः।]";
+}
+}
+</script>
+</body>
+</html>
