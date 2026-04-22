@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<html lang="sa">
+<head meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Sahitya:wght@400;700&display=swap" rel="stylesheet">
+<head>
+<style>
+.container{
+display: flex;
+}
+#sec_one, #sec_two{
+flex: 1;
+padding: 10px;
+border: 2px solid green;
+border-radius: 10px;
+margin-right:1px;
+background-color: #63a6b0;
+color: #FFFFE0;
+}
+li{
+cursor: pointer;
+}
+#varnavinyasa-vakrata:hover, #vakya-vakrata:hover, #prakarana-vakrata:hover, #prabandha-vakrata:hover, #rudhivaichitrya-vakrata:hover, #paryaya-vakrata:hover, #upachara-vakrata:hover, #visheshana-vakrata:hover, #samvitti-vakrata:hover, #vritti-vakrata:hover, #bhavavaichitrya-vakrata:hover, #lingavaichitrya-vakrata:hover, #kriyavaichitrya-vakrata:hover, #kalavaichitrya-vakrata:hover, #karaka-vakrata:hover, #sankhya-vakrata:hover, #purusha-vakrata:hover, #upagraha-vakrata:hover, #pratyaya-vakrata:hover{
+color: blue;
+background-color: aqua;
+border-radius: 15px;
+}
+#varnavinyasa-vakrata:active, #vakya-vakrata:active, #prakarana-vakrata:active, #prabandha-vakrata:active,  #rudhivaichitrya-vakrata:active, #paryaya-vakrata:active, #upachara-vakrata:active, #visheshana-vakrata:active, #samvitti-vakrata:active, #vritti-vakrata:active, #bhavavaichitrya-vakrata:active, #lingavaichitrya-vakrata:active, #kriyavaichitrya-vakrata:active, #kalavaichitrya-vakrata:active, #karaka-vakrata:active, #sankhya-vakrata:active, #purusha-vakrata:active, #upagraha-vakrata:active, #pratyaya-vakrata:active{
+color: red;
+}
+</style>
+</head>
+<title> वक्रोक्तिविभागः (Division of Vakrokti) </title>
+<body><div class="container"><div id="sec_one">
+<center><h2>(कुन्तकानुसारं) वक्रोक्तिविभागः</h2></center>
+<li><h3>वक्रोक्तिप्रभेदः</h3>
+	<ol><li id="varnavinyasa-vakrata" onclick="varnavinyasavakrata()">वर्णविन्यासवक्रता</li>
+		<li id="padapurvardha-vakrata" onclick="padapurvardhavakrata()">पदपूर्वार्द्धवक्रता
+
+			<ol><li id="rudhivaichitrya-vakrata" onclick="rudhivaichitrya-vakrata()">रूढिवैचित्र्यवक्रता</li>
+			<li id="paryaya-vakrata" onclick="paryaya-vakrata()">पर्यायवक्रता</li>
+			<li id="upachara-vakrata" onclick="upachara-vakrata()">उपचारवक्रता</li>
+			<li id="visheshana-vakrata" onclick="visheshana-vakrata()">विशेषणवक्रता</li>
+			<li id="samvitti-vakrata" onclick="samvitti-vakrata()">संवित्तिवक्रता</li>
+			<li id="vritti-vakrata" onclick="vritti-vakrata()">वृत्तिवक्रता</li>
+			<li id="bhavavaichitrya-vakrata" onclick="bhavavaichitrya-vakrata()">भाववैचित्र्यवक्रता</li>
+			<li id="lingavaichitrya-vakrata" onclick="lingavaichitrya-vakrata()">लिङ्गवैचित्र्यवक्रता</li>
+			<li id="kriyavaichitrya-vakrata" onclick="kriyavaichitrya-vakrata()">क्रियावैचित्र्यवक्रता</li></ol>				
+		</li>	
+		<li id="pratyay-vakrata" onclick="pratyayvakrata()">प्रत्ययवक्रता (पदपरार्धवक्रता)
+			<ol><li id="kalavaichitrya-vakrata" onclick="kalavaichitrya-vakrata()">कालवैचित्र्यवक्रता</li>
+			<li id="karaka-vakrata" onclick="kalavaichitrya-vakrata()">कारकवक्रता</li>
+			<li id="sankhya-vakrata" onclick="kalavaichitrya-vakrata()">संख्यावक्रता</li>
+			<li id="purusha-vakrata" onclick="kalavaichitrya-vakrata()">पुरुषवक्रता</li>
+			<li id="upagraha-vakrata" onclick="kalavaichitrya-vakrata()">उपग्रहवक्रता</li>
+			<li id="pratyaya-vakrata" onclick="kalavaichitrya-vakrata()">प्रत्ययवक्रता</li></ol>
+		</li>
+		<li id="vakya-vakrata" onclick="vakyavakrata()">वाक्यवक्रता</li>
+		<li id="prakarana-vakrata" onclick="prakaranavakrata()">प्रकरणवक्रता</li>
+		<li id="prabandha-vakrata" onclick="prabandhavakrata()">प्रबन्धवक्रता</li>
+	</ol>
+</div>
+<div id="sec_two"><p id="vakrata"></p></div></div>
+<script>
+function varnavinyasavakrata(){
+document.getElementById("vakrata").innerHTML='<center>वर्णविन्यासवक्रत्वं पदपूर्वार्द्धवक्रता।<br>वक्रतायाः परोऽप्यस्ति प्रकारः प्रत्ययाश्रयः॥ <br>[वक्रोक्तिजीवितम् - १/१९]</center>';
+}
+function padapurvardhavakrata(){
+document.getElementById("vakrata").innerHTML='<center>वर्णविन्यासवक्रत्वं पदपूर्वार्द्धवक्रता।<br>वक्रतायाः परोऽप्यस्ति प्रकारः प्रत्ययाश्रयः॥<br> [वक्रोक्तिजीवितम् - १/१९]</center>';
+}
+function pratyayvakrata(){
+document.getElementById("vakrata").innerHTML='<center>वर्णविन्यासवक्रत्वं पदपूर्वार्द्धवक्रता।<br>वक्रतायाः परोऽप्यस्ति प्रकारः प्रत्ययाश्रयः॥ <br>[वक्रोक्तिजीवितम् - १/१९]</center>';
+}
+function vakyavakrata(){
+document.getElementById("vakrata").innerHTML='<center>वाक्यस्य वक्रभावोऽन्यो भिद्यते यः सहस्रधा।<br>यत्रालङ्कारवर्गोऽसौ सर्वोऽप्यन्तर्भविष्यति॥ <br>[वक्रोक्तिजीवितम् - १/२०]</center>';
+}
+function prakaranavakrata(){
+document.getElementById("vakrata").innerHTML='<center>वक्रभावः प्रकरणे प्रबन्धे वास्ति यादृशः।<br>उच्यते सहजाहार्यसौकुमार्यमनोहरः॥ <br>[वक्रोक्तिजीवितम् - १/२१]</center>';
+}
+function prabandhavakrata(){
+document.getElementById("vakrata").innerHTML='<center>वक्रभावः प्रकरणे प्रबन्धे वास्ति यादृशः।<br>उच्यते सहजाहार्यसौकुमार्यमनोहरः॥ <br>[वक्रोक्तिजीवितम् - १/२१]</center>';
+}
+</script>
+</body>
+</html>
+
