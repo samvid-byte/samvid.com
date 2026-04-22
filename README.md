@@ -1,2 +1,2 @@
 # samvid.com
-Learning Website
+Learning Webpage
