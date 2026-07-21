@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="sa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>संस्कृतव्याकरणम् (अभ्यासवर्गः)</title>
+    <style>
+        /* ==========================================================================
+           1. RESET & BASE STYLES
+           ========================================================================== */
+        :root {
+            --bg-sky: #87CEEB;
+            --bg-ground: #7CFC00;
+            --card-bg: #FFFFFF;
+            --text-color: #2C3E50;
+            --primary: #FF6B6B;
+            --primary-dark: #EE5253;
+            --secondary: #4ECDC4;
+            --accent: #FFEAA7;
+            --success: #2ECC71;
+            --danger: #FF7675;
+            --warning: #FDCB6E;
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            --radius: 20px;
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        [data-theme="dark"] {
+            --bg-sky: #1A252F;
+            --bg-ground: #27AE60;
+            --card-bg: #2C3E50;
+            --text-color: #ECF0F1;
+            --primary: #FF7675;
+            --secondary: #1ABC9C;
+            --accent: #D63031;
+            --shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, var(--bg-sky) 0%, var(--bg-sky) 70%, var(--bg-ground) 70%, var(--bg-ground) 100%);
+            min-height: 100vh;
+            color: var(--text-color);
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* ==========================================================================
+           2. ANIMATED BACKGROUND ELEMENTS
+           ========================================================================== */
+        .sky-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50px;
+            animation: floatCloud linear infinite;
+        }
+        .cloud::before, .cloud::after {
+            content: '';
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+        }
+        .cloud1 { width: 120px; height: 40px; top: 10%; animation-duration: 35s; }
+        .cloud1::before { width: 50px; height: 50px; top: -20px; left: 20px; }
+        .cloud1::after { width: 40px; height: 40px; top: -15px; left: 55px; }
+
+        .cloud2 { width: 180px; height: 60px; top: 25%; animation-duration: 45s; animation-delay: -15s; }
+        .cloud2::before { width: 70px; height: 70px; top: -30px; left: 30px; }
+        .cloud2::after { width: 60px; height: 60px; top: -20px; left: 80px; }
+
+        @keyframes floatCloud {
+            from { left: -200px; }
+            to { left: 100vw; }
+        }
+
+        .rainbow {
+            position: fixed;
+            top: 50px;
+            right: -50px;
+            width: 300px;
+            height: 150px;
+            border-radius: 150px 150px 0 0;
+            border: 15px solid red;
+            border-bottom: 0;
+            box-shadow: 0 -15px 0 orange, 0 -30px 0 yellow, 0 -45px 0 green, 0 -60px 0 blue;
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .balloon {
+            position: fixed;
+            width: 40px;
+            height: 50px;
+            border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%;
+            bottom: -60px;
+            animation: floatUp 15s linear infinite;
+            z-index: 0;
+        }
+        .balloon::after {
+            content: "";
+            position: absolute;
+            bottom: -12px;
+            left: 19px;
+            width: 2px;
+            height: 15px;
+            background: #888;
+        }
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-120vh) rotate(20deg); opacity: 0; }
+        }
+
+        /* ==========================================================================
+           3. CONTAINER & CARDS
+           ========================================================================== */
+        #game-container {
+            width: 90%;
+            max-width: 850px;
+            min-height: 600px;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            position: relative;
+            z-index: 10;
+            margin: 20px auto;
+            border: 5px solid var(--accent);
+            backdrop-filter: blur(5px);
+            transition: var(--transition);
+        }
+
+        .screen {
+            display: none;
+            flex-direction: column;
+            animation: fadeIn 0.5s ease-out forwards;
+        }
+        .screen.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px) scale(0.98); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* Top Controls Header */
+        .header-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px dashed #DDD;
+        }
+
+        .control-btns {
+            display: flex;
+            gap: 10px;
+        }
+
+        .icon-btn {
+            background: var(--secondary);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: var(--transition);
+        }
+        .icon-btn:hover { transform: scale(1.1) rotate(5deg); }
+        .icon-btn:active { transform: scale(0.95); }
+
+        /* Typography & Generic UI */
+        h1, h2, h3 { text-align: center; color: var(--primary); margin-bottom: 15px; }
+        h1 { font-size: 2.3rem; text-shadow: 2px 2px 0px var(--accent); }
+        p { text-align: center; margin-bottom: 15px; font-size: 1.05rem; }
+
+        .btn {
+            background: var(--primary);
+            color: #FFF;
+            border: none;
+            padding: 12px 28px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 5px 0 var(--primary-dark);
+            transition: var(--transition);
+            display: inline-block;
+            margin: 8px auto;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .btn:hover { transform: translateY(-2px); box-shadow: 0 7px 0 var(--primary-dark); filter: brightness(1.05); }
+        .btn:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--primary-dark); }
+        .btn-secondary { background: var(--secondary); box-shadow: 0 5px 0 #369991; }
+        .btn-secondary:hover { box-shadow: 0 7px 0 #369991; }
+
+        /* Floating Mascot */
+        .mascot-container {
+            position: relative;
+            text-align: center;
+            margin: 10px 0;
+        }
+        .mascot {
+            font-size: 3.5rem;
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+        .speech-bubble {
+            position: relative;
+            background: var(--accent);
+            border-radius: .4em;
+            padding: 10px 15px;
+            color: #333;
+            font-weight: bold;
+            font-size: 0.95rem;
+            display: inline-block;
+            margin-bottom: 10px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+        .speech-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-top-color: var(--accent);
+            border-bottom: 0;
+            margin-left: -10px;
+            margin-bottom: -10px;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-15px); }
+            60% { transform: translateY(-7px); }
+        }
+
+        /* ==========================================================================
+           4. SPECIFIC SCREENS
+           ========================================================================== */
+        
+        /* Home Screen Setup */
+        .form-group {
+            margin: 15px 0;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+        input[type="text"] {
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: 2px solid var(--secondary);
+            font-size: 1rem;
+            width: 80%;
+            max-width: 300px;
+            text-align: center;
+            outline: none;
+        }
+        .avatar-select, .difficulty-select {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin: 10px 0;
+        }
+        .avatar-opt, .diff-opt {
+            font-size: 2rem;
+            padding: 10px 15px;
+            border: 3px solid #DDD;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: var(--transition);
+            background: rgba(0,0,0,0.02);
+        }
+        .diff-opt { font-size: 1rem; font-weight: bold; }
+        .avatar-opt.selected, .diff-opt.selected {
+            border-color: var(--primary);
+            background: var(--accent);
+            transform: scale(1.1);
+        }
+
+        /* Quiz Dashboard & Active Screen */
+        .quiz-stats-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0,0,0,0.04);
+            padding: 10px 15px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+        .progress-outer {
+            width: 100%;
+            height: 14px;
+            background: #E0E0E0;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        .progress-inner {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+            transition: width 0.4s ease;
+        }
+
+        /* Timer Circle */
+        .timer-wrapper {
+            position: relative;
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 10px;
+        }
+        .timer-svg {
+            width: 60px;
+            height: 60px;
+            transform: rotate(-90deg);
+        }
+        .timer-circle-bg {
+            fill: none;
+            stroke: #E0E0E0;
+            stroke-width: 6;
+        }
+        .timer-circle-path {
+            fill: none;
+            stroke: var(--primary);
+            stroke-width: 6;
+            stroke-linecap: round;
+            stroke-dasharray: 163; /* 2 * PI * 26 */
+            stroke-dashoffset: 0;
+            transition: stroke-dashoffset 1s linear, stroke 0.3s;
+        }
+        .timer-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        /* Question Box & Options */
+        .question-card {
+            background: rgba(0, 0, 0, 0.02);
+            border-left: 6px solid var(--primary);
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .question-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        @media (max-width: 600px) {
+            .options-grid { grid-template-columns: 1fr; }
+        }
+
+        .option-btn {
+            background: #FFF;
+            border: 2px solid #E0E0E0;
+            border-radius: 12px;
+            padding: 14px 20px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .option-btn:hover:not([disabled]) {
+            border-color: var(--secondary);
+            background: #F0FDFD;
+            transform: translateY(-2px);
+        }
+        .option-btn.correct {
+            background: #D4EDDA !important;
+            border-color: #28A745 !important;
+            color: #155724 !important;
+        }
+        .option-btn.wrong {
+            background: #F8D7DA !important;
+            border-color: #DC3545 !important;
+            color: #721C24 !important;
+        }
+        .option-btn:disabled { cursor: not-allowed; opacity: 0.7; }
+        .option-prefix {
+            background: var(--accent);
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 12px;
+            font-size: 0.9rem;
+            color: #333;
+            flex-shrink: 0;
+        }
+
+        /* Lifelines & Actions Bar */
+        .lifelines-bar {
+            display: flex;
+            justify-content: space-around;
+            margin: 10px 0;
+            padding-top: 10px;
+            border-top: 1px dashed #DDD;
+        }
+        .lifeline-btn {
+            background: var(--accent);
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 3px 0 #E5C158;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .lifeline-btn:disabled { opacity: 0.4; cursor: not-allowed; box-shadow: none; transform: none; }
+        .lifeline-btn:hover:not([disabled]) { transform: translateY(-2px); }
+
+        /* Feedback Overlay / Box */
+        .feedback-box {
+            display: none;
+            padding: 15px;
+            border-radius: 12px;
+            margin-top: 10px;
+            animation: fadeIn 0.3s ease;
+            text-align: center;
+        }
+        .feedback-box.correct-bg { background: #D4EDDA; color: #155724; border: 1px solid #C3E6CB; }
+        .feedback-box.wrong-bg { background: #F8D7DA; color: #721C24; border: 1px solid #F5C6CB; }
+        .explanation-text { font-size: 0.95rem; margin-top: 5px; font-style: italic; }
+
+        /* Overlay Popups (Achievements, Facts, Pause) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--radius);
+            max-width: 450px;
+            width: 85%;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 4px solid var(--accent);
+            animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        @keyframes popIn {
+            from { transform: scale(0.7); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        /* Results & Review Screen */
+        .badge-display {
+            font-size: 4rem;
+            margin: 10px 0;
+            animation: bounce 1s infinite alternate;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        .stat-card {
+            background: rgba(0,0,0,0.03);
+            padding: 10px 15px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
+        }
+        .stat-card div:first-child { font-size: 0.8rem; color: #666; }
+        .stat-card div:last-child { font-size: 1.2rem; font-weight: bold; }
+
+        .review-list {
+            max-height: 350px;
+            overflow-y: auto;
+            text-align: left;
+            margin: 15px 0;
+            padding-right: 5px;
+        }
+        .review-item {
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+        }
+        .review-item.rev-correct { background: #D4EDDA; border-left: 5px solid #28A745; }
+        .review-item.rev-wrong { background: #F8D7DA; border-left: 5px solid #DC3545; }
+
+        /* Printable Certificate Styling */
+        #certificate-view {
+            display: none;
+            background: #FFF;
+            color: #000;
+            border: 10px double #C5A059;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            margin: 20px auto;
+            max-width: 750px;
+        }
+        #certificate-view h2 { font-family: 'Georgia', serif; font-size: 2.2rem; color: #C5A059; margin-bottom: 10px; }
+        #certificate-view h3 { font-size: 1.5rem; color: #333; margin: 20px 0; border-bottom: 2px solid #C5A059; display: inline-block; padding-bottom: 5px; }
+        .cert-body { font-size: 1.1rem; line-height: 1.6; margin: 20px 0; }
+        .cert-footer { display: flex; justify-content: space-between; margin-top: 40px; font-weight: bold; }
+
+        @media print {
+            body * { visibility: hidden; }
+            #certificate-view, #certificate-view * { visibility: visible; }
+            #certificate-view { position: absolute; left: 0; top: 0; width: 100%; border: 5px solid #C5A059; }
+            .no-print { display: none !important; }
+        }
+
+        /* Canvas for Confetti */
+        #confetti-canvas {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 999;
+        }
+ .footer {
+           color: blue;
+	   background-color: khaki;
+	   padding: 5px;
+           border-radius: 10px;
+	   box-shadow: 2px 2px 5px 7px #7fecad;
+	  font-size: 13px;
+	}
+.blink{
+animation: blinker 1.5s linear infinite;
+font-family: sans-serif;
+
+}
+@keyframes blinker{
+			50%
+{
+opacity: 0;
+}
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Background Elements -->
+    <div class="sky-bg">
+        <div class="cloud cloud1"></div>
+        <div class="cloud cloud2"></div>
+        <div class="rainbow"></div>
+    </div>
+    <div id="balloon-container"></div>
+    <canvas id="confetti-canvas"></canvas>
+
+    <!-- Main Container -->
+    <div id="game-container">
+        
+        <!-- Header Bar -->
+        <div class="header-bar no-print">
+            <div style="font-weight: bold; color: var(--primary);">शब्दरूपम्</div>
+            <div class="control-btns">
+                <button class="icon-btn" id="sound-btn" title="Mute/Unmute" aria-label="Toggle Sound">🔊</button>
+                <button class="icon-btn" id="theme-btn" title="Toggle Dark/Light Mode" aria-label="Toggle Theme">🌙</button>
+                <button class="icon-btn" id="pause-btn" style="display:none;" title="Pause Game" aria-label="Pause Game">⏸️</button>
+            </div>
+        </div>
+
+        <!-- Mascot Display -->
+        <div class="mascot-container no-print">
+            <div class="speech-bubble" id="mascot-bubble">आगच्छत। अद्य वयं शब्दरूपाणि शिक्षामहे।</div><br>
+            <div class="mascot" id="mascot-avatar">🦊</div>
+        </div>
+
+        <!-- 1. HOME SCREEN -->
+        <div id="screen-home" class="screen active">
+            <h1>शब्दरूपाभ्यासः</h1>
+            <p style="font-weight: 600; color: #666;">सर्वेषां छात्राणां कृते केवलं प्रमोदाय उपस्थापितमिदम्।</p>
+
+            <div class="form-group">
+                <label for="player-name" style="font-weight: bold;"> अत्र अधःप्रदत्ते स्थाने तव नाम लिख।</label>
+                <input type="text" id="player-name" placeholder="जिज्ञासुः शिक्षार्थी..." maxlength="20">
+            </div>
+
+            <div class="form-group">
+                <label style="font-weight: bold;">कञ्चिदेकं चित्रकं नुद।</label>
+                <div class="avatar-select">
+                    <div class="avatar-opt selected" onclick="selectAvatar(this, '🦊')">🦊</div>
+                    <div class="avatar-opt" onclick="selectAvatar(this, '🦁')">🦁</div>
+                    <div class="avatar-opt" onclick="selectAvatar(this, '🐼')">🐼</div>
+                    <div class="avatar-opt" onclick="selectAvatar(this, 'Uni')">🦄</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label style="font-weight: bold;">काठिन्यं चिनु</label>
+                <div class="difficulty-select">
+                    <div class="diff-opt" onclick="selectDiff(this, 'easy')">सरलम् (२५-क्षणम्)</div>
+                    <div class="diff-opt selected" onclick="selectDiff(this, 'medium')">मध्यमम् (२०-क्षणम्)</div>
+                    <div class="diff-opt" onclick="selectDiff(this, 'hard')">कठिनम् (१५-क्षणम्)</div>
+                </div>
+            </div>
+
+            <button class="btn" onclick="startGame()">🚀 आरभ्यताम्</button>
+            <div style="margin-top: 10px; font-size: 0.85rem; text-align: center; color: #777;">प्राप्ताङ्कः <span id="high-score-display">0</span> pts</div><br>
+<div class="footer"><marquee class ="blink" behavior="alternate"><i>N.B.-This gamification tool is designed and developed by Dr. M K Barman, Asssistant Professor <br>of Hooghly Mohsin College, Department of Sanskrit</i></marquee></div>
+        </div>
+
+        <!-- 2. QUIZ SCREEN -->
+        <div id="screen-quiz" class="screen">
+            <div class="quiz-stats-bar">
+                <span>प्रश्नः (Question): <span id="q-tracker">1/25</span></span>
+                <span>सूचकम् (Points): <span id="score-display">0</span></span>
+                <span>स्फूर्त्तिः (Streak): 🔥 <span id="streak-display">0</span></span>
+            </div>
+
+            <div class="progress-outer">
+                <div class="progress-inner" id="progress-bar"></div>
+            </div>
+
+            <div class="timer-wrapper">
+                <svg class="timer-svg">
+                    <circle class="timer-circle-bg" cx="30" cy="30" r="26"></circle>
+                    <circle class="timer-circle-path" id="timer-path" cx="30" cy="30" r="26"></circle>
+                </svg>
+                <div class="timer-text" id="timer-display">20</div>
+            </div>
+
+            <div class="question-card">
+                <div class="question-text" id="question-text">Question goes here...</div>
+            </div>
+
+            <div class="options-grid" id="options-container">
+                <!-- Options injected dynamically -->
+            </div>
+
+            <!-- Lifelines Bar -->
+            <div class="lifelines-bar">
+                <button class="lifeline-btn" id="ll-5050" onclick="use5050()">🌓 ५०:५०</button>
+                <button class="lifeline-btn" id="ll-time" onclick="useExtraTime()">⏳ +१०-क्षणम्</button>
+                <button class="lifeline-btn" id="ll-skip" onclick="useSkip()">⏭️ क्षिपणम् (Skip)</button>
+                <button class="lifeline-btn" id="ll-hint" onclick="useHint()">💡 सूचनम् (Hint)(-2 pts)</button>
+            </div>
+
+            <div class="feedback-box" id="feedback-box">
+                <div id="feedback-title" style="font-weight: bold; font-size: 1.1rem;"></div>
+                <div id="feedback-explanation" class="explanation-text"></div>
+            </div>
+        </div>
+
+        <!-- 3. RESULTS SCREEN -->
+        <div id="screen-results" class="screen">
+            <h2>🎉 अभ्यासः समाप्तः 🎉</h2>
+            
+            <div class="badge-display" id="result-badge">🏆</div>
+            <div id="result-badge-name" style="text-align: center; font-weight: bold; font-size: 1.2rem; color: var(--primary);">विजेतुः जयस्तम्भः (Champion Trophy)</div>
+
+            <div class="stats-grid">
+                <div class="stat-card"><div>Total Score</div><div id="res-score">0</div></div>
+                <div class="stat-card"><div>Accuracy</div><div id="res-accuracy">0%</div></div>
+                <div class="stat-card"><div>Correct / Wrong</div><div id="res-cw">0 / 0</div></div>
+                <div class="stat-card"><div>Best Streak</div><div id="res-streak">0</div></div>
+                <div class="stat-card"><div>Total Time Taken</div><div id="res-time">0s</div></div>
+                <div class="stat-card"><div>Final Grade</div><div id="res-grade">A+</div></div>
+            </div>
+
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;">
+                <button class="btn" onclick="startGame()">🔄 पुनः आरभ्यताम् </button>
+                <button class="btn btn-secondary" onclick="showReview()">📝 उत्तरपरीक्षणम्</button>
+                <button class="btn btn-secondary" onclick="generateCertificate()">📜 शंसापत्रम् </button>
+                <button class="btn btn-secondary" onclick="goHome()">🏠 मुखपृष्ठम्</button>
+            </div>
+        </div>
+
+        <!-- 4. REVIEW SCREEN -->
+        <div id="screen-review" class="screen">
+            <h2>📝 Question Review</h2>
+            <div class="review-list" id="review-list-container">
+                <!-- Injected dynamically -->
+            </div>
+            <button class="btn" onclick="showResultsScreen()">⬅️ परिणामाय गमनम्</button>
+        </div>
+
+        <!-- 5. PRINTABLE CERTIFICATE SCREEN -->
+        <div id="certificate-view">
+            <h2>CERTIFICATE OF ACHIEVEMENT</h2>
+            <p>This is proudly presented to</p>
+            <h3 id="cert-name">Student Name</h3>
+            <p class="cert-body">
+                For outstanding performance in the संस्कृतव्याकरणम् (अभ्यासवर्गः) on <strong>शब्दरूपाभ्यासः</strong>.<br>
+                Achieved a Score of <strong id="cert-score">0</strong> with a Grade of <strong id="cert-grade">A+</strong>.
+            </p>
+            <div style="font-size: 2.5rem; margin: 15px 0;">🏅</div>
+            <div class="cert-footer">
+                <div>Date: <span id="cert-date">2026-02-08</span></div>
+                <div>Title: शब्दरूपाभ्यासे विजेता</div>
+            </div>
+            <br><br>
+            <button class="btn no-print" onclick="window.print()">🖨️ Print / Save as PDF</button>
+            <button class="btn btn-secondary no-print" onclick="showResultsScreen()">⬅️ पश्चाद्गमनम्</button>
+        </div>
+
+    </div>
+
+    <!-- MODAL POPUPS (Pause, Achievements, Facts) -->
+    <div class="modal" id="modal-popup">
+        <div class="modal-content">
+            <h3 id="modal-title" style="color: var(--primary);">Title</h3>
+            <p id="modal-body" style="margin: 15px 0; font-size: 1rem;"></p>
+            <button class="btn" onclick="closeModal()">अनुवर्त्तनम् (Continue)</button>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+       JAVASCRIPT LOGIC
+       ========================================================================== -->
+    <script>
+        /* --------------------------------------------------------------------------
+           1. QUESTION BANK (25 Distinct Questions)
+           -------------------------------------------------------------------------- */
+        const rawQuestions = [
+            {
+                q: "_____  नाम उत्तमकुमारः अस्ति।",
+                options: ["मम्", "मम", "अस्मद्", "माम्"],
+                ans: "मम",
+                exp: "अस्मच्छब्दस्य षष्ठ्या एकवचने 'मम' भवति।",
+                ex: "मम नाम शकुन्तला अस्ति।"
+            },
+            {
+                q: "'विहग'-शब्दस्य षष्ठ्या एकवचने किं भवति?",
+                options: ["विहगेन", "विहगः", " विहगम्", "विहगस्य"],
+                ans: "विहगस्य",
+                exp: "'विहग'-शब्दस्य षष्ठ्या एकवचने 'विहगस्य'इति रूपम् भवति। यथा-'नर'-शब्दस्य षष्ठ्या एकवचने 'नरस्य' इति रूपम् भवति।",
+                ex: "विहगस्य शरीरे क्षतं दृश्यते।."
+            },
+            {
+                q: "_____  नाम  कमला अस्ति।",
+                options: ["सः", "तव्", "तव", "त्वम्"],
+                ans: "तव",
+                exp: "युष्मच्छब्दस्य षष्ठ्या एकवचने 'तव' भवति।",
+                ex: "तव नाम  सीता अस्ति।"
+            },
+            {
+                q: "'श्यामल आसीत् समीरस्य पिता।'-अत्र किं पदं षष्ठ्या एकवचने व्यवहृतम्?",
+                options: ["समीरस्य", "श्यामल", "पिता", "आसीत्"],
+                ans: "समीरस्य",
+                exp: "'समीर'-शब्दस्य षष्ठ्या एकवचने 'समीरस्य'इति रूपम् भवति।",
+                ex: "अस्मिन् वृक्षे वानरस्य फलानि सन्ति।"
+            },
+            {
+                q: "'_____ बालका मन्दिरं पश्यन्ति।' पञ्चम्या एकवचने किं रूपं भवति?",
+                options: ["गृहे", "गृहं", "गृहस्य", "गृहात्"],
+                ans: "गृहात्",
+                exp: "'गृह'-शब्दस्य पञ्चम्या एकवचने 'गृहात्'-इति रूपम् भवति।",
+                ex: "रमला ग्रामाद् दूरं गच्छति।"
+            },
+            {
+                q: "षष्ठ्यन्तानि पदानि चिनु। 'जयदेवस्य जनकस्य शरीरे व्यथा अनुभूयते। स जनकस्य कृते ईश्वरस्य समीपे प्रार्थयति।'",
+                options: [" शरीरे, कृते, समीपे", "व्यथा,स", "जयदेवस्य, जनकस्य, ईश्वरस्य", "अनुभूयते, प्रार्थयति"],
+                ans: "जयदेवस्य, जनकस्य, ईश्वरस्य",
+                exp: "'जयदेव'-शब्दस्य षष्ठ्या एकवचने 'जयदेवस्य'इति रूपम् भवति। 'जनक'-शब्दस्य षष्ठ्या एकवचने 'जनकस्य'इति रूपम् भवति। 'ईश्वर'-शब्दस्य षष्ठ्या एकवचने 'ईश्वरस्य'इति रूपम् भवति।",
+                ex: "रावणस्य गृहे सीता आसीत्।"
+            },
+           {
+        q: "'राम'-शब्दस्य षष्ठ्या एकवचने किं भवति?",
+        options: ["रामेण", "रामः", "रामम्", "रामस्य"],
+        ans: "रामस्य",
+        exp: "अकारान्त पुल्लिङ्ग 'राम'-शब्दस्य षष्ठ्या एकवचने 'रामस्य' इति रूपम् भवति।",
+        ex: "रामस्य गृहं अयोध्यायाम् अस्ति।"
+    },
+    {
+        q: "_____  पुस्तकं मम समीपे अस्ति।",
+        options: ["तव", "ते", "त्वम्", "युष्मद्"],
+        ans: "तव",
+        exp: "युष्मद्-शब्दस्य षष्ठ्या एकवचने 'तव' भवति।",
+        ex: "तव मित्रम् कुत्र गच्छति?"
+    },
+    {
+        q: "'अश्व'-शब्दस्य पञ्चम्या एकवचने किं रूपं भवति?",
+        options: ["अश्वेन", "अश्वम्", "अश्वात्", "अश्वस्य"],
+        ans: "अश्वात्",
+        exp: "'अश्व'-शब्दस्य पञ्चम्या एकवचने 'अश्वात्' इति रूपम् भवति।",
+        ex: "सा अश्वात् सूर्यं पश्यति।।"
+    },
+    {
+        q: "_____  उद्यानम् सुन्दरम् अस्ति।",
+        options: ["मम्", "अस्मद्", "मम", "मया"],
+        ans: "मम",
+        exp: "अस्मद्-शब्दस्य षष्ठ्या एकवचने 'मम' भवति।",
+        ex: "मम देशस्य नाम भारतः अस्ति।"
+    },
+    {
+        q: "'अग्रज'-शब्दस्य षष्ठ्या एकवचने किं भवति?",
+        options: ["अग्रजस्य", "अग्रजाय", "अग्रजेन", "अग्रजम् "],
+        ans: "अग्रजस्य",
+        exp: " 'अग्रज'-शब्दस्य षष्ठ्या एकवचने 'अग्रजस्य' इति रूपम् भवति।",
+        ex: "शिष्यः अग्रज चरणौ वन्दते।"
+    },
+    {
+        q: "'वृक्षात् पत्राणि पतन्ति।'-अत्र किं पदं पञ्चम्या एकवचने व्यवहृतम्?",
+        options: ["वृक्षात्", "पत्राणि", "पतन्ति", "वृक्षः"],
+        ans: "वृक्षात्",
+        exp: "'वृक्ष'-शब्दस्य पञ्चम्या एकवचने 'वृक्षात्' इति रूपम् भवति।",
+        ex: "फलानि वृक्षात् पतन्ति।"
+    },
+    {
+        q: "_____  माता भोजनं पचति।",
+        options: ["मम", "मम्", "अहम्", "मया"],
+        ans: "मम",
+        exp: "अस्मद्-शब्दस्य षष्ठ्या एकवचने 'मम' भवति।",
+        ex: "मम पिता कृषकः अस्ति।"
+    },
+    {
+        q: "'ग्रन्थ'-शब्दस्य षष्ठ्या एकवचने किं रूपम्?",
+        options: ["ग्रन्थानाम्", "ग्रन्थस्य", "ग्रन्थान्", "ग्रन्थेषु"],
+        ans: "ग्रन्थस्य",
+        exp: "'ग्रन्थ'-शब्दस्य षष्ठ्या एकवचने 'ग्रन्थस्य' इति रूपम् भवति।",
+        ex: "मया कालिदासस्य रघुवंशं पठितम्।"
+    },
+    {
+        q: "'_____  गृहे शुनकः अस्ति।' अस्मद्-शब्दस्य षष्ठ्या एकवचने किं रूपं भवति?",
+        options: ["मम", "मया", "अहम्", "माम्"],
+        ans: "मम",
+        exp: "अस्मद्-शब्दस्य षष्ठ्या एकवचने 'मम' भवति।",
+        ex: "मम गृहं ग्रामे अस्ति।"
+    },
+    {
+        q: "'नगरात् जनाः आगच्छन्ति।'-अत्र पञ्चम्यन्तं पदं किम्?",
+        options: ["नगरात्", "जनाः", "आगच्छन्ति", "नगरम्"],
+        ans: "नगरात्",
+        exp: "'नगर'-शब्दस्य पञ्चम्या एकवचने 'नगरात्' इति रूपम् भवति। अपादाने पञ्चमी।",
+        ex: "सः विद्यालयात् गृहं गच्छति।"
+    },
+    {
+        q: "'व्याध'-शब्दस्य षष्ठ्या एकवचने किं भवति?",
+        options: ["व्याधस्य", "व्याधना", "व्याधम्", "व्याधये"],
+        ans: "व्याधस्य",
+        exp: "'व्याध'-शब्दस्य षष्ठ्या एकवचने 'व्याधस्य' इति रूपम् भवति।",
+        ex: "छात्रस्य आश्रमः वने अस्ति।"
+    },
+    {
+        q: "_____  कृते अहं कार्यं करोमि।",
+        options: ["देशस्य", "देशे", "देशात्", "देशम्"],
+        ans: "देशस्य",
+        exp: "षष्ठी हेतु-प्रयोगे। 'देश'-शब्दस्य षष्ठ्या एकवचने 'देशस्य' इति रूपम्।",
+        ex: "सैनिकः देशस्य रक्षां करोति।"
+    },
+    {
+        q: "'फल'-शब्दस्य पञ्चम्या एकवचने किं रूपम्?",
+        options: ["फलात्", "फलेन", "फलस्य", "फलम्"],
+        ans: "फलात्",
+        exp: "अकारान्त नपुंसकलिङ्ग 'फल'-शब्दस्य पञ्चम्या एकवचने 'फलात्' इति रूपम् भवति।",
+        ex: "बीजं फलात् उत्पद्यते।"
+    },
+    {
+        q: "षष्ठ्यन्तानि पदानि चिनु। 'कृष्णस्य हस्ते मुरली शोभते। राधायाः नेत्रे सुन्दरे स्तः।'",
+        options: ["हस्ते, नेत्रे", "कृष्णस्य, राधायाः", "शोभते, स्तः", "मुरली, सुन्दरे"],
+        ans: "कृष्णस्य, राधायाः",
+        exp: "'कृष्ण'-शब्दस्य षष्ठ्या एकवचने 'कृष्णस्य'। 'राधा'-शब्दस्य षष्ठ्या एकवचने 'राधायाः'।",
+        ex: "सीतायाः केशाः दीर्घाः सन्ति।"
+    },
+    {
+        q: "'_____  भ्राता वैद्यः अस्ति।' युष्मद्-शब्दस्य षष्ठ्या एकवचने किं रूपं भवति?",
+        options: ["तव", "त्वया", "त्वम्", "तुभ्यम्"],
+        ans: "तव",
+        exp: "युष्मद्-शब्दस्य षष्ठ्या एकवचने 'तव' भवति।",
+        ex: "तव पुत्रः कुत्र पठति?"
+    },
+    {
+        q: "'लेखक'-शब्दस्य षष्ठ्या एकवचने किं भवति?",
+        options: ["लेखकये", "लेखकना", "लेखकम्", "लेखकस्य"],
+        ans: "लेखकस्य",
+        exp: "'लेखक'-शब्दस्य षष्ठ्या एकवचने 'लेखकस्य' इति रूपम् भवति।",
+        ex: "लेखकस्य वाक्यं मनोहरम् अस्ति।"
+    },
+    {
+        q: "'आकाशात् वृष्टिः भवति।'-'आकाशात्'- अत्र किं विभक्तिः प्रयुक्ता?",
+        options: ["पञ्चमी", "षष्ठी", "सप्तमी", "तृतीया"],
+        ans: "पञ्चमी",
+        exp: "'आकाशात्' इति पञ्चम्या एकवचनम्। अपादाने पञ्चमी विभक्तिः भवति।",
+        ex: "पर्वतात् नदी प्रवहति।"
+    },
+    {
+        q: "'मत्स्य'-शब्दस्य षष्ठ्या एकवचने किं रूपम्?",
+        options: ["मत्स्यात्", "मत्स्यः", "मत्स्यस्य", "मत्स्ये"],
+        ans: "मत्स्यस्य",
+        exp: "'मत्स्य'-शब्दस्य षष्ठ्या एकवचने 'मत्स्यस्य' इति रूपम् भवति।",
+        ex: "अप्सु मत्स्यस्य वासस्थानम् अस्ति।"
+    },
+    {
+        q: "_____ ग्रामस्य जनाः सत्यं वदन्ति।",
+        options: ["ते", "युष्मद्", "त्वम्", "तव"],
+        ans: "तव",
+        exp: "युष्मद्-शब्दस्य षष्ठ्या एकवचने 'तव' भवति।",
+        ex: "तव ग्रामः कुत्र अस्ति?"
+    }
+
+        ];
+
+        const funFacts = [
+            "किं त्वं जानासि? प्रत्येकम् अकारान्त-पुंलिङ्ग-शब्दस्य षष्ठ्या एकवचने मूल-शब्दात् परं 'स्य'- इति युक्तं भवति। यथा- रामस्य, रावणस्य, भरतस्य",
+            "तथ्यम् - प्रायः प्रत्येकं शब्दस्य एकविंशतिरूपाणि (२१ शब्दरूपाणि) भवन्ति।",
+            "ज्ञापनम् - युष्मच्छब्दस्य षष्ठ्यैकवचनस्य वैकल्पिकं रूपं 'ते' इति भवति। अस्मच्छब्दस्य षष्ठ्यैकवचनस्य वैकल्पिकं रूपं 'मे' इति भवति।",
+            "स्मरणीयम् - वैकल्पिकानि रूपाणि न कदापि वाक्यस्य प्रथमे व्यवहृतानि भवन्ति।",
+            "चिन्तनीयम् - वाक्ये अपदानि न कदापि प्रयुक्तानि।"
+        ];
+
+        /* --------------------------------------------------------------------------
+           2. SOUND ENGINE (Web Audio API Synthesizer)
+           -------------------------------------------------------------------------- */
+        class SoundEngine {
+            constructor() {
+                this.ctx = null;
+                this.muted = false;
+            }
+
+            init() {
+                if (!this.ctx) {
+                    this.ctx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+            }
+
+            playTone(freq, type, duration, delay = 0) {
+                if (this.muted) return;
+                this.init();
+                setTimeout(() => {
+                    try {
+                        const osc = this.ctx.createOscillator();
+                        const gain = this.ctx.createGain();
+                        osc.type = type;
+                        osc.frequency.setValueAtTime(freq, this.ctx.currentTime);
+                        gain.gain.setValueAtTime(0.1, this.ctx.currentTime);
+                        gain.gain.exponentialRampToValueAtTime(0.001, this.ctx.currentTime + duration);
+                        osc.connect(gain);
+                        gain.connect(this.ctx.destination);
+                        osc.start();
+                        osc.stop(this.ctx.currentTime + duration);
+                    } catch(e){}
+                }, delay * 1000);
+            }
+
+            click() { this.playTone(600, 'sine', 0.05); }
+            correct() { 
+                this.playTone(523.25, 'triangle', 0.1, 0); // C5
+                this.playTone(659.25, 'triangle', 0.1, 0.1); // E5
+                this.playTone(783.99, 'triangle', 0.2, 0.2); // G5
+            }
+            wrong() { 
+                this.playTone(200, 'sawtooth', 0.15, 0);
+                this.playTone(150, 'sawtooth', 0.25, 0.15);
+            }
+            start() {
+                this.playTone(400, 'sine', 0.1, 0);
+                this.playTone(600, 'sine', 0.1, 0.1);
+                this.playTone(800, 'sine', 0.2, 0.2);
+            }
+            cheer() {
+                [400, 500, 600, 800, 1000].forEach((f, i) => this.playTone(f, 'square', 0.15, i * 0.08));
+            }
+            tick() { this.playTone(800, 'sine', 0.03); }
+            timeout() { this.playTone(180, 'square', 0.4); }
+        }
+
+        const sound = new SoundEngine();
+
+        /* --------------------------------------------------------------------------
+           3. GAME STATE & VARIABLES
+           -------------------------------------------------------------------------- */
+        let gameState = {
+            playerName: "Young Scholar",
+            avatar: "🦊",
+            difficulty: "medium",
+            timerMax: 20,
+            questions: [],
+            currentQIdx: 0,
+            score: 0,
+            streak: 0,
+            bestStreak: 0,
+            correctCount: 0,
+            wrongCount: 0,
+            startTime: null,
+            totalTimeTaken: 0,
+            timerId: null,
+            timeLeft: 20,
+            userAnswers: [], // Stores review details
+            lifelines: { '5050': true, time: true, skip: true, hint: true },
+            hintUsed: false,
+            isPaused: false
+        };
+
+        let highScore = localStorage.getItem('action_words_high_score') || 0;
+
+        /* --------------------------------------------------------------------------
+           4. INITIALIZATION & UTILITIES
+           -------------------------------------------------------------------------- */
+        window.onload = () => {
+            document.getElementById('high-score-display').innerText = highScore;
+            setupBalloons();
+            setupThemeAndSoundControls();
+        };
+
+        function setupBalloons() {
+            const container = document.getElementById('balloon-container');
+            const colors = ['#FF6B6B', '#4ECDC4', '#FFEAA7', '#1ABC9C', '#9B59B6'];
+            for(let i=0; i<6; i++) {
+                let balloon = document.createElement('div');
+                balloon.className = 'balloon';
+                balloon.style.left = (i * 18 + 5) + 'vw';
+                balloon.style.background = colors[i % colors.length];
+                balloon.style.animationDelay = (i * 2.5) + 's';
+                container.appendChild(balloon);
+            }
+        }
+
+        function setupThemeAndSoundControls() {
+            document.getElementById('sound-btn').onclick = () => {
+                sound.muted = !sound.muted;
+                document.getElementById('sound-btn').innerText = sound.muted ? '🔇' : '🔊';
+            };
+
+            document.getElementById('theme-btn').onclick = () => {
+                const isDark = document.body.getAttribute('data-theme') === 'dark';
+                document.body.setAttribute('data-theme', isDark ? 'light' : 'dark');
+                document.getElementById('theme-btn').innerText = isDark ? '🌙' : '☀️';
+            };
+
+            document.getElementById('pause-btn').onclick = () => {
+                if(gameState.isPaused) resumeGame();
+                else pauseGame();
+            };
+        }
+
+        function selectAvatar(el, avatar) {
+            sound.click();
+            document.querySelectorAll('.avatar-opt').forEach(a => a.classList.remove('selected'));
+            el.classList.add('selected');
+            gameState.avatar = avatar;
+            document.getElementById('mascot-avatar').innerText = avatar;
+        }
+
+        function selectDiff(el, diff) {
+            sound.click();
+            document.querySelectorAll('.diff-opt').forEach(d => d.classList.remove('selected'));
+            el.classList.add('selected');
+            gameState.difficulty = diff;
+            gameState.timerMax = diff === 'easy' ? 25 : (diff === 'medium' ? 20 : 15);
+        }
+
+        function shuffleArray(arr) {
+            return arr.sort(() => Math.random() - 0.5);
+        }
+
+        /* --------------------------------------------------------------------------
+           5. GAME FLOW & CONTROLLER
+           -------------------------------------------------------------------------- */
+        function startGame() {
+            sound.start();
+            const nameInput = document.getElementById('player-name').value.trim();
+            gameState.playerName = nameInput || "Young Scholar";
+            
+            // Prepare Questions
+            gameState.questions = JSON.parse(JSON.stringify(rawQuestions));
+            shuffleArray(gameState.questions);
+            gameState.questions.forEach(q => shuffleArray(q.options));
+
+            // Reset Metrics
+            gameState.currentQIdx = 0;
+            gameState.score = 0;
+            gameState.streak = 0;
+            gameState.bestStreak = 0;
+            gameState.correctCount = 0;
+            gameState.wrongCount = 0;
+            gameState.startTime = Date.now();
+            gameState.userAnswers = [];
+            gameState.lifelines = { '5050': true, time: true, skip: true, hint: true };
+            
+            // Reset Lifeline UI Buttons
+            ['ll-5050', 'll-time', 'll-skip', 'll-hint'].forEach(id => {
+                document.getElementById(id).disabled = false;
+            });
+
+            document.getElementById('pause-btn').style.display = 'inline-flex';
+            switchScreen('screen-quiz');
+            loadQuestion();
+        }
+
+        function switchScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById('certificate-view').style.display = 'none';
+            document.getElementById(screenId).classList.add('active');
+        }
+
+        function loadQuestion() {
+            if (gameState.currentQIdx >= gameState.questions.length) {
+                endGame();
+                return;
+            }
+
+            gameState.hintUsed = false;
+            const qData = gameState.questions[gameState.currentQIdx];
+
+            // UI Adjustments
+            document.getElementById('q-tracker').innerText = `${gameState.currentQIdx + 1}/${gameState.questions.length}`;
+            document.getElementById('score-display').innerText = gameState.score;
+            document.getElementById('streak-display').innerText = gameState.streak;
+            document.getElementById('progress-bar').style.width = `${((gameState.currentQIdx) / gameState.questions.length) * 100}%`;
+            document.getElementById('feedback-box').style.display = 'none';
+
+            // Question Text & Mascot
+            document.getElementById('question-text').innerText = qData.q;
+            setMascotText(`Question ${gameState.currentQIdx + 1}! You can do it!`);
+
+            // Populate Options
+            const container = document.getElementById('options-container');
+            container.innerHTML = '';
+            const prefixes = ['A', 'B', 'C', 'D'];
+
+            qData.options.forEach((opt, idx) => {
+                const btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.innerHTML = `<span class="option-prefix">${prefixes[idx]}</span><span>${opt}</span>`;
+                btn.onclick = () => handleAnswer(opt, btn);
+                container.appendChild(btn);
+            });
+
+            // Trigger Random Fact popup every 5 questions
+            if (gameState.currentQIdx > 0 && gameState.currentQIdx % 5 === 0) {
+                const fact = funFacts[(gameState.currentQIdx / 5 - 1) % funFacts.length];
+                showModal("💡 Grammar Insight", fact);
+            }
+
+            resetTimer();
+        }
+
+        /* --------------------------------------------------------------------------
+           6. TIMER SYSTEM
+           -------------------------------------------------------------------------- */
+        function resetTimer() {
+            clearInterval(gameState.timerId);
+            gameState.timeLeft = gameState.timerMax;
+            updateTimerDisplay();
+
+            gameState.timerId = setInterval(() => {
+                if (gameState.isPaused) return;
+                gameState.timeLeft--;
+                updateTimerDisplay();
+
+                if (gameState.timeLeft <= 3 && gameState.timeLeft > 0) {
+                    sound.tick();
+                }
+
+                if (gameState.timeLeft <= 0) {
+                    clearInterval(gameState.timerId);
+                    sound.timeout();
+                    handleTimeout();
+                }
+            }, 1000);
+        }
+
+        function updateTimerDisplay() {
+            document.getElementById('timer-display').innerText = gameState.timeLeft;
+            const path = document.getElementById('timer-path');
+            const fraction = gameState.timeLeft / gameState.timerMax;
+            const dashoffset = 163 * (1 - fraction);
+            path.style.strokeDashoffset = dashoffset;
+            path.style.stroke = gameState.timeLeft <= 5 ? '#FF7675' : 'var(--primary)';
+        }
+
+        /* --------------------------------------------------------------------------
+           7. ANSWER EVALUATION & FEEDBACK
+           -------------------------------------------------------------------------- */
+        function handleAnswer(selectedOpt, btnElement) {
+            clearInterval(gameState.timerId);
+            const qData = gameState.questions[gameState.currentQIdx];
+            const isCorrect = (selectedOpt === qData.ans);
+
+            // Disable all option buttons
+            const options = document.querySelectorAll('.option-btn');
+            options.forEach(b => b.disabled = true);
+
+            const timeTaken = gameState.timerMax - gameState.timeLeft;
+
+            let pointsEarned = 0;
+
+            if (isCorrect) {
+                sound.correct();
+                btnElement.classList.add('correct');
+                pointsEarned += 10;
+
+                // Speed Bonus
+                if (timeTaken <= 5) pointsEarned += 5;
+
+                gameState.score += pointsEarned;
+                gameState.streak++;
+                if (gameState.streak > gameState.bestStreak) gameState.bestStreak = gameState.streak;
+                gameState.correctCount++;
+
+                showFeedback(true, `✅ Correct! (+${pointsEarned} pts)`, qData.exp, qData.ex);
+                checkStreakAchievements();
+            } else {
+                sound.wrong();
+                if(btnElement) btnElement.classList.add('wrong');
+                gameState.streak = 0;
+                gameState.wrongCount++;
+
+                // Highlight correct answer
+                options.forEach(b => {
+                    if (b.innerText.includes(qData.ans)) b.classList.add('correct');
+                });
+
+                showFeedback(false, `❌ Oops! Correct Answer: ${qData.ans}`, qData.exp, qData.ex);
+            }
+
+            // Save for Review
+            gameState.userAnswers.push({
+                question: qData.q,
+                selected: selectedOpt || "Time Out",
+                correct: qData.ans,
+                isCorrect: isCorrect,
+                explanation: qData.exp
+            });
+
+            setTimeout(() => {
+                gameState.currentQIdx++;
+                loadQuestion();
+            }, 2200);
+        }
+
+        function handleTimeout() {
+            const qData = gameState.questions[gameState.currentQIdx];
+            const options = document.querySelectorAll('.option-btn');
+            options.forEach(b => {
+                b.disabled = true;
+                if (b.innerText.includes(qData.ans)) b.classList.add('correct');
+            });
+
+            gameState.streak = 0;
+            gameState.wrongCount++;
+
+            showFeedback(false, `⏰ Time's Up! Correct Answer: ${qData.ans}`, qData.exp, qData.ex);
+
+            gameState.userAnswers.push({
+                question: qData.q,
+                selected: "Time Out",
+                correct: qData.ans,
+                isCorrect: false,
+                explanation: qData.exp
+            });
+
+            setTimeout(() => {
+                gameState.currentQIdx++;
+                loadQuestion();
+            }, 2200);
+        }
+
+        function showFeedback(isCorrect, title, exp, ex) {
+            const fb = document.getElementById('feedback-box');
+            fb.className = `feedback-box ${isCorrect ? 'correct-bg' : 'wrong-bg'}`;
+            document.getElementById('feedback-title').innerText = title;
+            document.getElementById('feedback-explanation').innerText = `${exp} Example: "${ex}"`;
+            fb.style.display = 'block';
+            setMascotText(isCorrect ? "Awesome job! Keep it up! 🌟" : "Don't worry, learning takes practice! 💪");
+        }
+
+        /* --------------------------------------------------------------------------
+           8. LIFELINES & HINTS
+           -------------------------------------------------------------------------- */
+        function use5050() {
+            if (!gameState.lifelines['5050']) return;
+            sound.click();
+            gameState.lifelines['5050'] = false;
+            document.getElementById('ll-5050').disabled = true;
+
+            const qData = gameState.questions[gameState.currentQIdx];
+            const btns = Array.from(document.querySelectorAll('.option-btn'));
+            let removed = 0;
+
+            btns.forEach(btn => {
+                if (!btn.innerText.includes(qData.ans) && removed < 2) {
+                    btn.style.visibility = 'hidden';
+                    removed++;
+                }
+            });
+            setMascotText("50:50 Used! Two wrong options removed!");
+        }
+
+        function useExtraTime() {
+            if (!gameState.lifelines.time) return;
+            sound.click();
+            gameState.lifelines.time = false;
+            document.getElementById('ll-time').disabled = true;
+            gameState.timeLeft += 10;
+            updateTimerDisplay();
+            setMascotText("+10 Extra Seconds Added!");
+        }
+
+        function useSkip() {
+            if (!gameState.lifelines.skip) return;
+            sound.click();
+            gameState.lifelines.skip = false;
+            document.getElementById('ll-skip').disabled = true;
+            clearInterval(gameState.timerId);
+            setMascotText("Question Skipped!");
+            gameState.userAnswers.push({
+                question: gameState.questions[gameState.currentQIdx].q,
+                selected: "Skipped",
+                correct: gameState.questions[gameState.currentQIdx].ans,
+                isCorrect: false,
+                explanation: "Question skipped using lifeline."
+            });
+            gameState.currentQIdx++;
+            loadQuestion();
+        }
+
+        function useHint() {
+            if (!gameState.lifelines.hint || gameState.hintUsed) return;
+            sound.click();
+            gameState.lifelines.hint = false;
+            document.getElementById('ll-hint').disabled = true;
+            gameState.hintUsed = true;
+            gameState.score = Math.max(0, gameState.score - 2);
+            document.getElementById('score-display').innerText = gameState.score;
+
+            const qData = gameState.questions[gameState.currentQIdx];
+            showModal("💡 Question Hint", `Hint: The correct word starts with '${qData.ans.charAt(0).toUpperCase()}'. (-2 pts)`);
+        }
+
+        /* --------------------------------------------------------------------------
+           9. ACHIEVEMENTS & POPUPS
+           -------------------------------------------------------------------------- */
+        function checkStreakAchievements() {
+            if (gameState.streak === 5) {
+                triggerConfetti();
+                showModal("🔥 Hot Streak!", "5 Correct Answers in a Row!");
+            } else if (gameState.streak === 10) {
+                triggerConfetti();
+                showModal("⚡ Speed Master!", "10 Correct Answers in a Row! Unstoppable!");
+            }
+        }
+
+        function showModal(title, text) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-body').innerText = text;
+            document.getElementById('modal-popup').style.display = 'flex';
+        }
+
+        function closeModal() {
+            sound.click();
+            document.getElementById('modal-popup').style.display = 'none';
+        }
+
+        function setMascotText(msg) {
+            document.getElementById('mascot-bubble').innerText = msg;
+        }
+
+        function pauseGame() {
+            gameState.isPaused = true;
+            document.getElementById('pause-btn').innerText = '▶️';
+            showModal("⏸️ Game Paused", "Take a breath! Click continue when ready.");
+        }
+
+        function resumeGame() {
+            gameState.isPaused = false;
+            document.getElementById('pause-btn').innerText = '⏸️';
+            closeModal();
+        }
+
+        /* --------------------------------------------------------------------------
+           10. END GAME, RESULTS & REWARDS
+           -------------------------------------------------------------------------- */
+        function endGame() {
+            clearInterval(gameState.timerId);
+            document.getElementById('pause-btn').style.display = 'none';
+
+            gameState.totalTimeTaken = Math.floor((Date.now() - gameState.startTime) / 1000);
+            const accuracy = Math.round((gameState.correctCount / gameState.questions.length) * 100);
+
+            // Save High Score
+            if (gameState.score > highScore) {
+                highScore = gameState.score;
+                localStorage.setItem('action_words_high_score', highScore);
+                document.getElementById('high-score-display').innerText = highScore;
+            }
+
+            // Determine Badge & Grade
+            let badge = "🥉";
+            let badgeName = "Bronze Badge";
+            if (gameState.score >= 200) { badge = "🏆"; badgeName = "Champion Trophy"; }
+            else if (gameState.score >= 150) { badge = "🥇"; badgeName = "Gold Badge"; }
+            else if (gameState.score >= 100) { badge = "🥈"; badgeName = "Silver Badge"; }
+
+            let grade = "C";
+            if (accuracy >= 90) grade = "A+";
+            else if (accuracy >= 80) grade = "A";
+            else if (accuracy >= 70) grade = "B";
+
+            // Render Results Screen
+            document.getElementById('result-badge').innerText = badge;
+            document.getElementById('result-badge-name').innerText = badgeName;
+            document.getElementById('res-score').innerText = gameState.score;
+            document.getElementById('res-accuracy').innerText = `${accuracy}%`;
+            document.getElementById('res-cw').innerText = `${gameState.correctCount} / ${gameState.wrongCount}`;
+            document.getElementById('res-streak').innerText = gameState.bestStreak;
+            document.getElementById('res-time').innerText = `${gameState.totalTimeTaken}s`;
+            document.getElementById('res-grade').innerText = grade;
+
+            sound.cheer();
+            triggerConfetti();
+            switchScreen('screen-results');
+        }
+
+        function showReview() {
+            sound.click();
+            const container = document.getElementById('review-list-container');
+            container.innerHTML = '';
+
+            gameState.userAnswers.forEach((item, idx) => {
+                const div = document.createElement('div');
+                div.className = `review-item ${item.isCorrect ? 'rev-correct' : 'rev-wrong'}`;
+                div.innerHTML = `
+                    <strong>Q${idx + 1}: ${item.question}</strong><br>
+                    <span>Your Answer: ${item.selected} ${item.isCorrect ? '✅' : '❌'}</span><br>
+                    ${!item.isCorrect ? `<span>Correct Answer: <strong>${item.correct}</strong></span><br>` : ''}
+                    <em style="font-size:0.85rem;">Note: ${item.explanation}</em>
+                `;
+                container.appendChild(div);
+            });
+
+            switchScreen('screen-review');
+        }
+
+        function showResultsScreen() {
+            sound.click();
+            switchScreen('screen-results');
+        }
+
+        function goHome() {
+            sound.click();
+            switchScreen('screen-home');
+        }
+
+        function generateCertificate() {
+            sound.click();
+            const accuracy = Math.round((gameState.correctCount / gameState.questions.length) * 100);
+            let grade = "C";
+            if (accuracy >= 90) grade = "A+";
+            else if (accuracy >= 80) grade = "A";
+            else if (accuracy >= 70) grade = "B";
+
+            document.getElementById('cert-name').innerText = gameState.playerName;
+            document.getElementById('cert-score').innerText = gameState.score;
+            document.getElementById('cert-grade').innerText = grade;
+            document.getElementById('cert-date').innerText = new Date().toISOString().split('T')[0];
+
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById('certificate-view').style.display = 'block';
+        }
+
+        /* --------------------------------------------------------------------------
+           11. CONFETTI EFFECT
+           -------------------------------------------------------------------------- */
+        function triggerConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            let particles = [];
+            const colors = ['#FF6B6B', '#4ECDC4', '#FFEAA7', '#9B59B6', '#2ECC71'];
+
+            for (let i = 0; i < 80; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height - canvas.height,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    size: Math.random() * 8 + 4,
+                    speedY: Math.random() * 3 + 2,
+                    speedX: Math.random() * 2 - 1
+                });
+            }
+
+            function render() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach((p, i) => {
+                    p.y += p.speedY;
+                    p.x += p.speedX;
+                    ctx.fillStyle = p.color;
+                    ctx.fillRect(p.x, p.y, p.size, p.size);
+                });
+
+                particles = particles.filter(p => p.y < canvas.height);
+                if (particles.length > 0) requestAnimationFrame(render);
+            }
+            render();
+        }
+    </script>
+</body>
+</html>
