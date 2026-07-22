@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<style>
+body
+{
+height:690px;
+background:linear-gradient(to bottom left,#fdff00 0%, #3ad59f 100%)
+}
+div
+{
+background-color:#ff1493;
+}
+button{
+border-radius: 50px;
+border: 2px solid #04aa6d;
+padding: 10px;
+text-align: center;
+text-decoration: none;
+cursor: pointer;
+margin: 4px 2px;
+transition-duration: 0.4s;
+font-size:45px;
+}
+button:hover{
+background-color:#008cba;
+color: white;
+}
+</style>
+</head>
+<body>
+<div>
+<FONT COLOR="WHITE">
+<CENTER>
+
+<H1>वर्णानाम् उच्चारणम्<BR></H1><HR></H4>
+</CENTER>
+</FONT>
+<HR>
+</div>
+<CENTER><button onclick="window.parent.location.href='alphabet_swara.html'">स्वरवर्णा:</button><button onclick="window.parent.location.href='alphabet _vyanjana.html'">व्यञ्जनवर्णाः</button>
+<hr>
+<img align="right"  style="border-top:2px solid #ff1493;border-left:2px solid #ff1493;border-bottom:2px solid #ff1493;border-right:2px solid #ff1493;"src="img1.png" width="450" height="400">
+<HR><BR><br><br><br><br><br>
+<center><button onclick="a()"><font size=18>अ</font></button>
+<button onclick="aa()"><font size=18>आ</font></button>
+<button onclick="i()"><font size=18>इ</font></button>
+<button onclick="ii()"><font size=18>ई</font></button>
+<button onclick="u()"><font size=18>उ</font></button></CENTER> <br>
+<center><button onclick="uu()"><font size=18>ऊ</font></button>
+<button onclick="ri()"><font size=18>ऋ</font></button>
+<button onclick="rri()"><font size=18>ॠ</font></button>
+<button onclick="lri()"><font size=18>ऌ</font></button>
+<button onclick="e()"><font size=18>ए</font></button></CENTER> <br>
+<CENTER><button onclick="ai()"><font size=18>ऐ</font></button>
+<button onclick="o()"><font size=18>ओ</font></button>
+<button onclick="au()"><font size=18>औ</font></button>
+<button onclick="am()"><font size=18>अं</font></button>
+<button onclick="ah()"><font size=18>अः</font></button></CENTER> <br>
+<p id="x"></p>
+<script type="text/javascript">
+function a()
+{
+var music=new Audio('a_varna.mp3');
+music.play();
+document.getElementById("x").innerHTML="<font color=#ff1493 size=18><center>अयम् अवर्ण: [उच्चारणस्थानम् - कण्ठ:]</font></center>";
+}
+function aa()
+{
+var music=new Audio('aa_varna.mp3');
+music.play();
+document.getElementById("x").innerHTML="<font color=#ff1493 size=18><center>अयम् आवर्ण: [उच्चारणस्थानम् - कण्ठ:]</font></center>";
+}
+function i()
+{
+var music=new Audio('i_varna.mp3');
+music.play();
+document.getElementById("x").innerHTML="<font color=#ff1493 size=18><center>अयम् इवर्ण:  [उच्चारणस्थानम् - तालु]</font></center>";
+}
+function ii()
+{
+var music=new Audio('ii_varna.mp3');
+music.play();
+document.getElementById("x").innerHTML="<font color=#ff1493 size=18><center>अयम् ईवर्ण: [उच्चारणस्थानम् - तालु]</font></center>";
+}
+function u()
+{
+var music=new Audio('u_varna.mp3');
+music.play();
+document.getElementById("x").innerHTML="<font color=#ff1493 size=18><center>अयम् उवर्ण: [उच्चारणस्थानम् - ओष्ठौ]</font></center>";
+}
+
+function uu()
+{
+var music=new Audio('uu_varna.mp3');
+music.play();
+document.getElementById("x").innerHTML="<font color=#ff1493 size=18><center>अयम् ऊवर्ण: [उच्चारणस्थानम् - ओष्ठौ]</font></center>";
+}
+
+function ri()
+{
+var music=new Audio('ri_varna.mp3');
+music.play();
+document.getElementById("x").innerHTML="<font color=#ff1493 size=18><center>अयम् ऋवर्ण: [उच्चारणस्थानम् - मूर्धा]</font></center>";
+}
+function rri()
+{
+var music=new Audio('rri_varna.mp3');
+music.play();
+document.getElementById("x").innerHTML="<font color=#ff1493 size=18><center>अयम् ॠवर्ण: [उच्चारणस्थानम् - मूर्धा]</font></center>";
+}
+function lri()
+{
+var music=new Audio('lri_varna.mp3');
+music.play();
+document.getElementById("x").innerHTML="<font color=#ff1493 size=18><center>अयम् ऌ-वर्ण: [उच्चारणस्थानम् - दन्ता:]</font></center>";
+}
+function e()
+{
+var music=new Audio('e_varna.mp3');
+music.play();
+document.getElementById("x").innerHTML="<font color=#ff1493 size=18><center>अयम् एवर्ण: [उच्चारणस्थानम् -कण्ठतालु]</font></center>";
+}
+function ai()
+{
+var music=new Audio('ai_varna.mp3');
+music.play();
+document.getElementById("x").innerHTML="<font color=#ff1493 size=18><center>अयम् ऐवर्ण: [उच्चारणस्थानम् -कण्ठतालु]</font></center>";
+}
+function o()
+{
+var music=new Audio('o_varna.mp3');
+music.play();
+document.getElementById("x").innerHTML="<font color=#ff1493 size=18><center>अयम् ओवर्ण: [उच्चारणस्थानम् -कण्ठोष्ठम्]</font></center>";
+}
+function au()
+{
+var music=new Audio('au_varna.mp3');
+music.play();
+document.getElementById("x").innerHTML="<font color=#ff1493 size=18><center>अयम् औवर्ण: [उच्चारणस्थानम् -कण्ठोष्ठम्]</font></center>";
+}
+function am()
+{
+var music=new Audio('am_varna.mp3');
+music.play();
+document.getElementById("x").innerHTML="<font color=#ff1493 size=18><center>अं</font></center>";
+}
+function ah()
+{
+var music=new Audio('aha_varna_.mp3');
+music.play();
+document.getElementById("x").innerHTML="<font color=#ff1493 size=18><center>अः</font></center>";
+}
+</script>
+
+</body>
+
+<br><br>
+<footer><small>
+<MARQUEE BGCOLOR="#008080" SCROLLAMOUNT="10" BEHAVIOR="ALTERNATE"><h5>Developed and Designed By Dr. M.K.Barman, Assistant Professor in Sanskrit, Hooghly Mohsin College</h5></MARQUEE>
+<br><center>&copy; Dept of Sanskrit, HMC</center></small></footer>
+</html>
