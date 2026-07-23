@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>समयज्ञानम्</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Comic Sans MS,cursive;
+}
+
+body{
+
+background:linear-gradient(135deg,#63c5ff,#8d6bff,#ff9de2);
+background-size:300% 300%;
+animation:bgmove 10s infinite alternate;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+min-height:100vh;
+
+overflow:hidden;
+
+}
+
+@keyframes bgmove{
+from{background-position:left;}
+to{background-position:right;}
+}
+
+.container{
+
+width:95%;
+max-width:450px;
+
+background:white;
+
+border-radius:30px;
+
+padding:20px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.3);
+
+text-align:center;
+
+}
+
+h1{
+
+font-size:34px;
+color:#ff4b91;
+
+}
+
+.score{
+
+margin-top:10px;
+font-size:22px;
+color:#555;
+
+}
+
+.clock{
+
+font-size:100px;
+
+margin:25px 0;
+
+animation:bounce 2s infinite;
+
+}
+
+@keyframes bounce{
+
+50%{
+transform:translateY(-10px);
+}
+
+}
+
+.question{
+
+font-size:24px;
+font-weight:bold;
+margin-bottom:20px;
+
+}
+
+.dropzone{
+
+height:80px;
+
+border:4px dashed #ff4b91;
+
+border-radius:20px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:22px;
+
+background:#fff7fb;
+
+margin-bottom:25px;
+
+transition:.3s;
+
+}
+
+.dropzone.hover{
+
+background:#ffe5f4;
+transform:scale(1.05);
+
+}
+
+.options{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:12px;
+
+}
+
+.card{
+
+background:linear-gradient(45deg,#ffd54f,#ffb74d);
+
+padding:18px;
+
+border-radius:18px;
+
+font-size:22px;
+
+font-weight:bold;
+
+cursor:grab;
+
+box-shadow:0 8px 18px rgba(0,0,0,.2);
+
+transition:.25s;
+
+user-select:none;
+
+}
+
+.card:hover{
+
+transform:scale(1.05);
+
+}
+
+.correct{
+
+background:#66bb6a!important;
+color:white;
+
+}
+
+.wrong{
+
+background:#ef5350!important;
+color:white;
+
+}
+
+button{
+
+margin-top:20px;
+
+padding:14px 28px;
+
+border:none;
+
+border-radius:30px;
+
+background:#6c63ff;
+
+color:white;
+
+font-size:20px;
+
+cursor:pointer;
+
+}
+
+.confetti{
+
+position:absolute;
+
+width:10px;
+height:10px;
+
+background:red;
+
+animation:fall 3s linear forwards;
+
+}
+
+@keyframes fall{
+
+to{
+
+transform:translateY(700px) rotate(720deg);
+
+opacity:0;
+
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>🕒 समयज्ञानम्</h1>
+
+<div class="score">
+⭐ Score:
+<span id="score">0</span>
+</div>
+
+<div class="clock">
+⏰
+</div>
+
+<div class="question" id="question"></div>
+
+<div class="dropzone" id="drop">
+कर्षणमोचनेन उत्तरं देयम्।
+</div>
+
+<div class="options" id="options"></div>
+
+<button onclick="newQuestion()">
+प्रश्नान्तरम्
+</button>
+
+</div>
+
+<script>
+
+let score=0;
+
+const questions=[
+
+{
+q:"🕗 अष्टवादनम्",
+a:"8:00"
+},
+
+{
+q:"🕞 सार्धत्रिवादनम्",
+a:"3:30"
+},
+
+{
+q:"🕛 द्वादशवादनम्",
+a:"12:00"
+},
+
+{
+q:"🕕 षड्वादनम्",
+a:"6:00"
+},
+
+{
+q:"🕖 सप्तवादनम्",
+a:"7:00"
+},
+
+{
+q:"🕘 नववादनम्",
+a:"9:00"
+},
+
+{
+q:"🕐 एकवादनम्",
+a:"1:00"
+},
+
+{
+q:"🕥 सार्धदशवादनम्",
+a:"10:30"
+}
+
+];
+
+let answer="";
+
+function shuffle(array){
+
+return array.sort(()=>Math.random()-0.5);
+
+}
+
+function play(freq){
+
+const ctx=new(window.AudioContext||window.webkitAudioContext)();
+
+const osc=ctx.createOscillator();
+
+const gain=ctx.createGain();
+
+osc.connect(gain);
+
+gain.connect(ctx.destination);
+
+osc.frequency.value=freq;
+
+osc.type="triangle";
+
+osc.start();
+
+gain.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+.4);
+
+osc.stop(ctx.currentTime+.4);
+
+}
+
+function confetti(){
+
+for(let i=0;i<80;i++){
+
+let c=document.createElement("div");
+
+c.className="confetti";
+
+c.style.left=Math.random()*window.innerWidth+"px";
+
+c.style.top="-20px";
+
+c.style.background=
+
+["red","blue","green","yellow","pink","purple"][Math.floor(Math.random()*6)];
+
+c.style.animationDuration=(2+Math.random()*2)+"s";
+
+document.body.appendChild(c);
+
+setTimeout(()=>c.remove(),4000);
+
+}
+
+}
+
+function newQuestion(){
+
+let item=questions[Math.floor(Math.random()*questions.length)];
+
+answer=item.a;
+
+document.getElementById("question").innerHTML=item.q;
+
+document.getElementById("drop").innerHTML="अत्र कर्षणमोचनं कुरु";
+
+document.getElementById("drop").className="dropzone";
+
+let opts=[answer];
+
+while(opts.length<4){
+
+let h=Math.floor(Math.random()*12)+1;
+
+let m=Math.random()>.5?"00":"30";
+
+let t=h+":"+m;
+
+if(!opts.includes(t))
+
+opts.push(t);
+
+}
+
+opts=shuffle(opts);
+
+let html="";
+
+opts.forEach(x=>{
+
+html+=`
+
+<div class="card"
+
+draggable="true"
+
+data-value="${x}">
+
+${x}
+
+</div>
+
+`;
+
+});
+
+document.getElementById("options").innerHTML=html;
+
+document.querySelectorAll(".card").forEach(card=>{
+
+card.addEventListener("dragstart",e=>{
+
+e.dataTransfer.setData("text",card.dataset.value);
+
+});
+
+});
+
+}
+
+const drop=document.getElementById("drop");
+
+drop.addEventListener("dragover",e=>{
+
+e.preventDefault();
+
+drop.classList.add("hover");
+
+});
+
+drop.addEventListener("dragleave",()=>{
+
+drop.classList.remove("hover");
+
+});
+
+drop.addEventListener("drop",e=>{
+
+e.preventDefault();
+
+drop.classList.remove("hover");
+
+let val=e.dataTransfer.getData("text");
+
+drop.innerHTML=val;
+
+if(val===answer){
+
+drop.classList.add("correct");
+
+score++;
+
+document.getElementById("score").innerHTML=score;
+
+play(700);
+
+confetti();
+
+setTimeout(newQuestion,1200);
+
+}else{
+
+drop.classList.add("wrong");
+
+play(180);
+
+setTimeout(()=>{
+
+drop.className="dropzone";
+
+drop.innerHTML="पुनः आरभ्यताम् 😊";
+
+},900);
+
+}
+
+});
+
+newQuestion();
+
+</script>
+
+</body>
+</html>
