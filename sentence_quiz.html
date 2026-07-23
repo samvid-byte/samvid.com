@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="sa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>शुद्धवाक्यज्ञानम्</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+box-sizing:border-box;
+font-family:'Noto Sans Devanagari',sans-serif;
+}
+
+body{
+
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(-45deg,#00c6ff,#0072ff,#7b1fa2,#ff4081);
+background-size:400% 400%;
+animation:bg 12s infinite;
+overflow:hidden;
+
+}
+
+@keyframes bg{
+
+0%{background-position:0 50%;}
+50%{background-position:100% 50%;}
+100%{background-position:0 50%;}
+
+}
+
+.card{
+
+width:900px;
+max-width:95%;
+background:white;
+border-radius:25px;
+padding:30px;
+box-shadow:0 20px 40px rgba(0,0,0,.3);
+text-align:center;
+
+}
+
+h1{
+
+margin-top:0;
+color:#1565c0;
+
+}
+
+.progress{
+
+height:18px;
+background:#ddd;
+border-radius:20px;
+overflow:hidden;
+margin-bottom:20px;
+
+}
+
+.bar{
+
+height:100%;
+width:0%;
+background:linear-gradient(90deg,#00c853,#64dd17);
+
+}
+
+.info{
+
+display:flex;
+justify-content:space-between;
+font-size:22px;
+margin-bottom:20px;
+
+}
+
+.question{
+
+font-size:38px;
+margin:35px 0;
+
+}
+
+.drop{
+
+display:inline-flex;
+justify-content:center;
+align-items:center;
+
+width:170px;
+height:70px;
+
+border:4px dashed #2196f3;
+border-radius:15px;
+
+margin-left:10px;
+margin-right:10px;
+
+font-size:34px;
+font-weight:bold;
+
+transition:.3s;
+background:white;
+
+}
+
+.hover{
+
+background:#e3f2fd;
+
+}
+
+.options{
+
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+
+}
+
+.option{
+
+padding:14px 30px;
+font-size:30px;
+background:linear-gradient(45deg,#ff9800,#ff5722);
+color:white;
+border-radius:15px;
+cursor:grab;
+box-shadow:0 5px 15px rgba(0,0,0,.25);
+transition:.25s;
+
+}
+
+.option:hover{
+
+transform:scale(1.08);
+
+}
+
+.correct{
+
+background:#4caf50!important;
+color:white;
+
+}
+
+.wrong{
+
+background:#f44336!important;
+color:white;
+
+animation:shake .3s;
+
+}
+
+@keyframes shake{
+
+25%{transform:translateX(-6px);}
+50%{transform:translateX(6px);}
+75%{transform:translateX(-6px);}
+
+}
+
+#message{
+
+font-size:30px;
+height:40px;
+margin-top:25px;
+font-weight:bold;
+
+}
+
+button{
+
+padding:14px 40px;
+font-size:24px;
+border:none;
+border-radius:12px;
+background:#1565c0;
+color:white;
+cursor:pointer;
+margin-top:20px;
+
+display:none;
+
+}
+
+.confetti{
+
+position:fixed;
+width:10px;
+height:10px;
+top:-20px;
+pointer-events:none;
+
+animation:fall 3s linear forwards;
+
+}
+
+@keyframes fall{
+
+to{
+
+transform:translateY(110vh) rotate(720deg);
+
+}
+
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<h1>🌸 शुद्धवाक्यज्ञानम् 🌸</h1>
+
+<div class="progress">
+<div class="bar" id="bar"></div>
+</div>
+
+<div class="info">
+
+<div>⭐ प्राप्ताङ्कः (Score): <span id="score">0</span></div>
+
+<div>❤️ Lives: <span id="life">3</span></div>
+
+</div>
+
+<div id="question" class="question"></div>
+
+<div class="options">
+
+<div class="option" draggable="true">सः</div>
+<div class="option" draggable="true">एषः</div>
+<div class="option" draggable="true">सा</div>
+<div class="option" draggable="true">एषा</div>
+<div class="option" draggable="true">एतत्</div>
+<div class="option" draggable="true">अदः</div>
+
+</div>
+
+<div id="message"></div>
+
+<button onclick="location.reload()">Play Again</button>
+
+</div>
+
+<script>
+
+const quiz=[
+
+{
+q:"<span style='font-size:50px'>&#9752;</span> _________ पादपः",
+answers:["सः","एषः"]
+},
+
+{
+q:"<span style='font-size:50px'>&#9752;</span> _________ जननी",
+answers:["सा","एषा"]
+},
+
+{
+q:"<span style='font-size:50px'>&#9752;</span> _________ मही",
+answers:["सा","एषा"]
+},
+
+{
+q:"<span style='font-size:50px'>&#9752;</span> _________ घटः",
+answers:["सः","एषः"]
+},
+
+{
+q:"<span style='font-size:50px'>&#9752;</span> _________ देवी",
+answers:["सा","एषा"]
+},
+
+{
+q:"<span style='font-size:50px'>&#9752;</span> _________ चपला",
+answers:["सा","एषा"]
+},
+
+{
+q:"<span style='font-size:50px'>&#9752;</span> _________ जीमूतः",
+answers:["सः","एषः"]
+},
+
+{
+q:"<span style='font-size:50px'>&#9752;</span> _________ रत्नाकरः",
+answers:["सः","एषः"]
+},
+
+{
+q:"<span style='font-size:50px'>&#9752;</span> _________ सर्पः",
+answers:["सः","एषः"]
+},
+{
+q:"<span style='font-size:50px'>&#9752;</span> _________ मुनिः", 
+answers:["सः","एषः"]
+},
+
+{
+q:"<span style='font-size:50px'>&#9752;</span> _________ ध्वनिः",
+answers:["सः","एषः"]
+},
+{
+q:"<span style='font-size:50px'>&#9752;</span> _________ रविः", 
+answers:["सः","एषः"]
+},
+{
+q:"<span style='font-size:50px'>&#9752;</span> _________ भाषा",
+answers:["सा","एषा"]
+},
+{
+q:"<span style='font-size:50px'>&#9752;</span> _________ चिन्ता",
+answers:["सा","एषा"]
+},
+{
+q:"<span style='font-size:50px'>&#9752;</span> _________ शोभा",
+answers:["सा","एषा"]
+}
+];
+
+let current=0;
+let score=0;
+let lives=3;
+
+const q=document.getElementById("question");
+const msg=document.getElementById("message");
+
+function loadQuestion(){
+
+if(current>=quiz.length || lives==0){
+
+q.innerHTML=lives? "🏆 Quiz Completed":"😢 Game Over";
+
+document.querySelector(".options").style.display="none";
+
+msg.innerHTML="Final Score : "+score+" / "+quiz.length;
+
+document.querySelector("button").style.display="inline-block";
+
+return;
+
+}
+
+document.getElementById("bar").style.width=(current/quiz.length*100)+"%";
+
+q.innerHTML=quiz[current].q+' <span class="drop" id="drop"></span>';
+
+enableDrop();
+
+}
+
+function enableDrop(){
+
+const drop=document.getElementById("drop");
+
+drop.addEventListener("dragover",e=>{
+
+e.preventDefault();
+
+drop.classList.add("hover");
+
+});
+
+drop.addEventListener("dragleave",()=>drop.classList.remove("hover"));
+
+drop.addEventListener("drop",e=>{
+
+e.preventDefault();
+
+drop.classList.remove("hover");
+
+let word=dragged;
+
+drop.innerHTML=word;
+
+if(quiz[current].answers.includes(word)){
+
+play(600);
+
+drop.classList.add("correct");
+
+score++;
+
+document.getElementById("score").textContent=score;
+
+msg.innerHTML="✅ शुद्धम्!";
+
+confetti();
+
+setTimeout(()=>{
+
+current++;
+
+msg.innerHTML="";
+
+loadQuestion();
+
+},900);
+
+}else{
+
+play(200);
+
+drop.classList.add("wrong");
+
+lives--;
+
+document.getElementById("life").textContent=lives;
+
+msg.innerHTML="❌ अशुद्धम्";
+
+setTimeout(()=>{
+
+current++;
+
+msg.innerHTML="";
+
+loadQuestion();
+
+},900);
+
+}
+
+});
+
+}
+
+let dragged="";
+
+document.querySelectorAll(".option").forEach(x=>{
+
+x.addEventListener("dragstart",()=>dragged=x.innerHTML);
+
+});
+
+function play(freq){
+
+let ctx=new(window.AudioContext||window.webkitAudioContext)();
+
+let osc=ctx.createOscillator();
+
+let gain=ctx.createGain();
+
+osc.frequency.value=freq;
+
+osc.connect(gain);
+
+gain.connect(ctx.destination);
+
+osc.start();
+
+gain.gain.exponentialRampToValueAtTime(.0001,ctx.currentTime+.25);
+
+osc.stop(ctx.currentTime+.25);
+
+}
+
+function confetti(){
+
+for(let i=0;i<60;i++){
+
+let c=document.createElement("div");
+
+c.className="confetti";
+
+c.style.left=Math.random()*100+"vw";
+
+c.style.background="hsl("+Math.random()*360+",100%,50%)";
+
+c.style.transform="rotate("+Math.random()*360+"deg)";
+
+c.style.animationDuration=(2+Math.random()*2)+"s";
+
+document.body.appendChild(c);
+
+setTimeout(()=>c.remove(),4000);
+
+}
+
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
