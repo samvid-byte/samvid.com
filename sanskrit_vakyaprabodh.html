@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="sa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>संस्कृतवाक्यप्रबोधः — Quiz</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:"Noto Sans Devanagari",sans-serif;
+  background:linear-gradient(135deg,#eef7ff,#fff8e8);
+  color:#243447;
+  min-height:100vh;
+}
+.container{max-width:850px;margin:auto;padding:18px}
+.header{
+  background:linear-gradient(135deg,#5b4bdb,#7b61ff);
+  color:white;padding:25px 18px;border-radius:22px;
+  text-align:center;box-shadow:0 8px 25px #0002;margin-bottom:18px
+}
+.header h1{margin:0;font-size:clamp(25px,6vw,38px)}
+.header p{margin:8px 0 0;font-size:16px}
+.scorebar{
+  display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;
+  background:white;border-radius:16px;padding:12px 16px;
+  box-shadow:0 3px 12px #0001;margin-bottom:18px;font-weight:700
+}
+.section{display:none}
+.section.active{display:block}
+.section-title{
+  background:#fff;border-left:6px solid #6c5ce7;border-radius:14px;
+  padding:15px;margin-bottom:15px;box-shadow:0 3px 12px #0001
+}
+.section-title h2{margin:0 0 5px;font-size:24px;color:#4b3cc4}
+.section-title p{margin:0}
+.path-card{
+  background:#fff;padding:18px;border-radius:18px;margin-bottom:18px;
+  box-shadow:0 4px 14px #0001
+}
+.path-title{text-align:center;font-weight:700;margin-bottom:12px;color:#555}
+.path{
+  display:flex;align-items:center;justify-content:center;
+  flex-wrap:wrap;gap:7px;font-size:18px;font-weight:700
+}
+.place{
+  background:#eef0ff;color:#4036a3;padding:9px 11px;border-radius:12px;
+  border:1px solid #d9d5ff;transition:.25s
+}
+.place.highlight{
+  background:#ffe082;color:#7a4b00;border:3px solid #ff9800;
+  box-shadow:0 0 0 4px #ff980033,0 5px 14px #ff980044;
+  transform:scale(1.05)
+}
+.arrow{color:#ff7b00;font-size:23px;font-weight:800}
+.instruction{
+  background:#fff8df;border:1px solid #f2d47a;padding:14px;border-radius:14px;
+  margin-bottom:18px;text-align:center;font-weight:600
+}
+.question-card{
+  background:white;border-radius:18px;padding:18px;margin-bottom:16px;
+  box-shadow:0 4px 14px #0001
+}
+.question-number{
+  display:inline-block;background:#6c5ce7;color:white;border-radius:20px;
+  padding:4px 11px;font-size:14px;margin-bottom:9px
+}
+.question{font-size:20px;font-weight:700;line-height:1.7;margin-bottom:13px}
+.options{display:grid;gap:10px}
+.option{
+  width:100%;border:2px solid #e2e5ec;background:#fafbfe;
+  padding:12px 14px;border-radius:13px;text-align:left;
+  font-family:inherit;font-size:17px;cursor:pointer;transition:.2s
+}
+.option:hover{border-color:#6c5ce7;background:#f3f1ff}
+.option.correct{background:#dff7e7;border-color:#28a745;color:#146b2b}
+.option.wrong{background:#ffe3e3;border-color:#dc3545;color:#9d1c27}
+.option:disabled{cursor:default}
+.feedback{font-weight:700;margin-top:11px;min-height:25px}
+.feedback.ok{color:#16833a}.feedback.no{color:#c62828}
+.next-wrap{text-align:center;margin:20px 0 5px}
+button.next,button.restart{
+  border:0;border-radius:14px;padding:13px 25px;font-family:inherit;
+  font-size:17px;font-weight:700;cursor:pointer
+}
+.next{background:#6c5ce7;color:white;box-shadow:0 5px 12px #6c5ce744}
+.next:disabled{background:#b9b6d8;cursor:not-allowed;box-shadow:none}
+.restart{background:#ff8a00;color:white}
+.result{
+  display:none;background:white;border-radius:22px;padding:25px;text-align:center;
+  box-shadow:0 7px 25px #0002;margin-top:20px
+}
+.result h2{color:#4b3cc4;font-size:30px}
+.big-score{font-size:48px;font-weight:800;color:#6c5ce7}
+.result-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:20px 0}
+.result-box{background:#f5f4ff;border-radius:14px;padding:13px}
+.result-box strong{display:block;font-size:22px;color:#4b3cc4}
+.progress{
+  height:9px;background:#e8e8ee;border-radius:20px;overflow:hidden;margin-top:8px
+}
+.progress-fill{height:100%;width:0;background:#6c5ce7;transition:.3s}
+.footer{text-align:center;color:#777;font-size:13px;padding:18px}
+@media(max-width:600px){
+ .container{padding:10px}
+ .header{padding:20px 12px}
+ .scorebar{font-size:14px}
+ .question{font-size:18px}
+ .option{font-size:16px}
+ .path{font-size:15px}
+ .place{padding:7px 8px}
+ .arrow{font-size:19px}
+ .result-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="header">
+  <h1>संस्कृतवाक्यप्रबोधः</h1>
+  <p>विभक्तिः • गमनम् • प्रयोजनम् — Quiz Game</p>
+</header>
+
+<div class="scorebar">
+  <span>📚 प्रश्नः: <b id="questionCount">1 / 17</b></span>
+  <span>⭐ Score: <b id="score">0</b></span>
+  <span>🎯 भागः: <b id="partName">Part–1</b></span>
+</div>
+
+<main id="quizArea">
+
+<section class="section active" id="part1">
+  <div class="section-title">
+    <h2>Part–1</h2>
+    <p>अनसूया कुत्र कुत्र गच्छति इति चित्रेण प्रदर्श्यते। उचितेन शब्देन वाक्यानि लेखनीयानि।</p>
+  </div>
+
+  <div class="path-card">
+    <div class="path-title">अनसूयायाः गमनमार्गः</div>
+    <div class="path" id="routePath">
+      <span class="place" data-place="गृहम्">गृहम्</span><span class="arrow">→</span>
+      <span class="place" data-place="आपणः">आपणः</span><span class="arrow">→</span>
+      <span class="place" data-place="पत्रालयः">पत्रालयः</span><span class="arrow">→</span>
+      <span class="place" data-place="वित्तकोषः">वित्तकोषः</span><span class="arrow">→</span>
+      <span class="place" data-place="नदी">नदी</span><span class="arrow">→</span>
+      <span class="place" data-place="उद्यानम्">उद्यानम्</span><span class="arrow">→</span>
+      <span class="place" data-place="मन्दिरम्">मन्दिरम्</span><span class="arrow">→</span>
+      <span class="place" data-place="पाकशाला">पाकशाला</span>
+    </div>
+    <div id="routeHint" style="text-align:center;margin-top:14px;font-weight:800;color:#e65100"></div>
+  </div>
+
+  <div id="part1Questions"></div>
+</section>
+
+<section class="section" id="part21">
+  <div class="section-title">
+    <h2>Part–2.1</h2>
+    <p>शुद्धं वाक्यं चिनु।</p>
+  </div>
+  <div id="part21Questions"></div>
+</section>
+
+<section class="section" id="part22">
+  <div class="section-title">
+    <h2>Part–2.2</h2>
+    <p>शुद्धं वाक्यं चिनु।</p>
+  </div>
+  <div id="part22Questions"></div>
+</section>
+
+<div class="next-wrap">
+  <button class="next" id="nextBtn" disabled>Next →</button>
+</div>
+</main>
+
+<div class="result" id="result">
+  <h2>🎉 Quiz पूर्णम्!</h2>
+  <div class="big-score"><span id="finalScore">0</span> / 17</div>
+  <p id="message"></p>
+  <div class="result-grid">
+    <div class="result-box"><strong id="p1Score">0/7</strong>Part–1</div>
+    <div class="result-box"><strong id="p21Score">0/5</strong>Part–2.1</div>
+    <div class="result-box"><strong id="p22Score">0/5</strong>Part–2.2</div>
+  </div>
+  <p>प्रतिशतः <b id="percentage">0%</b></p>
+  <div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+  <br>
+  <button class="restart" onclick="restartQuiz()">🔄 पुनः प्रयासः</button>
+</div>
+
+<div class="footer">संस्कृत-अभ्यासः • Learn Sanskrit through Practice</div>
+</div>
+
+<script>
+const questions = [
+  // Part 1
+  {part:"Part–1", text:"अनसूया _________गच्छति।", opts:["आपणतः गृहं","गृहम् आपणं","गृहतः आपणतः","गृहतः आपणं"], ans:3, route:["गृहम्","आपणः"]},
+  {part:"Part–1", text:"अनसूया __________गच्छति।", opts:["आपणतः पत्रालयतः","आपणतः पत्रालयं","आपणं पत्रालयं","आपणं पत्रालयतः"], ans:1, route:["आपणः","पत्रालयः"]},
+  {part:"Part–1", text:"अनसूया ___________ गच्छति।", opts:["पत्रालयतः वित्तकोषं","पत्रालयं वित्तकोषं","पत्रालयतः वित्तकोषतः","पत्रालयं वित्तकोषतः"], ans:0, route:["पत्रालयः","वित्तकोषः"]},
+  {part:"Part–1", text:"अनसूया ___________ गच्छति।", opts:["वित्तकोषं नदीं","वित्तकोषतः नदीतः","वित्तकोषतः नदीं","वित्तकोषं नदीतः"], ans:2, route:["वित्तकोषः","नदी"]},
+  {part:"Part–1", text:"अनसूया __________ गच्छति।", opts:["नदीं उद्यानतः","नदीं उद्यानं","नदीतः उद्यानं","नदीतः उद्यानतः"], ans:2, route:["नदी","उद्यानम्"]},
+  {part:"Part–1", text:"अनसूया ____________ गच्छति।", opts:["उद्यानतः मन्दिरं","उद्यानं मन्दिरं","उद्यानतः मन्दितः","उद्यानं मन्दिरतः"], ans:0, route:["उद्यानम्","मन्दिरम्"]},
+  {part:"Part–1", text:"अनसूया __________ गच्छति।", opts:["मन्दिरतः पाकशालातः","मन्दिरतः पाकशालां","मन्दिरं पाकशालां","मन्दिरं पाकशालातः"], ans:1, route:["मन्दिरम्","पाकशाला"]},
+
+  // Part 2.1
+  {part:"Part–2.1", text:"Rama goes to the garden.", opts:["रामः उद्यानं गच्छति।","रामः उद्याने गच्छति।"], ans:0},
+  {part:"Part–2.1", text:"Devadatta eats rice at home.", opts:["देवदत्तः गृहम् अन्नं खादति।","देवदत्तः गृहे अन्नं खादति।"], ans:1},
+  {part:"Part–2.1", text:"Jyotsna looks at the moon in the sky.", opts:["ज्योत्स्ना गगनं चन्द्रं पश्यति।","ज्योत्स्ना गगने चन्द्रं पश्यति।"], ans:1},
+  {part:"Part–2.1", text:"Mira goes to the sea.", opts:["मीरा समुद्रं याति।","मीरा समुद्रे याति।"], ans:0},
+  {part:"Part–2.1", text:"I see the farmer in the field.", opts:["अहं क्षेत्रं कृषकं पश्यामि।","अहं क्षेत्रे कृषकं पश्यामि।"], ans:1},
+
+  // Part 2.2
+  {part:"Part–2.2", text:"Naresh goes to the library to study.", opts:["नरेशः पठनार्थं ग्रन्थालयं गच्छति।","नरेशः पठनं ग्रन्थालयं गच्छति।"], ans:0},
+  {part:"Part–2.2", text:"Sima goes to the river to bathe.", opts:["सोमा स्नानार्थं नदीं गच्छति।","सोमा स्नानं नदीं गच्छति।"], ans:0},
+  {part:"Part–2.2", text:"Moumita does Yoga for healing.", opts:["मौमिता आरोग्यार्थं योगासनार्थं करोति।","मौमिता आरोग्यार्थं योगासनं करोति।"], ans:1},
+  {part:"Part–2.2", text:"Girija draws picture for joy.", opts:["गिरिजा आनन्दं चित्रं रचयति।","गिरिजा आनन्दार्थं चित्रं रचयति।"], ans:1},
+  {part:"Part–2.2", text:"Uma drinks water to quench thirst.", opts:["उमा तृष्णार्थं जलं पिबति।","उमा तृष्णार्थं जलार्थं पिबति।"], ans:0}
+];
+
+let current = 0;
+let score = 0;
+let partScores = {"Part–1":0,"Part–2.1":0,"Part–2.2":0};
+let answered = false;
+
+function makeCard(q, index){
+  const card=document.createElement("div");
+  card.className="question-card";
+  card.id="card-"+index;
+  card.innerHTML=`
+    <div class="question-number">प्रश्न ${index+1}</div>
+    <div class="question">${q.text}</div>
+    <div class="options"></div>
+    <div class="feedback" id="feedback-${index}"></div>
+  `;
+  const options=card.querySelector(".options");
+  q.opts.forEach((opt,i)=>{
+    const b=document.createElement("button");
+    b.className="option";
+    b.innerHTML=(i===0?"क) ":"ख) ") + opt;
+    b.onclick=()=>answer(i);
+    b.dataset.index=i;
+    options.appendChild(b);
+  });
+  return card;
+}
+
+function renderAll(){
+  questions.forEach((q,i)=>{
+    const id=q.part==="Part–1"?"part1Questions":q.part==="Part–2.1"?"part21Questions":"part22Questions";
+    document.getElementById(id).appendChild(makeCard(q,i));
+  });
+  showQuestion();
+}
+
+function showQuestion(){
+  document.querySelectorAll(".question-card").forEach(c=>c.style.display="none");
+  document.querySelectorAll(".section").forEach(s=>s.classList.remove("active"));
+
+  const q=questions[current];
+  const sectionId=q.part==="Part–1"?"part1":q.part==="Part–2.1"?"part21":"part22";
+  document.getElementById(sectionId).classList.add("active");
+  document.getElementById("card-"+current).style.display="block";
+
+  document.getElementById("questionCount").textContent=(current+1)+" / "+questions.length;
+  document.getElementById("score").textContent=score;
+  document.getElementById("partName").textContent=q.part;
+  document.getElementById("nextBtn").disabled=true;
+  document.getElementById("nextBtn").textContent=current===questions.length-1?"Finish →":"Next →";
+
+  // Highlight the two places referred to by the current Part–1 question.
+  document.querySelectorAll("#routePath .place").forEach(p=>p.classList.remove("highlight"));
+  const routeHint=document.getElementById("routeHint");
+  if(q.route){
+    q.route.forEach(place=>{
+      const el=document.querySelector('#routePath .place[data-place="'+place+'"]');
+      if(el) el.classList.add("highlight");
+    });
+    routeHint.textContent=q.route[0]+" → "+q.route[1];
+  }else{
+    routeHint.textContent="";
+  }
+  answered=false;
+}
+
+function answer(selected){
+  if(answered)return;
+  answered=true;
+  const q=questions[current];
+  const card=document.getElementById("card-"+current);
+  const buttons=card.querySelectorAll(".option");
+  buttons.forEach((b,i)=>{
+    b.disabled=true;
+    if(i===q.ans)b.classList.add("correct");
+    if(i===selected && selected!==q.ans)b.classList.add("wrong");
+  });
+  const feedback=document.getElementById("feedback-"+current);
+  if(selected===q.ans){
+    score++;
+    partScores[q.part]++;
+    feedback.textContent="✓ साधु! उत्तरं सम्यक् अस्ति।";
+    feedback.className="feedback ok";
+  }else{
+    feedback.textContent="✗ अशुद्धम्।";
+    feedback.className="feedback no";
+  }
+  document.getElementById("score").textContent=score;
+  document.getElementById("nextBtn").disabled=false;
+}
+
+document.getElementById("nextBtn").onclick=()=>{
+  if(!answered)return;
+  if(current<questions.length-1){
+    current++;
+    showQuestion();
+    window.scrollTo({top:0,behavior:"smooth"});
+  }else{
+    showResult();
+  }
+};
+
+function showResult(){
+  document.getElementById("quizArea").style.display="none";
+  document.getElementById("result").style.display="block";
+  document.getElementById("finalScore").textContent=score;
+  document.getElementById("p1Score").textContent=partScores["Part–1"]+"/7";
+  document.getElementById("p21Score").textContent=partScores["Part–2.1"]+"/5";
+  document.getElementById("p22Score").textContent=partScores["Part–2.2"]+"/5";
+  const pct=Math.round(score/questions.length*100);
+  document.getElementById("percentage").textContent=pct+"%";
+  document.getElementById("progressFill").style.width=pct+"%";
+
+  let msg="";
+  if(pct>=90) msg="🌟 उत्कृष्टम्! तव संस्कृतज्ञानं उत्तमम् अस्ति।";
+  else if(pct>=70) msg="👏 साधु! उत्तमः प्रयासः।";
+  else if(pct>=50) msg="🙂 प्रयत्नं कुरु, पुनः अभ्यासं कुरु।";
+  else msg="💪 चिन्तां मा कुरु। पुनः प्रयासं कुरु।";
+  document.getElementById("message").textContent=msg;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+function restartQuiz(){
+  current=0; score=0;
+  partScores={"Part–1":0,"Part–2.1":0,"Part–2.2":0};
+  document.querySelectorAll(".question-card").forEach((card,i)=>{
+    card.style.display="none";
+    card.querySelectorAll(".option").forEach(b=>{
+      b.disabled=false;
+      b.classList.remove("correct","wrong");
+    });
+    const f=card.querySelector(".feedback");
+    f.textContent="";
+    f.className="feedback";
+  });
+  document.getElementById("result").style.display="none";
+  document.getElementById("quizArea").style.display="block";
+  showQuestion();
+}
+
+renderAll();
+</script>
+</body>
+</html>
