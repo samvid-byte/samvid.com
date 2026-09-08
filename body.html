@@ -3,36 +3,52 @@
 <html lang="en">
 
 <head>
- 
+
+
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- Google Fonts -->
+<!-- =====================================================
+     GOOGLE FONTS
+====================================================== -->
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
       rel="stylesheet">
 
-<!-- Bootstrap -->
+
+<!-- =====================================================
+     BOOTSTRAP
+====================================================== -->
+
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-sRIl4kxILFvV47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous">
 
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous">
+</script>
 
-<!-- Font Awesome -->
+
+<!-- =====================================================
+     FONT AWESOME
+====================================================== -->
+
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
       integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer">
 
+
 <!-- Existing stylesheet -->
 <link rel="stylesheet" href="mystylesheet.css">
+
 
 <title>Samvid</title>
 
@@ -40,156 +56,270 @@
 <style>
 
     /* =====================================================
-       BASIC RESET
-    ===================================================== */
+       RESET
+    ====================================================== */
 
     * {
         box-sizing: border-box;
     }
 
+
     html {
         scroll-behavior: smooth;
     }
 
+
     body {
+
         margin: 0;
+
         min-height: 100vh;
 
         display: flex;
+
         flex-direction: column;
 
         font-family: 'Poppins', sans-serif;
 
-        background:
-            radial-gradient(circle at top left, rgba(255,255,255,0.9), transparent 35%),
-            linear-gradient(135deg, #eef4ff, #f8fbff);
+        color: #252525;
 
-        color: #222;
+        background:
+
+            radial-gradient(
+                circle at 10% 10%,
+                rgba(255,255,255,0.95),
+                transparent 30%
+            ),
+
+            radial-gradient(
+                circle at 90% 90%,
+                rgba(206,224,255,0.65),
+                transparent 35%
+            ),
+
+            linear-gradient(
+                135deg,
+                #eef4ff,
+                #f8faff,
+                #edf5ff
+            );
+
     }
 
 
     /* =====================================================
        NAVBAR
-    ===================================================== */
+    ====================================================== */
 
     .navbar {
-        width: 100%;
-        padding: 12px 0;
 
-        background: linear-gradient(135deg, #071d49, #0b3d91);
+        width: 100%;
+
+        padding: 10px 0 12px;
+
+        background:
+
+            linear-gradient(
+                135deg,
+                #041b41,
+                #073d88,
+                #0a55a5
+            );
 
         box-shadow:
-            0 5px 20px rgba(0, 0, 0, 0.18);
+
+            0 6px 25px
+            rgba(0, 31, 84, 0.28);
 
         position: relative;
-        z-index: 100;
+
+        z-index: 1000;
+
     }
 
 
     .nav-container {
+
         width: 100%;
-        max-width: 1200px;
+
+        max-width: 1250px;
 
         margin: auto;
-        padding: 0 20px;
+
+        padding: 0 22px;
 
         display: flex;
+
         align-items: center;
+
         justify-content: space-between;
 
-        gap: 20px;
+        gap: 25px;
+
     }
 
 
     /* =====================================================
-       BRAND WITH PERSONAL LOGO
-    ===================================================== */
+       LOGO + SAMVID
+    ====================================================== */
 
     .brand {
+
         display: flex;
+
         align-items: center;
 
-        gap: 10px;
+        gap: 13px;
 
-        color: white;
         text-decoration: none;
 
-        white-space: nowrap;
+        color: white;
+
+        flex-shrink: 0;
+
     }
 
 
-    .brand-logo {
-        width: 48px;
-        height: 48px;
+    /*
+       Logo original size:
+       590 × 470
+
+       Displayed inside:
+       58 × 58 circle
+    */
+
+    .logo-circle {
+
+        width: 58px;
+
+        height: 58px;
+
+        border-radius: 50%;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        overflow: hidden;
+
+        background:
+
+            radial-gradient(
+                circle,
+                #ffffff,
+                #edf4ff
+            );
+
+        border: 3px solid rgba(255,255,255,0.85);
+
+        box-shadow:
+
+            0 0 0 3px rgba(255,255,255,0.12),
+
+            0 6px 18px
+            rgba(0,0,0,0.25);
+
+        transition:
+
+            transform 0.35s ease,
+
+            box-shadow 0.35s ease;
+
+    }
+
+
+    .logo-circle img {
+
+        width: 90%;
+
+        height: 90%;
 
         object-fit: contain;
 
-        border-radius: 10px;
+        display: block;
 
-        background: rgba(255,255,255,0.12);
-
-        padding: 4px;
-
-        transition:
-            transform 0.3s ease,
-            box-shadow 0.3s ease;
     }
 
 
-    .brand:hover .brand-logo {
-        transform: rotate(-4deg) scale(1.06);
+    .brand:hover .logo-circle {
+
+        transform: scale(1.07);
 
         box-shadow:
-            0 5px 15px rgba(255,255,255,0.25);
+
+            0 0 0 4px rgba(255,255,255,0.17),
+
+            0 8px 22px
+            rgba(0,0,0,0.30);
+
     }
 
 
     .brand-text {
+
         font-family: 'Playfair Display', serif;
 
-        font-size: 1.65rem;
+        font-size: 1.9rem;
+
         font-weight: 700;
 
-        letter-spacing: 1px;
+        letter-spacing: 1.5px;
 
-        color: white;
+        color: #ffffff;
+
+        text-shadow:
+
+            0 2px 8px rgba(0,0,0,0.25);
+
     }
 
 
     /* =====================================================
        NAVIGATION
-    ===================================================== */
+    ====================================================== */
 
     .nav-menu {
+
         display: flex;
+
         align-items: center;
+
         justify-content: center;
+
+        gap: 6px;
+
+        margin: 0;
+
+        padding: 0;
 
         list-style: none;
 
-        padding: 0;
-        margin: 0;
-
-        gap: 7px;
     }
 
 
     .nav-menu li {
+
         list-style: none;
+
     }
 
 
     .nav-item-wrapper {
+
         position: relative;
 
         display: flex;
+
         flex-direction: column;
+
         align-items: center;
+
     }
 
 
     .nav-btn {
-        position: relative;
 
         border: 1px solid transparent;
 
@@ -199,379 +329,645 @@
 
         min-height: 44px;
 
-        padding: 9px 15px 6px;
+        padding: 9px 14px 5px;
 
-        border-radius: 9px;
+        border-radius: 10px;
 
         font-family: 'Poppins', sans-serif;
 
-        font-size: 0.82rem;
+        font-size: 0.80rem;
+
         font-weight: 600;
 
-        letter-spacing: 0.7px;
+        letter-spacing: 0.8px;
 
         cursor: pointer;
 
         transition:
+
             background 0.25s ease,
-            transform 0.25s ease;
+
+            transform 0.25s ease,
+
+            color 0.25s ease;
+
     }
 
 
     .nav-btn:hover {
-        background: rgba(255,255,255,0.13);
+
+        background:
+
+            rgba(255,255,255,0.14);
+
+        color: #ffffff;
 
         transform: translateY(-2px);
+
     }
 
 
     .nav-btn:active {
-        transform: scale(0.97);
+
+        transform: scale(0.96);
+
     }
 
 
     /* =====================================================
-       DECORATIVE UNDERLINE IMAGE
-    ===================================================== */
+       DECORATIVE UNDERLINE
+    ====================================================== */
 
     .nav-underline {
-        width: 55px;
-        height: 9px;
-
-        margin-top: -1px;
 
         position: relative;
+
+        width: 58px;
+
+        height: 9px;
+
+        margin-top: 0;
+
     }
 
 
     .nav-underline::before,
     .nav-underline::after {
+
         content: "";
 
         position: absolute;
 
         top: 4px;
 
-        width: 21px;
+        width: 22px;
+
         height: 2px;
 
-        background: rgba(255,255,255,0.55);
+        border-radius: 100%;
 
-        border-radius: 50%;
+        background:
+
+            rgba(255,255,255,0.50);
+
+        transition:
+
+            all 0.25s ease;
+
     }
 
 
     .nav-underline::before {
+
         left: 0;
 
-        transform: rotate(3deg);
+        transform: rotate(4deg);
+
     }
 
 
     .nav-underline::after {
+
         right: 0;
 
-        transform: rotate(-3deg);
+        transform: rotate(-4deg);
+
     }
 
 
     .nav-underline span {
+
         position: absolute;
 
         left: 50%;
+
         top: 1px;
+
+        width: 8px;
+
+        height: 8px;
 
         transform: translateX(-50%);
 
-        width: 8px;
-        height: 8px;
-
-        border: 2px solid rgba(255,255,255,0.75);
-
         border-radius: 50%;
 
-        background: #0b3d91;
+        background: #80c8ff;
+
+        border: 2px solid white;
+
+        transition:
+
+            all 0.25s ease;
+
     }
 
 
     .nav-item-wrapper:hover .nav-underline::before,
     .nav-item-wrapper:hover .nav-underline::after {
-        background: white;
+
+        width: 26px;
+
+        background: #ffffff;
+
     }
 
 
     .nav-item-wrapper:hover .nav-underline span {
-        background: white;
-
-        border-color: white;
 
         transform:
+
             translateX(-50%)
-            scale(1.15);
+            scale(1.25);
+
+        background: #ffffff;
+
     }
 
 
     /* =====================================================
-       MAIN AREA
-    ===================================================== */
+       MAIN
+    ====================================================== */
 
     main {
+
         flex: 1;
 
         width: 100%;
 
-        padding: 40px 15px 50px;
+        padding: 48px 16px 55px;
+
     }
 
 
     .content-card {
+
         width: 100%;
-        max-width: 1000px;
 
-        min-height: 380px;
+        max-width: 1050px;
 
-        margin: 0 auto;
-        padding: 45px;
+        min-height: 410px;
 
-        border-radius: 24px;
+        margin: auto;
 
-        background: rgba(255,255,255,0.94);
-
-        border: 1px solid rgba(11,61,145,0.10);
-
-        box-shadow:
-            0 12px 40px rgba(0,0,0,0.10);
+        padding: 50px;
 
         display: flex;
 
         align-items: center;
+
         justify-content: center;
 
+        border-radius: 28px;
+
+        background:
+
+            linear-gradient(
+                145deg,
+                rgba(255,255,255,0.97),
+                rgba(245,249,255,0.94)
+            );
+
+        border:
+
+            1px solid
+            rgba(11,61,145,0.12);
+
+        box-shadow:
+
+            0 18px 50px
+            rgba(17,52,99,0.12),
+
+            inset 0 1px 0
+            rgba(255,255,255,0.8);
+
         transition:
-            box-shadow 0.3s ease,
-            transform 0.3s ease;
+
+            transform 0.3s ease,
+
+            box-shadow 0.3s ease;
+
     }
 
 
     .content-card:hover {
-        box-shadow:
-            0 18px 50px rgba(0,0,0,0.14);
 
-        transform: translateY(-2px);
+        transform: translateY(-3px);
+
+        box-shadow:
+
+            0 22px 60px
+            rgba(17,52,99,0.16);
+
     }
 
 
     /* =====================================================
-       WELCOME AREA
-    ===================================================== */
+       WELCOME
+    ====================================================== */
 
     .welcome-content {
+
         width: 100%;
 
         text-align: center;
+
     }
 
 
     .welcome-title {
-        margin: 0 0 15px;
+
+        margin: 0 0 17px;
 
         font-family: 'Playfair Display', serif;
 
-        color: #0b3d91;
+        font-size:
 
-        font-size: clamp(2.2rem, 5vw, 3.4rem);
+            clamp(
+                2.3rem,
+                5vw,
+                3.7rem
+            );
 
         font-weight: 700;
 
-        letter-spacing: 0.5px;
+        color: #073d88;
+
+        letter-spacing: 0.3px;
+
+        text-shadow:
+
+            0 3px 12px
+            rgba(7,61,136,0.12);
+
     }
 
 
     .welcome-message {
-        margin: 0 0 25px;
+
+        margin: 0 0 28px;
 
         font-size: 1.05rem;
 
-        color: #555;
+        line-height: 1.8;
 
-        font-weight: 400;
+        color: #536276;
+
     }
 
 
+    /* =====================================================
+       SANSKRIT QUOTE
+    ====================================================== */
+
     .sanskrit-quote {
+
         display: inline-block;
 
-        padding: 14px 28px;
+        padding: 16px 30px;
 
-        border-radius: 14px;
+        border-radius: 16px;
 
-        background: #eef4ff;
+        font-family:
 
-        color: #0b3d91;
+            'Libre Baskerville',
+            serif;
 
-        font-size: clamp(1.15rem, 3vw, 1.45rem);
+        font-size:
 
-        font-weight: 600;
+            clamp(
+                1.15rem,
+                3vw,
+                1.5rem
+            );
 
-        border: 1px solid rgba(11,61,145,0.12);
+        font-weight: 700;
+
+        line-height: 1.7;
+
+        color: #073d88;
+
+        background:
+
+            linear-gradient(
+                135deg,
+                #e7f0ff,
+                #f5f9ff
+            );
+
+        border:
+
+            1px solid
+            rgba(7,61,136,0.12);
 
         box-shadow:
-            0 5px 18px rgba(11,61,145,0.07);
+
+            0 8px 25px
+            rgba(7,61,136,0.08);
+
     }
 
 
     .translation {
+
         display: block;
 
-        margin-top: 7px;
+        margin-top: 6px;
 
         font-family: 'Poppins', sans-serif;
 
-        font-size: 0.9rem;
+        font-size: 0.88rem;
+
+        font-weight: 400;
 
         font-style: italic;
 
-        color: #666;
+        color: #687789;
+
     }
 
 
     /* =====================================================
        DYNAMIC CONTENT
-    ===================================================== */
+    ====================================================== */
 
     .dynamic-content {
+
         width: 100%;
+
     }
 
 
     .dynamic-title {
+
         margin-bottom: 25px;
 
         text-align: center;
 
         font-family: 'Playfair Display', serif;
 
-        color: #0b3d91;
-
-        font-size: 1.9rem;
+        font-size: 2rem;
 
         font-weight: 700;
+
+        color: #073d88;
+
     }
 
 
     .dynamic-content p {
+
         margin: 0;
 
-        font-size: 1.08rem;
+        font-family: 'Poppins', sans-serif;
 
-        line-height: 1.9;
+        font-size: 1.06rem;
 
-        color: #333;
+        line-height: 1.95;
 
         text-align: justify;
+
+        color: #354052;
+
     }
 
 
     /* =====================================================
-       LINKS
-    ===================================================== */
+       CONTENT BUTTON
+    ====================================================== */
 
     .content-link {
+
         display: inline-flex;
 
         align-items: center;
+
         justify-content: center;
 
-        min-height: 48px;
+        min-height: 49px;
 
-        padding: 12px 24px;
+        padding: 12px 25px;
 
-        border-radius: 10px;
+        border-radius: 11px;
 
-        background: #0b3d91;
+        background:
+
+            linear-gradient(
+                135deg,
+                #0750a7,
+                #0a6dcc
+            );
 
         color: white;
 
         text-decoration: none;
 
+        font-family: 'Poppins', sans-serif;
+
         font-weight: 600;
 
+        box-shadow:
+
+            0 7px 20px
+            rgba(7,80,167,0.22);
+
         transition:
-            background 0.25s ease,
+
             transform 0.25s ease,
-            box-shadow 0.25s ease;
+
+            box-shadow 0.25s ease,
+
+            background 0.25s ease;
+
     }
 
 
     .content-link:hover {
+
         color: white;
 
-        background: #082f70;
+        transform: translateY(-3px);
 
-        transform: translateY(-2px);
+        background:
+
+            linear-gradient(
+                135deg,
+                #063f89,
+                #075db5
+            );
 
         box-shadow:
-            0 8px 20px rgba(11,61,145,0.25);
+
+            0 10px 25px
+            rgba(7,80,167,0.30);
+
+    }
+
+
+    /* =====================================================
+       SOCIAL MEDIA BUTTONS
+    ====================================================== */
+
+    .social-buttons {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        justify-content: center;
+
+        gap: 14px;
+
+        margin-top: 22px;
+
+    }
+
+
+    .social-btn {
+
+        display: inline-flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 8px;
+
+        min-width: 145px;
+
+        min-height: 46px;
+
+        padding: 10px 18px;
+
+        border-radius: 11px;
+
+        text-decoration: none;
+
+        color: white;
+
+        font-size: 0.9rem;
+
+        font-weight: 600;
+
+        background:
+
+            linear-gradient(
+                135deg,
+                #0b4f9c,
+                #1976d2
+            );
+
+        box-shadow:
+
+            0 6px 18px
+            rgba(11,79,156,0.18);
+
+        transition:
+
+            transform 0.25s ease,
+
+            box-shadow 0.25s ease;
+
+    }
+
+
+    .social-btn:hover {
+
+        color: white;
+
+        transform: translateY(-3px);
+
+        box-shadow:
+
+            0 10px 25px
+            rgba(11,79,156,0.28);
+
+    }
+
+
+    .social-btn i {
+
+        font-size: 1.1rem;
+
     }
 
 
     /* =====================================================
        FOOTER
-    ===================================================== */
+    ====================================================== */
 
     .footer {
+
         width: 100%;
 
-        background:
-            linear-gradient(135deg, #071d49, #092e68);
-
-        color: #dbe7f7;
+        padding: 28px 15px 18px;
 
         text-align: center;
 
-        padding: 25px 15px 18px;
+        color: #dbe8fa;
 
-        border-top: 3px solid #3d82d6;
+        background:
+
+            linear-gradient(
+                135deg,
+                #041a3c,
+                #072f69,
+                #063b7d
+            );
+
+        border-top:
+
+            3px solid
+            #67b7ff;
 
         box-shadow:
-            0 -5px 20px rgba(0,0,0,0.10);
+
+            0 -8px 25px
+            rgba(0,0,0,0.10);
+
     }
 
 
     .footer-inner {
+
         max-width: 1000px;
 
         margin: auto;
+
     }
 
 
     .footer-title {
+
         margin-bottom: 7px;
 
         font-family: 'Playfair Display', serif;
 
-        color: white;
-
-        font-size: 1.4rem;
+        font-size: 1.45rem;
 
         font-weight: 700;
 
-        letter-spacing: 0.5px;
+        color: white;
+
     }
 
 
     .footer-line {
-        width: 70px;
+
+        width: 75px;
 
         height: 2px;
 
         margin: 12px auto;
 
-        background: rgba(255,255,255,0.35);
+        background:
+
+            rgba(255,255,255,0.35);
+
     }
 
 
     .footer-info {
+
         margin: 0;
 
         font-size: 0.88rem;
@@ -579,57 +975,67 @@
         line-height: 1.8;
 
         color: #bdcce1;
+
     }
 
 
     .footer-info strong {
+
         color: white;
+
     }
 
 
     .footer-email {
+
         color: white;
 
         text-decoration: none;
 
         font-weight: 600;
+
     }
 
 
     .footer-email:hover {
-        color: #9bc7ff;
+
+        color: #9dd1ff;
 
         text-decoration: underline;
+
     }
 
 
     .footer-copy {
-        margin-top: 12px;
+
+        margin-top: 13px;
 
         font-size: 0.76rem;
 
-        color: #91a5c1;
+        color: #91a9c8;
+
     }
 
 
     /* =====================================================
        TABLET
-    ===================================================== */
+    ====================================================== */
 
-    @media (max-width: 950px) {
+    @media (max-width: 1000px) {
 
         .nav-container {
+
             flex-direction: column;
 
             gap: 12px;
+
         }
+
 
         .nav-menu {
-            flex-wrap: wrap;
-        }
 
-        .content-card {
-            padding: 35px 28px;
+            flex-wrap: wrap;
+
         }
 
     }
@@ -637,132 +1043,221 @@
 
     /* =====================================================
        MOBILE
-    ===================================================== */
+    ====================================================== */
 
     @media (max-width: 600px) {
 
         .navbar {
-            padding: 12px 8px;
+
+            padding: 12px 8px 15px;
+
         }
 
 
         .nav-container {
-            padding: 0 8px;
+
+            padding: 0 5px;
+
         }
 
 
-        .brand-logo {
-            width: 42px;
-            height: 42px;
+        .brand {
+
+            gap: 10px;
+
+        }
+
+
+        .logo-circle {
+
+            width: 52px;
+
+            height: 52px;
+
         }
 
 
         .brand-text {
-            font-size: 1.4rem;
+
+            font-size: 1.55rem;
+
         }
 
 
         .nav-menu {
+
             width: 100%;
 
             display: grid;
 
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns:
 
-            gap: 7px;
+                repeat(2, 1fr);
+
+            gap: 6px;
+
         }
 
 
         .nav-menu li {
+
             width: 100%;
+
         }
 
 
         .nav-item-wrapper {
+
             width: 100%;
+
         }
 
 
         .nav-btn {
+
             width: 100%;
 
-            padding: 9px 4px 5px;
+            padding:
 
-            font-size: 0.72rem;
+                9px
+                4px
+                5px;
+
+            font-size: 0.70rem;
+
         }
 
 
         .nav-underline {
-            width: 50px;
+
+            width: 52px;
+
         }
 
 
         main {
-            padding: 20px 10px 30px;
+
+            padding:
+
+                22px
+                10px
+                32px;
+
         }
 
 
         .content-card {
-            min-height: 380px;
 
-            padding: 28px 18px;
+            min-height: 390px;
 
-            border-radius: 18px;
+            padding:
+
+                30px
+                18px;
+
+            border-radius: 20px;
+
         }
 
 
         .welcome-title {
+
             font-size: 2rem;
+
         }
 
 
         .welcome-message {
-            font-size: 0.95rem;
+
+            font-size: 0.94rem;
+
         }
 
 
         .sanskrit-quote {
+
             width: 100%;
 
-            padding: 12px 10px;
+            padding:
+
+                13px
+                9px;
 
             font-size: 1.05rem;
+
         }
 
 
         .dynamic-title {
-            font-size: 1.5rem;
+
+            font-size: 1.55rem;
+
         }
 
 
         .dynamic-content p {
-            font-size: 0.98rem;
 
-            line-height: 1.75;
+            font-size: 0.96rem;
+
+            line-height: 1.8;
+
         }
 
 
         .content-link {
+
             width: 100%;
 
-            padding: 12px 10px;
+            padding:
 
-            font-size: 0.88rem;
+                12px
+                10px;
+
+            font-size: 0.86rem;
+
+        }
+
+
+        .social-buttons {
+
+            flex-direction: column;
+
+            align-items: center;
+
+        }
+
+
+        .social-btn {
+
+            width: 100%;
+
+            max-width: 270px;
+
         }
 
 
         .footer {
-            padding: 23px 12px 17px;
+
+            padding:
+
+                23px
+                12px
+                17px;
+
         }
 
 
         .footer-title {
+
             font-size: 1.2rem;
+
         }
 
 
         .footer-info {
+
             font-size: 0.82rem;
+
         }
 
     }
@@ -770,38 +1265,50 @@
 
     /* =====================================================
        VERY SMALL PHONES
-    ===================================================== */
+    ====================================================== */
 
     @media (max-width: 360px) {
 
-        .brand-text {
-            font-size: 1.2rem;
+        .logo-circle {
+
+            width: 46px;
+
+            height: 46px;
+
         }
 
 
-        .brand-logo {
-            width: 38px;
-            height: 38px;
+        .brand-text {
+
+            font-size: 1.3rem;
+
         }
 
 
         .nav-btn {
-            font-size: 0.68rem;
+
+            font-size: 0.66rem;
+
         }
 
 
         .content-card {
-            padding: 24px 14px;
+
+            padding: 25px 14px;
+
         }
 
 
         .welcome-title {
+
             font-size: 1.7rem;
+
         }
 
     }
 
 </style>
+
 
 </head>
 
@@ -809,259 +1316,291 @@
 
 <!-- =====================================================
      NAVBAR
-===================================================== -->
+====================================================== -->
 
 <header class="navbar">
 
-    <div class="nav-container">
+
+<div class="nav-container">
 
 
-        <!-- LOGO + SAMVID -->
+    <!-- =================================================
+         PERSONAL LOGO + SAMVID
+    ================================================== -->
 
-        <a href="#" class="brand">
+    <a href="#"
+       class="brand">
 
-            <!-- Replace logo.png with your personal logo filename -->
+        <div class="logo-circle">
+
+            <!-- Your 590 × 470 logo -->
 
             <img src="logo.png"
-                 alt="Samvid Logo"
-                 class="brand-logo">
+                 alt="Samvid Personal Logo">
 
-            <span class="brand-text">
-                Samvid
-            </span>
-
-        </a>
+        </div>
 
 
-        <!-- NAVIGATION -->
+        <span class="brand-text">
 
-        <nav aria-label="Main Navigation">
+            Samvid
 
-            <ul class="nav-menu">
+        </span>
+
+    </a>
 
 
-                <!-- HOME -->
+    <!-- =================================================
+         NAVIGATION
+    ================================================== -->
 
-                <li>
+    <nav aria-label="Main Navigation">
 
-                    <div class="nav-item-wrapper">
+        <ul class="nav-menu">
 
-                        <button type="button"
-                                onclick="hmbtn()"
-                                class="nav-btn">
 
-                            HOME
+            <!-- HOME -->
 
-                        </button>
+            <li>
 
-                        <div class="nav-underline">
-                            <span></span>
-                        </div>
+                <div class="nav-item-wrapper">
 
+                    <button type="button"
+                            class="nav-btn"
+                            onclick="hmbtn()">
+
+                        HOME
+
+                    </button>
+
+                    <div class="nav-underline">
+                        <span></span>
                     </div>
 
-                </li>
+                </div>
+
+            </li>
 
 
-                <!-- ABOUT -->
+            <!-- ABOUT -->
 
-                <li>
+            <li>
 
-                    <div class="nav-item-wrapper">
+                <div class="nav-item-wrapper">
 
-                        <button type="button"
-                                onclick="abts()"
-                                class="nav-btn">
+                    <button type="button"
+                            class="nav-btn"
+                            onclick="abts()">
 
-                            ABOUT
+                        ABOUT
 
-                        </button>
+                    </button>
 
-                        <div class="nav-underline">
-                            <span></span>
-                        </div>
-
+                    <div class="nav-underline">
+                        <span></span>
                     </div>
 
-                </li>
+                </div>
+
+            </li>
 
 
-                <!-- PROJECT -->
+            <!-- PROJECT -->
 
-                <li>
+            <li>
 
-                    <div class="nav-item-wrapper">
+                <div class="nav-item-wrapper">
 
-                        <button type="button"
-                                onclick="prjt()"
-                                class="nav-btn">
+                    <button type="button"
+                            class="nav-btn"
+                            onclick="prjt()">
 
-                            PROJECT
+                        PROJECT
 
-                        </button>
+                    </button>
 
-                        <div class="nav-underline">
-                            <span></span>
-                        </div>
-
+                    <div class="nav-underline">
+                        <span></span>
                     </div>
 
-                </li>
+                </div>
+
+            </li>
 
 
-                <!-- LEARNING -->
+            <!-- LEARNING -->
 
-                <li>
+            <li>
 
-                    <div class="nav-item-wrapper">
+                <div class="nav-item-wrapper">
 
-                        <button type="button"
-                                onclick="lrn()"
-                                class="nav-btn">
+                    <button type="button"
+                            class="nav-btn"
+                            onclick="lrn()">
 
-                            LEARNING
+                        LEARNING
 
-                        </button>
+                    </button>
 
-                        <div class="nav-underline">
-                            <span></span>
-                        </div>
-
+                    <div class="nav-underline">
+                        <span></span>
                     </div>
 
-                </li>
+                </div>
+
+            </li>
 
 
-                <!-- SOCIAL MEDIA -->
+            <!-- SOCIAL MEDIA -->
 
-                <li>
+            <li>
 
-                    <div class="nav-item-wrapper">
+                <div class="nav-item-wrapper">
 
-                        <button type="button"
-                                onclick="socialMedia()"
-                                class="nav-btn">
+                    <button type="button"
+                            class="nav-btn"
+                            onclick="socialMedia()">
 
-                            SOCIAL MEDIA
+                        SOCIAL MEDIA
 
-                        </button>
+                    </button>
 
-                        <div class="nav-underline">
-                            <span></span>
-                        </div>
-
+                    <div class="nav-underline">
+                        <span></span>
                     </div>
 
-                </li>
+                </div>
+
+            </li>
 
 
-            </ul>
+        </ul>
 
-        </nav>
+    </nav>
 
-    </div>
+</div>
 
 </header>
 
-
 <!-- =====================================================
      MAIN CONTENT
-===================================================== -->
+====================================================== -->
 
 <main>
 
-    <section id="hm" class="content-card">
+
+<section id="hm"
+         class="content-card">
 
 
-        <div class="welcome-content">
-
-            <h1 class="welcome-title">
-                Welcome to Samvid
-            </h1>
+    <div class="welcome-content">
 
 
-            <p class="welcome-message">
-                Explore Sanskrit resources, projects and stories.
-            </p>
+        <h1 class="welcome-title">
+
+            Welcome to Samvid
+
+        </h1>
 
 
-            <div class="sanskrit-quote">
+        <p class="welcome-message">
 
-                तमसो मा ज्योतिर्गमय
-
-                <span class="translation">
-                    (Lead me from darkness to light)
-                </span>
-
-            </div>
-
-        </div>
-
-    </section>
-
-</main>
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer class="footer">
-
-    <div class="footer-inner">
-
-        <div class="footer-title">
-            Samvid
-        </div>
-
-
-        <div class="footer-line"></div>
-
-
-        <p class="footer-info">
-
-            Page designed and developed by
-            <strong>M.K. Barman</strong>
-
-            <br>
-
-            <a href="mailto:infomkbin@gmail.com"
-               class="footer-email">
-
-                infomkbin@gmail.com
-
-            </a>
+            Explore Sanskrit resources, projects and stories.
 
         </p>
 
 
-        <div class="footer-copy">
+        <div class="sanskrit-quote">
 
-            &copy; Samvid
+            तमसो मा ज्योतिर्गमय
 
-            &nbsp; | &nbsp;
+            <span class="translation">
 
-            Last updated on 25.09.2025
+                Lead me from darkness to light
+
+            </span>
 
         </div>
 
+
     </div>
+
+</section>
+
+
+</main>
+
+<!-- =====================================================
+     FOOTER
+====================================================== -->
+
+<footer class="footer">
+
+
+<div class="footer-inner">
+
+
+    <div class="footer-title">
+
+        Samvid
+
+    </div>
+
+
+    <div class="footer-line"></div>
+
+
+    <p class="footer-info">
+
+        Page designed and developed by
+
+        <strong>M.K. Barman</strong>
+
+        <br>
+
+        <a href="mailto:infomkbin@gmail.com"
+           class="footer-email">
+
+            infomkbin@gmail.com
+
+        </a>
+
+    </p>
+
+
+    <div class="footer-copy">
+
+        &copy; Samvid
+
+        &nbsp; | &nbsp;
+
+        Last updated on 25.09.2025
+
+    </div>
+
+
+</div>
+
 
 </footer>
 
-
 <!-- =====================================================
      JAVASCRIPT
-===================================================== -->
+====================================================== -->
 
 <script>
+
+
+    /* =====================================================
+       MAIN VARIABLE
+    ====================================================== */
 
     var x = "Welcome to Samvid";
 
 
     /* =====================================================
        HOME
-    ===================================================== */
+    ====================================================== */
 
     function hmbtn() {
 
@@ -1082,7 +1621,7 @@
                     तमसो मा ज्योतिर्गमय
 
                     <span class="translation">
-                        (Lead me from darkness to light)
+                        Lead me from darkness to light
                     </span>
 
                 </div>
@@ -1096,7 +1635,7 @@
 
     /* =====================================================
        ABOUT
-    ===================================================== */
+    ====================================================== */
 
     function abts() {
 
@@ -1133,7 +1672,7 @@
 
     /* =====================================================
        PROJECT
-    ===================================================== */
+    ====================================================== */
 
     function prjt() {
 
@@ -1161,7 +1700,7 @@
 
     /* =====================================================
        LEARNING
-    ===================================================== */
+    ====================================================== */
 
     function lrn() {
 
@@ -1195,7 +1734,7 @@
 
     /* =====================================================
        SOCIAL MEDIA
-    ===================================================== */
+    ====================================================== */
 
     function socialMedia() {
 
@@ -1213,39 +1752,39 @@
 
                 </p>
 
-                <div style="
-                    display:flex;
-                    flex-wrap:wrap;
-                    justify-content:center;
-                    gap:12px;
-                    margin-top:20px;
-                ">
+
+                <div class="social-buttons">
+
 
                     <a href="#"
-                       class="content-link">
+                       class="social-btn">
 
                         <i class="fa-brands fa-facebook"></i>
-                        &nbsp; Facebook
+
+                        Facebook
 
                     </a>
 
 
                     <a href="#"
-                       class="content-link">
+                       class="social-btn">
 
                         <i class="fa-brands fa-youtube"></i>
-                        &nbsp; YouTube
+
+                        YouTube
 
                     </a>
 
 
                     <a href="#"
-                       class="content-link">
+                       class="social-btn">
 
                         <i class="fa-brands fa-instagram"></i>
-                        &nbsp; Instagram
+
+                        Instagram
 
                     </a>
+
 
                 </div>
 
@@ -1254,6 +1793,7 @@
         `;
 
     }
+
 
 </script>
 
