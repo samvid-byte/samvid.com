@@ -1,70 +1,253 @@
-<!Doctype html>
+```html
+<!DOCTYPE html>
 <html lang="en">
-<head meta charset="utf-8">
+
+<head>
+
+<meta charset="utf-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="google-site-verification" content="-Ha6nZWVwrdk61soAS81GMmizlHuswJxMSonRKOctOc" />
-<!-- title -->
+
+<meta name="google-site-verification"
+content="-Ha6nZWVwrdk61soAS81GMmizlHuswJxMSonRKOctOc" />
+
 <title>samvid</title>
+
+
 <style>
-.background img{
-width:100%;
-Height:auto;
-border-radius:50%;
-opacity:0.5;
-} 
-.btn{
-width:220px;
-height:120px;
-Height:auto;
-border-radius:7%;
-border:2px solid #4caf50;
-background-color:lightgreen
-position:fixed;
-text-align:center;
-top:80%;
-left:28%;
-padding:6px;
-animation: blinking 1s infinite;
+
+/* =========================
+   PAGE
+   ========================= */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
 }
+
+
+/* =========================
+   MAIN AREA
+   ========================= */
+
+.background {
+
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   LOGO
+   ========================= */
+
+.background img {
+
+    width: 70vw;
+
+    height: 70vw;
+
+    max-width: 500px;
+
+    max-height: 500px;
+
+    border-radius: 50%;
+
+    opacity: 0.5;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* =========================
+   BUTTON
+   ========================= */
+
+.btn {
+
+    width: 220px;
+
+    height: 120px;
+
+    border-radius: 7%;
+
+    border: 2px solid #4caf50;
+
+    background-color: lightgreen;
+
+    position: fixed;
+
+    text-align: center;
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    padding: 6px;
+
+    box-sizing: border-box;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    animation: blinking 1s infinite;
+}
+
+
+/* =========================
+   BLINKING
+   ========================= */
+
 @keyframes blinking {
-  0% {
-    background-color: lightgreen;
-  }
-  25% {
-    background-color: yellow;
-    color: lightgreen;
-  }
-  50% {
-    background-color: red;
-    color: lightgreen;
-  }
-  100% {
-    background-color: lightgreen;
-  }
+
+    0% {
+        background-color: lightgreen;
+    }
+
+    25% {
+        background-color: yellow;
+        color: lightgreen;
+    }
+
+    50% {
+        background-color: red;
+        color: lightgreen;
+    }
+
+    100% {
+        background-color: lightgreen;
+    }
+
 }
-a:hover{
-background-color:navy;
-color:white;
+
+
+/* =========================
+   LINK
+   ========================= */
+
+a:hover {
+
+    background-color: navy;
+
+    color: white;
+
 }
-a:link{
-display:inline-block;
-text-decoration:none;
+
+
+a:link {
+
+    display: inline-block;
+
+    text-decoration: none;
+
 }
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    .background img {
+
+        width: 70vw;
+
+        height: 70vw;
+
+        max-width: 320px;
+
+        max-height: 320px;
+
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+   ========================= */
+
+@media (max-width: 380px) {
+
+    .background img {
+
+        width: 65vw;
+
+        height: 65vw;
+
+    }
+
+}
+
+
+/* =========================
+   MOBILE LANDSCAPE
+   ========================= */
+
+@media (max-height: 500px) and (orientation: landscape) {
+
+    .background img {
+
+        width: 55vh;
+
+        height: 55vh;
+
+    }
+
+}
+
 </style>
 
 </head>
-<body style="background-image:linear-gradient(90deg, #fc466b 0%, #3f5efb 100%)");
->
+
+
+<body
+style="background-image:linear-gradient(90deg, #fc466b 0%, #3f5efb 100%);">
+
+
 <div class="background">
-<img src="logo.png">
-<div class="btn">
-<a href="body.html" target="_parent">तमसो मा ज्योतिर्गमय<br><i>(Lead me from darkness to light)</i></a>
+
+    <img src="logo.png">
+
+    <div class="btn">
+
+        <a href="body.html" target="_parent">
+
+            तमसो मा ज्योतिर्गमय<br>
+
+            <i>(Lead me from darkness to light)</i>
+
+        </a>
+
+    </div>
+
 </div>
-</div>
+
+
 </body>
 
 </html>
-
-
-
-
+```
